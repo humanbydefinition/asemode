@@ -260,7 +260,8 @@ function M.new(options)
     end
     self:ensureActive()
     if button == MouseButton.RIGHT then
-      self:prepare(MouseButton.RIGHT, key, state.bgFlags or 0)
+      state.bgFlags = state.flags or 0
+      self:prepare(MouseButton.RIGHT, key, state.flags or 0)
     else
       state.glyph = key
       changed()
@@ -270,18 +271,20 @@ function M.new(options)
 
   ---Check whether a stamp action applies to the current target.
   ---@param id string Stamp action identifier.
+  ---@param target? integer|string Optional target: MouseButton.LEFT, MouseButton.RIGHT, "secondary", "both".
   ---@return boolean allowed Whether the action can run.
-  function session:canRunAction(id)
+  function session:canRunAction(id, target)
     local sprite, layer = self:active()
     if not sprite or sprite ~= state.ownerSprite or layer ~= state.lastLayer then
       return false
     end
-    return Stamps.canExecute(id, self:isBusy())
+    return Stamps.canExecute(id, self:isBusy(), target)
   end
 
   ---Apply a stamp action to the current drawing target.
   ---@param id string Stamp action identifier.
-  function session:runAction(id)
+  ---@param target? integer|string Optional mouse button or string target; right-click targets secondary stamp only, "both" targets both.
+  function session:runAction(id, target)
     U.check(not self:isBusy(), "Finish the current Asemode operation first")
     self:ensureActive()
     local captured = Stamps.read(id, self:isBusy())
@@ -298,7 +301,7 @@ function M.new(options)
       end
     end
     local result = self:withSuppression(function()
-      return Stamps.apply(captured, { foregroundRGBA = fg, backgroundRGBA = bg })
+      return Stamps.apply(captured, { foregroundRGBA = fg, backgroundRGBA = bg }, target)
     end)
     self:bindSprite(result.sprite)
     state.lastLayer = result.layer
@@ -312,13 +315,18 @@ function M.new(options)
       state.secondaryFg = result.secondary.meta.foregroundRGBA
       state.secondaryBg = result.secondary.meta.backgroundRGBA
     end
+    local secondaryOnly = target == "secondary" or (MouseButton and target == MouseButton.RIGHT)
     if id == "swapColors" then
-      state.fg, state.bg = result.primary.meta.foregroundRGBA, result.primary.meta.backgroundRGBA
-      state.pendingColors = nil
-    else
-      state.fg, state.bg = fg, bg
-      if not sameTarget then
+      if not secondaryOnly then
+        state.fg, state.bg = result.primary.meta.foregroundRGBA, result.primary.meta.backgroundRGBA
         state.pendingColors = nil
+      end
+    else
+      if not secondaryOnly then
+        state.fg, state.bg = fg, bg
+        if not sameTarget then
+          state.pendingColors = nil
+        end
       end
     end
     changed()

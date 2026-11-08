@@ -14,31 +14,54 @@ local M = {
     {
       id = "flipHorizontal",
       command = "AsemodeFlipHorizontal",
-      title = "Flip Stamps Horizontally",
+      title = "Flip Horizontally",
       icon = 2,
     },
     {
       id = "flipVertical",
       command = "AsemodeFlipVertical",
-      title = "Flip Stamps Vertically",
+      title = "Flip Vertically",
       icon = 3,
     },
     {
       id = "rotateCounterclockwise",
       command = "AsemodeRotateCounterclockwise",
-      title = "Rotate Stamps 90° Counterclockwise",
+      title = "Rotate 90° Counterclockwise",
       icon = 4,
     },
     {
       id = "rotateClockwise",
       command = "AsemodeRotateClockwise",
-      title = "Rotate Stamps 90° Clockwise",
+      title = "Rotate 90° Clockwise",
       icon = 5,
     },
     {
       id = "resetOrientation",
       command = "AsemodeResetOrientation",
-      title = "Reset Stamp Orientation",
+      title = "Reset Orientation",
+    },
+  },
+  TARGETS = {
+    {
+      id = "primary",
+      groupId = "asemode_stamps_primary",
+      title = "Primary",
+      target = "primary",
+      commandPrefix = "Asemode",
+    },
+    {
+      id = "secondary",
+      groupId = "asemode_stamps_secondary",
+      title = "Secondary",
+      target = "secondary",
+      commandPrefix = "AsemodeSecondary",
+    },
+    {
+      id = "both",
+      groupId = "asemode_stamps_both",
+      title = "Both",
+      target = "both",
+      commandPrefix = "AsemodeBoth",
     },
   },
 }
@@ -107,9 +130,19 @@ end
 ---Check whether a stamp action can run against the current host state.
 ---@param id string Stamp action identifier.
 ---@param busy boolean Whether another operation is active.
+---@param target? integer|string Optional target: MouseButton.LEFT, MouseButton.RIGHT, "secondary", "both".
 ---@return boolean allowed Whether the action can run.
-function M.canExecute(id, busy)
-  return (pcall(M.read, id, busy))
+function M.canExecute(id, busy, target)
+  local ok, captured = pcall(M.read, id, busy)
+  if not ok then
+    return false
+  end
+  local secondaryOnly = target == "secondary" or (MouseButton and target == MouseButton.RIGHT)
+  local both = target == "both"
+  if (secondaryOnly or both) and not captured.secondary then
+    return false
+  end
+  return true
 end
 
 ---Compute modified orientation flags for an action.
@@ -135,8 +168,9 @@ end
 ---Apply a stamp action and restore host selections if it fails.
 ---@param state AsemodeStampSnapshot Previously captured stamp state.
 ---@param colors table? Optional foreground and background RGBA colors.
+---@param targetButton? integer|string Optional target: MouseButton.LEFT, MouseButton.RIGHT, "secondary", "both".
 ---@return AsemodeStampSnapshot snapshot Updated live stamp state.
-function M.apply(state, colors)
+function M.apply(state, colors, targetButton)
   local live = M.read(state.action.id, false)
   U.check(
     live.sprite == state.sprite
@@ -148,6 +182,12 @@ function M.apply(state, colors)
   state = live
   local id, primary, secondary = state.action.id, state.primary, state.secondary
   local oldFgColor, oldBgColor = Color(app.fgColor), Color(app.bgColor)
+  local secondaryOnly = targetButton == "secondary"
+    or (MouseButton and targetButton == MouseButton.RIGHT)
+  local both = targetButton == "both"
+  if secondaryOnly or both then
+    U.check(secondary ~= nil, "Select a secondary stamp first")
+  end
   local function publish()
     app.fgTile = primary.value
     app.bgTile = secondary and secondary.value or state.bgTile
@@ -160,18 +200,33 @@ function M.apply(state, colors)
   end
   local ok, err = pcall(function()
     if id == "swapColors" then
-      local fg = colors and colors.foregroundRGBA or primary.meta.foregroundRGBA
-      local bg = colors and colors.backgroundRGBA or primary.meta.backgroundRGBA
-      app.transaction("Swap Asemode Ink and Cell Colors", function()
-        local first = orientStamp(primary, bg, fg, primary.flags)
-        local second = secondary and orientStamp(secondary, bg, fg, secondary.flags)
-        primary.value = first
-        if secondary then
-          secondary.value = second
-        end
-        app.fgColor, app.bgColor = U.color(bg), U.color(fg)
-        publish()
-      end)
+      if secondaryOnly then
+        app.transaction("Swap Asemode Secondary Stamp Colors", function()
+          local sfg, sbg = secondary.meta.foregroundRGBA, secondary.meta.backgroundRGBA
+          secondary.value = orientStamp(secondary, sbg, sfg, secondary.flags)
+          publish()
+        end)
+      elseif both then
+        local fg = colors and colors.foregroundRGBA or primary.meta.foregroundRGBA
+        local bg = colors and colors.backgroundRGBA or primary.meta.backgroundRGBA
+        app.transaction("Swap Asemode Ink and Cell Colors", function()
+          primary.value = orientStamp(primary, bg, fg, primary.flags)
+          app.fgColor, app.bgColor = U.color(bg), U.color(fg)
+          if secondary then
+            local sfg, sbg = secondary.meta.foregroundRGBA, secondary.meta.backgroundRGBA
+            secondary.value = orientStamp(secondary, sbg, sfg, secondary.flags)
+          end
+          publish()
+        end)
+      else
+        local fg = colors and colors.foregroundRGBA or primary.meta.foregroundRGBA
+        local bg = colors and colors.backgroundRGBA or primary.meta.backgroundRGBA
+        app.transaction("Swap Asemode Ink and Cell Colors", function()
+          primary.value = orientStamp(primary, bg, fg, primary.flags)
+          app.fgColor, app.bgColor = U.color(bg), U.color(fg)
+          publish()
+        end)
+      end
     else
       local function orient()
         local function nextValue(stamp)
@@ -182,19 +237,33 @@ function M.apply(state, colors)
             transformed(stamp.flags, id)
           )
         end
-        primary.value = nextValue(primary)
-        if secondary then
+        if secondaryOnly then
           secondary.value = nextValue(secondary)
+        elseif both then
+          primary.value = nextValue(primary)
+          if secondary then
+            secondary.value = nextValue(secondary)
+          end
+        else
+          primary.value = nextValue(primary)
         end
         publish()
       end
-      app.transaction("Orient Asemode Stamps", orient)
+      local txName
+      if secondaryOnly then
+        txName = "Orient Asemode Secondary Stamp"
+      elseif both then
+        txName = "Orient Asemode Stamps"
+      else
+        txName = "Orient Asemode Primary Stamp"
+      end
+      app.transaction(txName, orient)
     end
   end)
   if not ok then
     Profile.invalidate()
     app.fgTile, app.bgTile = state.fgTile, state.bgTile
-    if id == "swapColors" then
+    if id == "swapColors" and not secondaryOnly then
       app.fgColor, app.bgColor = oldFgColor, oldBgColor
     end
     error(err, 0)
