@@ -562,7 +562,8 @@ function M.new(plugin, options)
           end
         end,
         onmousedown = function(ev)
-          if ev.button == MouseButton.LEFT then
+          if ev.button == MouseButton.LEFT or ev.button == MouseButton.RIGHT then
+            self.actionButton = ev.button
             self.actionDown = actionAt(ev.x, ev.y, self.actionWidth or 320, self.actionHeight or 28)
             if self.panel then
               self.panel:repaint()
@@ -570,17 +571,18 @@ function M.new(plugin, options)
           end
         end,
         onmouseup = function(ev)
-          local index = ev.button == MouseButton.LEFT
+          local button = self.actionButton
+          local index = (ev.button == button)
               and actionAt(ev.x, ev.y, self.actionWidth or 320, self.actionHeight or 28)
             or nil
           local pressed = self.actionDown
-          self.actionDown, self.actionHot = nil, index
+          self.actionDown, self.actionHot, self.actionButton = nil, index, nil
           if self.panel then
             self.panel:repaint()
           end
           if index and index == pressed then
             self:guard(function()
-              self.drawing:runAction(iconActions[index].id)
+              self.drawing:runAction(iconActions[index].id, button)
             end)()
           end
         end,
