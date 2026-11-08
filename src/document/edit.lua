@@ -69,6 +69,7 @@ function M.selectedCells(sprite, layer, frame, options)
           foregroundRGBA = meta.foregroundRGBA,
           backgroundRGBA = meta.backgroundRGBA,
           flags = flags or 0,
+          outline = meta.outline,
         }
         minX = minX and math.min(minX, pixel.x) or pixel.x
         minY = minY and math.min(minY, pixel.y) or pixel.y
@@ -153,7 +154,8 @@ function M.recolor(sprite, layer, frame, fg, bg, glyph, orientation)
       glyph or meta.glyphKey,
       fg or meta.foregroundRGBA,
       bg or meta.backgroundRGBA,
-      orientation == nil and flags or orientation
+      orientation == nil and flags or orientation,
+      meta.outline
     )
   end)
 end

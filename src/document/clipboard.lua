@@ -41,6 +41,7 @@ function M.copy(sprite, layer, frame, selection)
       fg = cell.foregroundRGBA,
       bg = cell.backgroundRGBA,
       flags = cell.flags,
+      outline = cell.outline,
     }
   end
   return result
@@ -131,6 +132,7 @@ function M.prepare(sprite, layer, frame, selection, clipboard, resolve)
       fg = cell.fg,
       bg = cell.bg,
       flags = cell.flags,
+      outline = cell.outline,
     }
   end
   local needsSpace = false
@@ -203,7 +205,15 @@ function M.apply(prepared)
       image:drawPixel(
         cell.col - minX,
         cell.row - minY,
-        Profile.orientedTile(sprite, prepared.id, cell.glyph, cell.fg, cell.bg, cell.flags)
+        Profile.orientedTile(
+          sprite,
+          prepared.id,
+          cell.glyph,
+          cell.fg,
+          cell.bg,
+          cell.flags,
+          cell.outline
+        )
       )
     end
     local position = Point(g.originX + minX * g.cellWidth, g.originY + minY * g.cellHeight)

@@ -124,8 +124,13 @@ function M.new(deps)
         if variant.orientation ~= 0 then
           mask = deps.transforms.renderMask(mask, variant.orientation, checkpoint)
         end
-        variant.image =
-          deps.profile.colorize(mask, variant.foregroundRGBA, variant.backgroundRGBA, checkpoint)
+        variant.image = deps.profile.colorize(
+          mask,
+          variant.foregroundRGBA,
+          variant.backgroundRGBA,
+          variant.outline,
+          checkpoint
+        )
         doneMaskSteps = doneMaskSteps + 1
         checkpoint(
           "Colorizing cells...",

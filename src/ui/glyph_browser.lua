@@ -327,7 +327,13 @@ function M.new(options)
   ---@param ev table Canvas paint event with graphics context.
   ---@param drawing table Drawing session snapshot containing selected glyphs and colors.
   function self:paint(ev, drawing)
-    local key = drawing.fg .. "\0" .. drawing.bg .. "\0" .. drawing.flags
+    local key = drawing.fg
+      .. "\0"
+      .. drawing.bg
+      .. "\0"
+      .. drawing.flags
+      .. "\0"
+      .. (drawing.outline or "none")
     if key ~= self.previewKey then
       self.previews = {}
       self.previewKey = key
@@ -355,7 +361,7 @@ function M.new(options)
           local mask = source.tile.image
           local transformed = drawing.flags ~= 0 and Transforms.renderMask(mask, drawing.flags)
             or mask
-          image = Profile.colorize(transformed, drawing.fg, drawing.bg)
+          image = Profile.colorize(transformed, drawing.fg, drawing.bg, drawing.outline)
           self.previews[key] = image
         end
         local previewSize = math.max(1, cell - 4)
@@ -412,6 +418,9 @@ function M.new(options)
     end
     local codepoint = utf8.codepoint(drawing.glyph)
     local name = UnicodeNames.name(codepoint) or "UNKNOWN CHARACTER"
+    if drawing.outline and drawing.outline ~= "none" then
+      name = string.format("%s (%s outline)", name, drawing.outline)
+    end
     if
       self.index
       and self.index.glyphs[drawing.glyph]

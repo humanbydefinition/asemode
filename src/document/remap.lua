@@ -47,7 +47,8 @@ function M.layers(sprite, layers, flagsTransform)
             meta.glyphKey,
             meta.foregroundRGBA,
             meta.backgroundRGBA,
-            flagsTransform and flagsTransform(flags) or flags
+            flagsTransform and flagsTransform(flags) or flags,
+            meta.outline
           )
         end
       end

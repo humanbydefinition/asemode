@@ -73,6 +73,7 @@ function M.resolveAfterCell(cell, spec)
     foregroundRGBA = spec.replaceFg and spec.fg or cell.foregroundRGBA,
     backgroundRGBA = spec.replaceBg and spec.bg or cell.backgroundRGBA,
     flags = spec.replaceGlyph and (spec.flags or 0) or (cell.flags or 0),
+    outline = cell.outline,
   }
 end
 
@@ -88,6 +89,7 @@ function M.createRenderer(index)
       cell.foregroundRGBA or "",
       cell.backgroundRGBA or "",
       tostring(flags),
+      cell.outline or "none",
     }, "\0")
     if cache[key] then
       return cache[key]
@@ -99,7 +101,7 @@ function M.createRenderer(index)
     if flags ~= 0 and hasMask then
       mask = Transforms.renderMask(mask, flags)
     end
-    local image = Profile.colorize(mask, cell.foregroundRGBA, cell.backgroundRGBA)
+    local image = Profile.colorize(mask, cell.foregroundRGBA, cell.backgroundRGBA, cell.outline)
     cache[key] = image
     return image
   end
