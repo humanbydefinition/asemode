@@ -1,0 +1,433 @@
+{
+	"themes": ["light", "dark"],
+	"categories": [
+		{
+			"id": "panel",
+			"title": "Asemode Panel & Status Warnings",
+			"description": "Main dockable and floating panel states, including contextual layer and stamp warning banners."
+		},
+		{
+			"id": "about-settings",
+			"title": "About, Settings & New Sprite",
+			"description": "Extension metadata, bundled font specimens, preferences, and new textmode document creation."
+		},
+		{
+			"id": "document-grid",
+			"title": "Document, Grid & Export Workflows",
+			"description": "Selection replacement, document export, cell and grid resizing, and content impact confirmations."
+		},
+		{
+			"id": "fonts",
+			"title": "Font Library, Glyph Masks & Previews",
+			"description": "Bundled and custom user font management, TTF uploads, glyph mask building, and font metrics previews."
+		},
+		{
+			"id": "portable",
+			"title": "Portable JSON Import & Export",
+			"description": "Cross-project textmode JSON serialization, cooperative loading tasks, layer pagination, font recovery, and diagnostics."
+		},
+		{
+			"id": "alerts",
+			"title": "Modal Alerts & Native Operation Guards",
+			"description": "Confirmation dialogs, native Aseprite command protection, runtime error preservation, and host version checks."
+		}
+	],
+	"screenshots": [
+		{
+			"id": "asemode",
+			"category": "panel",
+			"suite": "panel",
+			"kind": "dialog"
+		},
+		{
+			"id": "asemode-panel-locked",
+			"category": "panel",
+			"suite": "panel",
+			"kind": "dialog",
+			"variant": "Locked layer warning"
+		},
+		{
+			"id": "asemode-panel-unavailable",
+			"category": "panel",
+			"suite": "panel",
+			"kind": "dialog",
+			"variant": "Layer unavailable"
+		},
+		{
+			"id": "asemode-panel-unsupported-version",
+			"category": "panel",
+			"suite": "panel",
+			"kind": "dialog",
+			"variant": "Unsupported project version"
+		},
+		{
+			"id": "asemode-panel-missing-stamps",
+			"category": "panel",
+			"suite": "panel",
+			"kind": "dialog",
+			"variant": "Missing primary stamp"
+		},
+		{
+			"id": "about",
+			"category": "about-settings",
+			"suite": "about-settings",
+			"kind": "dialog"
+		},
+		{
+			"id": "about-fonts",
+			"category": "about-settings",
+			"suite": "about-settings",
+			"kind": "dialog"
+		},
+		{
+			"id": "about-fonts-unavailable",
+			"category": "about-settings",
+			"suite": "about-settings",
+			"kind": "dialog",
+			"includeTab": true,
+			"variant": "preview unavailable"
+		},
+		{
+			"id": "settings",
+			"category": "about-settings",
+			"suite": "about-settings",
+			"kind": "dialog"
+		},
+		{
+			"id": "new-sprite",
+			"category": "about-settings",
+			"suite": "about-settings",
+			"kind": "dialog"
+		},
+		{
+			"id": "replace-selection",
+			"category": "document-grid",
+			"suite": "document-grid",
+			"kind": "dialog"
+		},
+		{
+			"id": "replace-selection-empty",
+			"category": "document-grid",
+			"suite": "document-grid",
+			"kind": "dialog",
+			"variant": "Empty selection"
+		},
+		{
+			"id": "export",
+			"category": "document-grid",
+			"suite": "document-grid",
+			"kind": "dialog"
+		},
+		{
+			"id": "grid",
+			"category": "document-grid",
+			"suite": "document-grid",
+			"kind": "dialog"
+		},
+		{
+			"id": "grid-size",
+			"category": "document-grid",
+			"suite": "document-grid",
+			"kind": "dialog"
+		},
+		{
+			"id": "confirm-regrid",
+			"category": "document-grid",
+			"suite": "document-grid",
+			"kind": "dialog"
+		},
+		{
+			"id": "confirm-regrid-warnings",
+			"category": "document-grid",
+			"suite": "document-grid",
+			"kind": "dialog",
+			"variant": "Content impact warnings"
+		},
+		{
+			"id": "confirm-canvas-size",
+			"category": "document-grid",
+			"suite": "document-grid",
+			"kind": "dialog"
+		},
+		{
+			"id": "confirm-canvas-size-warnings",
+			"category": "document-grid",
+			"suite": "document-grid",
+			"kind": "dialog",
+			"variant": "Content impact warnings"
+		},
+		{
+			"id": "font",
+			"category": "fonts",
+			"suite": "fonts",
+			"kind": "dialog"
+		},
+		{
+			"id": "font-upload",
+			"category": "fonts",
+			"suite": "fonts",
+			"kind": "dialog"
+		},
+		{
+			"id": "font-library-error",
+			"category": "fonts",
+			"suite": "fonts",
+			"kind": "dialog",
+			"variant": "Library error state"
+		},
+		{
+			"id": "add-layer",
+			"category": "fonts",
+			"suite": "fonts",
+			"kind": "dialog"
+		},
+		{
+			"id": "manage-user-fonts",
+			"category": "fonts",
+			"suite": "fonts",
+			"kind": "dialog"
+		},
+		{
+			"id": "manage-user-fonts-populated",
+			"category": "fonts",
+			"suite": "fonts",
+			"kind": "dialog",
+			"variant": "Populated"
+		},
+		{
+			"id": "manage-user-fonts-corrupt",
+			"category": "fonts",
+			"suite": "fonts",
+			"kind": "dialog",
+			"variant": "Unreadable library"
+		},
+		{
+			"id": "loading-build-glyph-masks",
+			"category": "fonts",
+			"suite": "fonts",
+			"kind": "loading"
+		},
+		{
+			"id": "font-metrics-preview",
+			"category": "fonts",
+			"suite": "fonts",
+			"kind": "dialog"
+		},
+		{
+			"id": "font-metrics-preview-clipping",
+			"category": "fonts",
+			"suite": "fonts",
+			"kind": "dialog",
+			"variant": "Clipping and missing glyphs"
+		},
+		{
+			"id": "import-json",
+			"category": "portable",
+			"suite": "portable",
+			"kind": "dialog"
+		},
+		{
+			"id": "loading-read-json",
+			"category": "portable",
+			"suite": "portable",
+			"kind": "loading"
+		},
+		{
+			"id": "loading-match-fonts",
+			"category": "portable",
+			"suite": "portable",
+			"kind": "loading"
+		},
+		{
+			"id": "import-layers",
+			"category": "portable",
+			"suite": "portable",
+			"kind": "dialog"
+		},
+		{
+			"id": "import-layers-paginated-recovery",
+			"category": "portable",
+			"suite": "portable",
+			"kind": "dialog",
+			"variant": "Paginated and font recovery"
+		},
+		{
+			"id": "import-layers-blank",
+			"category": "portable",
+			"suite": "portable",
+			"kind": "dialog",
+			"variant": "Blank document"
+		},
+		{
+			"id": "loading-prepare-import",
+			"category": "portable",
+			"suite": "portable",
+			"kind": "loading"
+		},
+		{
+			"id": "review-import",
+			"category": "portable",
+			"suite": "portable",
+			"kind": "dialog"
+		},
+		{
+			"id": "review-import-warnings",
+			"category": "portable",
+			"suite": "portable",
+			"kind": "dialog",
+			"variant": "Diagnostics and clipping"
+		},
+		{
+			"id": "import-needs-changes",
+			"category": "portable",
+			"suite": "portable",
+			"kind": "dialog"
+		},
+		{
+			"id": "import-needs-changes-access",
+			"category": "portable",
+			"suite": "portable",
+			"kind": "dialog",
+			"variant": "File read error"
+		},
+		{
+			"id": "loading-prepare-export",
+			"category": "portable",
+			"suite": "portable",
+			"kind": "loading"
+		},
+		{
+			"id": "review-export",
+			"category": "portable",
+			"suite": "portable",
+			"kind": "dialog"
+		},
+		{
+			"id": "review-export-warnings",
+			"category": "portable",
+			"suite": "portable",
+			"kind": "dialog",
+			"variant": "Excluded layers and outside cells"
+		},
+		{
+			"id": "alert-paste-missing-glyphs",
+			"category": "alerts",
+			"suite": "document-grid",
+			"kind": "alert",
+			"variant": "Paste cells with missing characters"
+		},
+		{
+			"id": "alert-remove-user-font",
+			"category": "alerts",
+			"suite": "fonts",
+			"kind": "alert"
+		},
+		{
+			"id": "alert-reset-user-library",
+			"category": "alerts",
+			"suite": "fonts",
+			"kind": "alert"
+		},
+		{
+			"id": "alert-duplicate-user-font",
+			"category": "alerts",
+			"suite": "fonts",
+			"kind": "alert",
+			"variant": "Duplicate user font"
+		},
+		{
+			"id": "alert-error-preserved",
+			"category": "alerts",
+			"suite": "alerts",
+			"kind": "alert",
+			"variant": "Runtime error (artwork preserved)"
+		},
+		{
+			"id": "alert-native-filter",
+			"category": "alerts",
+			"suite": "alerts",
+			"kind": "alert",
+			"variant": "Native filter blocked",
+			"command": "Outline"
+		},
+		{
+			"id": "alert-native-color-mode",
+			"category": "alerts",
+			"suite": "alerts",
+			"kind": "alert",
+			"variant": "Color mode change blocked",
+			"command": "ChangePixelFormat",
+			"params": { "format": "indexed" }
+		},
+		{
+			"id": "alert-native-flatten",
+			"category": "alerts",
+			"suite": "alerts",
+			"kind": "alert",
+			"variant": "Flatten layers blocked",
+			"command": "FlattenLayers"
+		},
+		{
+			"id": "alert-native-convert-layer",
+			"category": "alerts",
+			"suite": "alerts",
+			"kind": "alert",
+			"variant": "Convert layer blocked",
+			"command": "ConvertLayer",
+			"params": { "to": "background" }
+		},
+		{
+			"id": "alert-native-paste",
+			"category": "alerts",
+			"suite": "alerts",
+			"kind": "alert",
+			"variant": "Native paste blocked",
+			"command": "Paste"
+		},
+		{
+			"id": "alert-native-insert-text",
+			"category": "alerts",
+			"suite": "alerts",
+			"kind": "alert",
+			"variant": "Insert text blocked",
+			"command": "PasteText"
+		},
+		{
+			"id": "alert-native-sprite-size",
+			"category": "alerts",
+			"suite": "alerts",
+			"kind": "alert",
+			"variant": "Sprite size blocked",
+			"command": "SpriteSize"
+		},
+		{
+			"id": "alert-native-canvas-size",
+			"category": "alerts",
+			"suite": "alerts",
+			"kind": "alert",
+			"variant": "Canvas size blocked",
+			"command": "CanvasSize"
+		},
+		{
+			"id": "alert-rotate-error",
+			"category": "alerts",
+			"suite": "alerts",
+			"kind": "alert",
+			"variant": "Rotate canvas error"
+		},
+		{
+			"id": "alert-stamp-state-busy",
+			"category": "alerts",
+			"suite": "alerts",
+			"kind": "alert",
+			"variant": "Preserve stamp state busy"
+		},
+		{
+			"id": "alert-version-requirement",
+			"category": "alerts",
+			"suite": "alerts",
+			"kind": "alert",
+			"variant": "Version requirement"
+		}
+	]
+}

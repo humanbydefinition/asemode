@@ -1,0 +1,22 @@
+.DS_Store
+node_modules/
+.tools/
+.test-output/
+/dist/
+/docs/USER_GUIDE.local.md
+
+# Locally supplied optional fonts for release builds
+/assets/fonts/CHUNKY.ttf
+/assets/fonts/CultistScript.ttf
+/assets/fonts/FROGBLOCK-V2.1.ttf
+/assets/fonts/Px437_IBM_CGA.ttf
+/assets/fonts/Kitchen-Sink.ttf
+/assets/fonts/MyceliumOG.ttf
+/assets/fonts/T64.ttf
+/src/fonts/data/chunky.lua
+/src/fonts/data/cultist-script.lua
+/src/fonts/data/frogblock.lua
+/src/fonts/data/ibm-cga.lua
+/src/fonts/data/kitchen-sink.lua
+/src/fonts/data/mycelium-og.lua
+/src/fonts/data/t64.lua

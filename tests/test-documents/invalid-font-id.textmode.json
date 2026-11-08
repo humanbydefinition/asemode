@@ -1,0 +1,7578 @@
+{
+	"format": "textmode.document",
+	"formatVersion": "4.0.0",
+	"metadata": {
+		"createdAt": "2026-10-25T00:00:00.000Z",
+		"generator": {
+			"name": "textmode-document test demos",
+			"version": "1.0.0"
+		}
+	},
+	"frames": [
+		{
+			"durationMs": 100,
+			"layers": [
+				{
+					"id": "invalid-font",
+					"visible": true,
+					"opacity": 1,
+					"blendMode": "normal",
+					"offsetX": 0,
+					"offsetY": 0,
+					"rotationZ": 0,
+					"grid": {
+						"cols": 24,
+						"rows": 24,
+						"cellWidth": 8,
+						"cellHeight": 8
+					},
+					"cells": {
+						"encoding": "object-rows-v1",
+						"rows": [
+							[
+								{
+									"x": 0,
+									"y": 0,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 1,
+									"y": 0,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 2,
+									"y": 0,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 3,
+									"y": 0,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 4,
+									"y": 0,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 5,
+									"y": 0,
+									"character": "ƒ",
+									"foreground": "#ffcd75ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 6,
+									"y": 0,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 7,
+									"y": 0,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 8,
+									"y": 0,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 9,
+									"y": 0,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 10,
+									"y": 0,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 11,
+									"y": 0,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 12,
+									"y": 0,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 13,
+									"y": 0,
+									"character": "·",
+									"foreground": "#ffcd75ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 14,
+									"y": 0,
+									"character": "·",
+									"foreground": "#ffcd75ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 15,
+									"y": 0,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 16,
+									"y": 0,
+									"character": "ü",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 17,
+									"y": 0,
+									"character": "ƒ",
+									"foreground": "#f4f4f4ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 18,
+									"y": 0,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 19,
+									"y": 0,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 20,
+									"y": 0,
+									"character": "ü",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 21,
+									"y": 0,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 22,
+									"y": 0,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 23,
+									"y": 0,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 1,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 1,
+									"y": 1,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 2,
+									"y": 1,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 3,
+									"y": 1,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 4,
+									"y": 1,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 5,
+									"y": 1,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 6,
+									"y": 1,
+									"character": "ƒ",
+									"foreground": "#ffcd75ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 7,
+									"y": 1,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 8,
+									"y": 1,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 9,
+									"y": 1,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 10,
+									"y": 1,
+									"character": "Æ",
+									"foreground": "#3b5dc9ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 11,
+									"y": 1,
+									"character": "Æ",
+									"foreground": "#3b5dc9ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 12,
+									"y": 1,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 13,
+									"y": 1,
+									"character": "æ",
+									"foreground": "#3b5dc9ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 14,
+									"y": 1,
+									"character": " ",
+									"foreground": "#1a1c2cff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 15,
+									"y": 1,
+									"character": "·",
+									"foreground": "#ffcd75ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 16,
+									"y": 1,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 17,
+									"y": 1,
+									"character": "ü",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 18,
+									"y": 1,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 19,
+									"y": 1,
+									"character": "ü",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 20,
+									"y": 1,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 21,
+									"y": 1,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 22,
+									"y": 1,
+									"character": "╤",
+									"foreground": "#ef7d57ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 23,
+									"y": 1,
+									"character": "_",
+									"foreground": "#ef7d57ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 2,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 1,
+									"y": 2,
+									"character": "å",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 2,
+									"y": 2,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 3,
+									"y": 2,
+									"character": "æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 4,
+									"y": 2,
+									"character": "·",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 5,
+									"y": 2,
+									"character": "É",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 6,
+									"y": 2,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 7,
+									"y": 2,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 8,
+									"y": 2,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 9,
+									"y": 2,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 10,
+									"y": 2,
+									"character": "Æ",
+									"foreground": "#3b5dc9ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 11,
+									"y": 2,
+									"character": "Æ",
+									"foreground": "#3b5dc9ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 12,
+									"y": 2,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 13,
+									"y": 2,
+									"character": "æ",
+									"foreground": "#3b5dc9ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 14,
+									"y": 2,
+									"character": " ",
+									"foreground": "#1a1c2cff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 15,
+									"y": 2,
+									"character": "·",
+									"foreground": "#ffcd75ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 16,
+									"y": 2,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 17,
+									"y": 2,
+									"character": "ü",
+									"foreground": "#3b5dc9ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 18,
+									"y": 2,
+									"character": "σ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 19,
+									"y": 2,
+									"character": "ü",
+									"foreground": "#3b5dc9ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 20,
+									"y": 2,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 21,
+									"y": 2,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 22,
+									"y": 2,
+									"character": "Ċ",
+									"foreground": "#ef7d57ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 23,
+									"y": 2,
+									"character": "Ç",
+									"foreground": "#ef7d57ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 3,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 1,
+									"y": 3,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 2,
+									"y": 3,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 3,
+									"y": 3,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 4,
+									"y": 3,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 5,
+									"y": 3,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 6,
+									"y": 3,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 7,
+									"y": 3,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 8,
+									"y": 3,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 9,
+									"y": 3,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 10,
+									"y": 3,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 11,
+									"y": 3,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 12,
+									"y": 3,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 13,
+									"y": 3,
+									"character": "·",
+									"foreground": "#ffcd75ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 14,
+									"y": 3,
+									"character": "·",
+									"foreground": "#ffcd75ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 15,
+									"y": 3,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 16,
+									"y": 3,
+									"character": "Æ",
+									"foreground": "#3b5dc9ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 17,
+									"y": 3,
+									"character": "Æ",
+									"foreground": "#3b5dc9ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 18,
+									"y": 3,
+									"character": "↓",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 19,
+									"y": 3,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 20,
+									"y": 3,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 21,
+									"y": 3,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 22,
+									"y": 3,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 23,
+									"y": 3,
+									"character": "ó",
+									"foreground": "#3b5dc9ff",
+									"background": "#ef7d57ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 4,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 1,
+									"y": 4,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 2,
+									"y": 4,
+									"character": "æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 3,
+									"y": 4,
+									"character": "ê",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 4,
+									"y": 4,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 5,
+									"y": 4,
+									"character": "É",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 6,
+									"y": 4,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 7,
+									"y": 4,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 8,
+									"y": 4,
+									"character": "ƒ",
+									"foreground": "#ffcd75ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 9,
+									"y": 4,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 10,
+									"y": 4,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 11,
+									"y": 4,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 12,
+									"y": 4,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 13,
+									"y": 4,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 14,
+									"y": 4,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 15,
+									"y": 4,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 16,
+									"y": 4,
+									"character": "Æ",
+									"foreground": "#3b5dc9ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 17,
+									"y": 4,
+									"character": "Æ",
+									"foreground": "#3b5dc9ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 18,
+									"y": 4,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 19,
+									"y": 4,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 20,
+									"y": 4,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 21,
+									"y": 4,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 22,
+									"y": 4,
+									"character": "Č",
+									"foreground": "#ef7d57ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 23,
+									"y": 4,
+									"character": "Ç",
+									"foreground": "#ef7d57ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 5,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 1,
+									"y": 5,
+									"character": "ƒ",
+									"foreground": "#f4f4f4ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 2,
+									"y": 5,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 3,
+									"y": 5,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 4,
+									"y": 5,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 5,
+									"y": 5,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 6,
+									"y": 5,
+									"character": "é",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 7,
+									"y": 5,
+									"character": "ê",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 8,
+									"y": 5,
+									"character": "·",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 9,
+									"y": 5,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 10,
+									"y": 5,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 11,
+									"y": 5,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 12,
+									"y": 5,
+									"character": "ª",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 13,
+									"y": 5,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 14,
+									"y": 5,
+									"character": "ª",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 15,
+									"y": 5,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 16,
+									"y": 5,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 17,
+									"y": 5,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 18,
+									"y": 5,
+									"character": "É",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 19,
+									"y": 5,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 20,
+									"y": 5,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 21,
+									"y": 5,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 22,
+									"y": 5,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 23,
+									"y": 5,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 6,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 1,
+									"y": 6,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 2,
+									"y": 6,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 3,
+									"y": 6,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 4,
+									"y": 6,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 5,
+									"y": 6,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 6,
+									"y": 6,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 7,
+									"y": 6,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 8,
+									"y": 6,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 9,
+									"y": 6,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 10,
+									"y": 6,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 11,
+									"y": 6,
+									"character": "æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 12,
+									"y": 6,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 13,
+									"y": 6,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 14,
+									"y": 6,
+									"character": "ƒ",
+									"foreground": "#f4f4f4ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 15,
+									"y": 6,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 16,
+									"y": 6,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 17,
+									"y": 6,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 18,
+									"y": 6,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 19,
+									"y": 6,
+									"character": "æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 20,
+									"y": 6,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 21,
+									"y": 6,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 22,
+									"y": 6,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 23,
+									"y": 6,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 7,
+									"character": "ƒ",
+									"foreground": "#ffcd75ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 1,
+									"y": 7,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 2,
+									"y": 7,
+									"character": "æ",
+									"foreground": "#f4f4f4ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 3,
+									"y": 7,
+									"character": "Ç",
+									"foreground": "#94b0c2ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 4,
+									"y": 7,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#73eff7ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 5,
+									"y": 7,
+									"character": " ",
+									"foreground": "#38b764ff",
+									"background": "#257179ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 6,
+									"y": 7,
+									"character": "æ",
+									"foreground": "#38b764ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 7,
+									"y": 7,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 8,
+									"y": 7,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 9,
+									"y": 7,
+									"character": "æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 10,
+									"y": 7,
+									"character": "æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 11,
+									"y": 7,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 12,
+									"y": 7,
+									"character": "╙",
+									"foreground": "#3b5dc9ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 13,
+									"y": 7,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 14,
+									"y": 7,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#f4f4f4ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 15,
+									"y": 7,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#f4f4f4ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 16,
+									"y": 7,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 17,
+									"y": 7,
+									"character": "╙",
+									"foreground": "#3b5dc9ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 18,
+									"y": 7,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 19,
+									"y": 7,
+									"character": "ƒ",
+									"foreground": "#f4f4f4ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 20,
+									"y": 7,
+									"character": "æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 21,
+									"y": 7,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 22,
+									"y": 7,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 23,
+									"y": 7,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 8,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 1,
+									"y": 8,
+									"character": "æ",
+									"foreground": "#f4f4f4ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 2,
+									"y": 8,
+									"character": "Ç",
+									"foreground": "#94b0c2ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 3,
+									"y": 8,
+									"character": " ",
+									"foreground": "#f4f4f4ff",
+									"background": "#f4f4f4ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 4,
+									"y": 8,
+									"character": "Ç",
+									"foreground": "#94b0c2ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 5,
+									"y": 8,
+									"character": "¬",
+									"foreground": "#38b764ff",
+									"background": "#73eff7ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 6,
+									"y": 8,
+									"character": " ",
+									"foreground": "#38b764ff",
+									"background": "#257179ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 7,
+									"y": 8,
+									"character": "æ",
+									"foreground": "#38b764ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 8,
+									"y": 8,
+									"character": "æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 9,
+									"y": 8,
+									"character": "╙",
+									"foreground": "#3b5dc9ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 10,
+									"y": 8,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 11,
+									"y": 8,
+									"character": "ƒ",
+									"foreground": "#f4f4f4ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 12,
+									"y": 8,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 13,
+									"y": 8,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 14,
+									"y": 8,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#f4f4f4ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 15,
+									"y": 8,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#f4f4f4ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 16,
+									"y": 8,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 17,
+									"y": 8,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 18,
+									"y": 8,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 19,
+									"y": 8,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 20,
+									"y": 8,
+									"character": "╙",
+									"foreground": "#3b5dc9ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 21,
+									"y": 8,
+									"character": "æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 22,
+									"y": 8,
+									"character": "∙",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 23,
+									"y": 8,
+									"character": "É",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 9,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 1,
+									"y": 9,
+									"character": "Ç",
+									"foreground": "#94b0c2ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 2,
+									"y": 9,
+									"character": " ",
+									"foreground": "#f4f4f4ff",
+									"background": "#f4f4f4ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 3,
+									"y": 9,
+									"character": "Ç",
+									"foreground": "#94b0c2ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 4,
+									"y": 9,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#73eff7ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 5,
+									"y": 9,
+									"character": "¬",
+									"foreground": "#257179ff",
+									"background": "#94b0c2ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 6,
+									"y": 9,
+									"character": " ",
+									"foreground": "#38b764ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 7,
+									"y": 9,
+									"character": " ",
+									"foreground": "#29366fff",
+									"background": "#29366fff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 8,
+									"y": 9,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 9,
+									"y": 9,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 10,
+									"y": 9,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 11,
+									"y": 9,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 12,
+									"y": 9,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 13,
+									"y": 9,
+									"character": "ƒ",
+									"foreground": "#f4f4f4ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 14,
+									"y": 9,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 15,
+									"y": 9,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 16,
+									"y": 9,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 17,
+									"y": 9,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#f4f4f4ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 18,
+									"y": 9,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#f4f4f4ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 19,
+									"y": 9,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 20,
+									"y": 9,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 21,
+									"y": 9,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 22,
+									"y": 9,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 23,
+									"y": 9,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 10,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 1,
+									"y": 10,
+									"character": " ",
+									"foreground": "#f4f4f4ff",
+									"background": "#f4f4f4ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 2,
+									"y": 10,
+									"character": "Ç",
+									"foreground": "#94b0c2ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 3,
+									"y": 10,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#73eff7ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 4,
+									"y": 10,
+									"character": "Ç",
+									"foreground": "#94b0c2ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 5,
+									"y": 10,
+									"character": "¬",
+									"foreground": "#38b764ff",
+									"background": "#73eff7ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 6,
+									"y": 10,
+									"character": " ",
+									"foreground": "#29366fff",
+									"background": "#29366fff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 7,
+									"y": 10,
+									"character": " ",
+									"foreground": "#38b764ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 8,
+									"y": 10,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 9,
+									"y": 10,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 10,
+									"y": 10,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 11,
+									"y": 10,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 12,
+									"y": 10,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 13,
+									"y": 10,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 14,
+									"y": 10,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 15,
+									"y": 10,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 16,
+									"y": 10,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 17,
+									"y": 10,
+									"character": "Æ",
+									"foreground": "#3b5dc9ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 18,
+									"y": 10,
+									"character": "Æ",
+									"foreground": "#3b5dc9ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 19,
+									"y": 10,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 20,
+									"y": 10,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 21,
+									"y": 10,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 22,
+									"y": 10,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 23,
+									"y": 10,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 11,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 1,
+									"y": 11,
+									"character": "æ",
+									"foreground": "#94b0c2ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 2,
+									"y": 11,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#73eff7ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 3,
+									"y": 11,
+									"character": "Ç",
+									"foreground": "#94b0c2ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 4,
+									"y": 11,
+									"character": "æ",
+									"foreground": "#73eff7ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 5,
+									"y": 11,
+									"character": " ",
+									"foreground": "#29366fff",
+									"background": "#29366fff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 6,
+									"y": 11,
+									"character": " ",
+									"foreground": "#38b764ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 7,
+									"y": 11,
+									"character": "æ",
+									"foreground": "#29366fff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 8,
+									"y": 11,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 9,
+									"y": 11,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 10,
+									"y": 11,
+									"character": "Æ",
+									"foreground": "#3b5dc9ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 11,
+									"y": 11,
+									"character": "Æ",
+									"foreground": "#3b5dc9ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 12,
+									"y": 11,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 13,
+									"y": 11,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 14,
+									"y": 11,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 15,
+									"y": 11,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 16,
+									"y": 11,
+									"character": "ƒ",
+									"foreground": "#ffcd75ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 17,
+									"y": 11,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 18,
+									"y": 11,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 19,
+									"y": 11,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 20,
+									"y": 11,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 21,
+									"y": 11,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 22,
+									"y": 11,
+									"character": " ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 23,
+									"y": 11,
+									"character": "å",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 12,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 1,
+									"y": 12,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 2,
+									"y": 12,
+									"character": "ċ",
+									"foreground": "#94b0c2ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 3,
+									"y": 12,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#73eff7ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 4,
+									"y": 12,
+									"character": "¬",
+									"foreground": "#257179ff",
+									"background": "#94b0c2ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 5,
+									"y": 12,
+									"character": " ",
+									"foreground": "#38b764ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 6,
+									"y": 12,
+									"character": "ċ",
+									"foreground": "#29366fff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 7,
+									"y": 12,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 8,
+									"y": 12,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 9,
+									"y": 12,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 10,
+									"y": 12,
+									"character": "Æ",
+									"foreground": "#3b5dc9ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 11,
+									"y": 12,
+									"character": "Æ",
+									"foreground": "#3b5dc9ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 12,
+									"y": 12,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 13,
+									"y": 12,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 14,
+									"y": 12,
+									"character": "ƒ",
+									"foreground": "#ffcd75ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 15,
+									"y": 12,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 16,
+									"y": 12,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 17,
+									"y": 12,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 18,
+									"y": 12,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 19,
+									"y": 12,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 20,
+									"y": 12,
+									"character": "É",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 21,
+									"y": 12,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 22,
+									"y": 12,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 23,
+									"y": 12,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 13,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 1,
+									"y": 13,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 2,
+									"y": 13,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 3,
+									"y": 13,
+									"character": "√",
+									"foreground": "#3b5dc9ff",
+									"background": "#94b0c2ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 4,
+									"y": 13,
+									"character": "¬",
+									"foreground": "#38b764ff",
+									"background": "#73eff7ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 5,
+									"y": 13,
+									"character": "√",
+									"foreground": "#3b5dc9ff",
+									"background": "#29366fff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 6,
+									"y": 13,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 7,
+									"y": 13,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 8,
+									"y": 13,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 9,
+									"y": 13,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 10,
+									"y": 13,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 11,
+									"y": 13,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 12,
+									"y": 13,
+									"character": "╢",
+									"foreground": "#38b764ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 13,
+									"y": 13,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 14,
+									"y": 13,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 15,
+									"y": 13,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 16,
+									"y": 13,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 17,
+									"y": 13,
+									"character": "·",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 18,
+									"y": 13,
+									"character": "å",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 19,
+									"y": 13,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 20,
+									"y": 13,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 21,
+									"y": 13,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 22,
+									"y": 13,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 23,
+									"y": 13,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 14,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 1,
+									"y": 14,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 2,
+									"y": 14,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 3,
+									"y": 14,
+									"character": "_",
+									"foreground": "#1a1c2cff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 4,
+									"y": 14,
+									"character": "²",
+									"foreground": "#1a1c2cff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 5,
+									"y": 14,
+									"character": "_",
+									"foreground": "#1a1c2cff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 6,
+									"y": 14,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 7,
+									"y": 14,
+									"character": "ƒ",
+									"foreground": "#ffcd75ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 8,
+									"y": 14,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 9,
+									"y": 14,
+									"character": "╢",
+									"foreground": "#a7f070ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 10,
+									"y": 14,
+									"character": "Ñ",
+									"foreground": "#a7f070ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 11,
+									"y": 14,
+									"character": "Ñ",
+									"foreground": "#a7f070ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 12,
+									"y": 14,
+									"character": "Ŋ",
+									"foreground": "#a7f070ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 13,
+									"y": 14,
+									"character": "Ñ",
+									"foreground": "#38b764ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 14,
+									"y": 14,
+									"character": "╙",
+									"foreground": "#38b764ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 15,
+									"y": 14,
+									"character": "Ç",
+									"foreground": "#3b5dc9ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 16,
+									"y": 14,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 17,
+									"y": 14,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 18,
+									"y": 14,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 19,
+									"y": 14,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 20,
+									"y": 14,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 21,
+									"y": 14,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 22,
+									"y": 14,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 23,
+									"y": 14,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 15,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 1,
+									"y": 15,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 2,
+									"y": 15,
+									"character": "·",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 3,
+									"y": 15,
+									"character": "√",
+									"foreground": "#ef7d57ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 4,
+									"y": 15,
+									"character": "σ",
+									"foreground": "#ef7d57ff",
+									"background": "#b13e53ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 5,
+									"y": 15,
+									"character": "√",
+									"foreground": "#ef7d57ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 6,
+									"y": 15,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 7,
+									"y": 15,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 8,
+									"y": 15,
+									"character": "Ñ",
+									"foreground": "#a7f070ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 9,
+									"y": 15,
+									"character": " ",
+									"foreground": "#a7f070ff",
+									"background": "#a7f070ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 10,
+									"y": 15,
+									"character": " ",
+									"foreground": "#a7f070ff",
+									"background": "#a7f070ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 11,
+									"y": 15,
+									"character": "Ŋ",
+									"foreground": "#38b764ff",
+									"background": "#a7f070ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 12,
+									"y": 15,
+									"character": "Ñ",
+									"foreground": "#a7f070ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 13,
+									"y": 15,
+									"character": " ",
+									"foreground": "#38b764ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 14,
+									"y": 15,
+									"character": "Ŋ",
+									"foreground": "#a7f070ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 15,
+									"y": 15,
+									"character": "Ñ",
+									"foreground": "#38b764ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 16,
+									"y": 15,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 17,
+									"y": 15,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 18,
+									"y": 15,
+									"character": "ö",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 19,
+									"y": 15,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 20,
+									"y": 15,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 21,
+									"y": 15,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 22,
+									"y": 15,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 23,
+									"y": 15,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 16,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 1,
+									"y": 16,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 2,
+									"y": 16,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 3,
+									"y": 16,
+									"character": "_",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 4,
+									"y": 16,
+									"character": " ",
+									"foreground": "#ef7d57ff",
+									"background": "#ef7d57ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 5,
+									"y": 16,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 6,
+									"y": 16,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 7,
+									"y": 16,
+									"character": "Ñ",
+									"foreground": "#a7f070ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 8,
+									"y": 16,
+									"character": " ",
+									"foreground": "#a7f070ff",
+									"background": "#a7f070ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 9,
+									"y": 16,
+									"character": "Ŋ",
+									"foreground": "#38b764ff",
+									"background": "#a7f070ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 10,
+									"y": 16,
+									"character": "Ŋ",
+									"foreground": "#38b764ff",
+									"background": "#a7f070ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 11,
+									"y": 16,
+									"character": "Ŋ",
+									"foreground": "#38b764ff",
+									"background": "#a7f070ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 12,
+									"y": 16,
+									"character": " ",
+									"foreground": "#a7f070ff",
+									"background": "#a7f070ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 13,
+									"y": 16,
+									"character": "╢",
+									"foreground": "#a7f070ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 14,
+									"y": 16,
+									"character": "Ŋ",
+									"foreground": "#a7f070ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 15,
+									"y": 16,
+									"character": " ",
+									"foreground": "#38b764ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 16,
+									"y": 16,
+									"character": "Ñ",
+									"foreground": "#38b764ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 17,
+									"y": 16,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 18,
+									"y": 16,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 19,
+									"y": 16,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 20,
+									"y": 16,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 21,
+									"y": 16,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 22,
+									"y": 16,
+									"character": "ì",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 23,
+									"y": 16,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 17,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 1,
+									"y": 17,
+									"character": "ö",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 2,
+									"y": 17,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 3,
+									"y": 17,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 4,
+									"y": 17,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 5,
+									"y": 17,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 6,
+									"y": 17,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 7,
+									"y": 17,
+									"character": " ",
+									"foreground": "#a7f070ff",
+									"background": "#a7f070ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 8,
+									"y": 17,
+									"character": "Ŋ",
+									"foreground": "#38b764ff",
+									"background": "#a7f070ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 9,
+									"y": 17,
+									"character": "Ñ",
+									"foreground": "#ffcd75ff",
+									"background": "#a7f070ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 10,
+									"y": 17,
+									"character": "£",
+									"foreground": "#f4f4f4ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 11,
+									"y": 17,
+									"character": "Ñ",
+									"foreground": "#a7f070ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 12,
+									"y": 17,
+									"character": "Ñ",
+									"foreground": "#a7f070ff",
+									"background": "#ef7d57ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 13,
+									"y": 17,
+									"character": " ",
+									"foreground": "#ef7d57ff",
+									"background": "#ef7d57ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 14,
+									"y": 17,
+									"character": "Ñ",
+									"foreground": "#ef7d57ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 15,
+									"y": 17,
+									"character": "Ŋ",
+									"foreground": "#a7f070ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 16,
+									"y": 17,
+									"character": " ",
+									"foreground": "#38b764ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 17,
+									"y": 17,
+									"character": "╢",
+									"foreground": "#38b764ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 18,
+									"y": 17,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 19,
+									"y": 17,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 20,
+									"y": 17,
+									"character": "ö",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 21,
+									"y": 17,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 22,
+									"y": 17,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 23,
+									"y": 17,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 18,
+									"character": "ö",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 1,
+									"y": 18,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 2,
+									"y": 18,
+									"character": "É",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 3,
+									"y": 18,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 4,
+									"y": 18,
+									"character": "ì",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 5,
+									"y": 18,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 6,
+									"y": 18,
+									"character": "╢",
+									"foreground": "#a7f070ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 7,
+									"y": 18,
+									"character": " ",
+									"foreground": "#a7f070ff",
+									"background": "#a7f070ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 8,
+									"y": 18,
+									"character": "Ŋ",
+									"foreground": "#38b764ff",
+									"background": "#a7f070ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 9,
+									"y": 18,
+									"character": " ",
+									"foreground": "#1a1c2cff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 10,
+									"y": 18,
+									"character": " ",
+									"foreground": "#1a1c2cff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 11,
+									"y": 18,
+									"character": " ",
+									"foreground": "#1a1c2cff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 12,
+									"y": 18,
+									"character": "æ",
+									"foreground": "#ffcd75ff",
+									"background": "#ef7d57ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 13,
+									"y": 18,
+									"character": " ",
+									"foreground": "#ef7d57ff",
+									"background": "#ef7d57ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 14,
+									"y": 18,
+									"character": " ",
+									"foreground": "#ef7d57ff",
+									"background": "#ef7d57ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 15,
+									"y": 18,
+									"character": " ",
+									"foreground": "#38b764ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 16,
+									"y": 18,
+									"character": "Ŋ",
+									"foreground": "#a7f070ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 17,
+									"y": 18,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 18,
+									"y": 18,
+									"character": "ì",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 19,
+									"y": 18,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 20,
+									"y": 18,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 21,
+									"y": 18,
+									"character": "É",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 22,
+									"y": 18,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 23,
+									"y": 18,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 19,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 1,
+									"y": 19,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 2,
+									"y": 19,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 3,
+									"y": 19,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 4,
+									"y": 19,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 5,
+									"y": 19,
+									"character": "ö",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 6,
+									"y": 19,
+									"character": "╢",
+									"foreground": "#a7f070ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 7,
+									"y": 19,
+									"character": "Ŋ",
+									"foreground": "#38b764ff",
+									"background": "#a7f070ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 8,
+									"y": 19,
+									"character": " ",
+									"foreground": "#a7f070ff",
+									"background": "#a7f070ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 9,
+									"y": 19,
+									"character": "░",
+									"foreground": "#566c86ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 10,
+									"y": 19,
+									"character": "░",
+									"foreground": "#566c86ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 11,
+									"y": 19,
+									"character": "å",
+									"foreground": "#b13e53ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 12,
+									"y": 19,
+									"character": "å",
+									"foreground": "#b13e53ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 13,
+									"y": 19,
+									"character": "░",
+									"foreground": "#1a1c2cff",
+									"background": "#ef7d57ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 14,
+									"y": 19,
+									"character": "░",
+									"foreground": "#1a1c2cff",
+									"background": "#ef7d57ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 15,
+									"y": 19,
+									"character": " ",
+									"foreground": "#38b764ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 16,
+									"y": 19,
+									"character": "Ŋ",
+									"foreground": "#a7f070ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 17,
+									"y": 19,
+									"character": "╙",
+									"foreground": "#38b764ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 18,
+									"y": 19,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 19,
+									"y": 19,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 20,
+									"y": 19,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 21,
+									"y": 19,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 22,
+									"y": 19,
+									"character": "░",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 23,
+									"y": 19,
+									"character": "░",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 20,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 1,
+									"y": 20,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 2,
+									"y": 20,
+									"character": "ö",
+									"foreground": "#73eff7ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 3,
+									"y": 20,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 4,
+									"y": 20,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 5,
+									"y": 20,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 6,
+									"y": 20,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 7,
+									"y": 20,
+									"character": "Ñ",
+									"foreground": "#a7f070ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 8,
+									"y": 20,
+									"character": "É",
+									"foreground": "#ffcd75ff",
+									"background": "#a7f070ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 9,
+									"y": 20,
+									"character": "á",
+									"foreground": "#f4f4f4ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 10,
+									"y": 20,
+									"character": "Œ",
+									"foreground": "#566c86ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 11,
+									"y": 20,
+									"character": "å",
+									"foreground": "#b13e53ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 12,
+									"y": 20,
+									"character": "å",
+									"foreground": "#b13e53ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 13,
+									"y": 20,
+									"character": "Œ",
+									"foreground": "#1a1c2cff",
+									"background": "#ef7d57ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 14,
+									"y": 20,
+									"character": "á",
+									"foreground": "#94b0c2ff",
+									"background": "#ef7d57ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 15,
+									"y": 20,
+									"character": "É",
+									"foreground": "#ef7d57ff",
+									"background": "#38b764ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 16,
+									"y": 20,
+									"character": "Ñ",
+									"foreground": "#38b764ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 17,
+									"y": 20,
+									"character": " ",
+									"foreground": "#38b764ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 18,
+									"y": 20,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 19,
+									"y": 20,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 20,
+									"y": 20,
+									"character": "ö",
+									"foreground": "#73eff7ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 21,
+									"y": 20,
+									"character": "░",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 22,
+									"y": 20,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 23,
+									"y": 20,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 0
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 21,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 1,
+									"y": 21,
+									"character": "ö",
+									"foreground": "#73eff7ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 2,
+									"y": 21,
+									"character": "░",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 3,
+									"y": 21,
+									"character": "░",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 4,
+									"y": 21,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 5,
+									"y": 21,
+									"character": "É",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 6,
+									"y": 21,
+									"character": "ö",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 7,
+									"y": 21,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 8,
+									"y": 21,
+									"character": "Ñ",
+									"foreground": "#a7f070ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 9,
+									"y": 21,
+									"character": "°",
+									"foreground": "#566c86ff",
+									"background": "#f4f4f4ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 10,
+									"y": 21,
+									"character": "┐",
+									"foreground": "#566c86ff",
+									"background": "#f4f4f4ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 11,
+									"y": 21,
+									"character": "┐",
+									"foreground": "#566c86ff",
+									"background": "#f4f4f4ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 12,
+									"y": 21,
+									"character": "┐",
+									"foreground": "#566c86ff",
+									"background": "#f4f4f4ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 13,
+									"y": 21,
+									"character": "┐",
+									"foreground": "#1a1c2cff",
+									"background": "#94b0c2ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 14,
+									"y": 21,
+									"character": "°",
+									"foreground": "#1a1c2cff",
+									"background": "#94b0c2ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 15,
+									"y": 21,
+									"character": "Ñ",
+									"foreground": "#38b764ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 16,
+									"y": 21,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 17,
+									"y": 21,
+									"character": "ö",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 18,
+									"y": 21,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 19,
+									"y": 21,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 20,
+									"y": 21,
+									"character": "░",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 21,
+									"y": 21,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 22,
+									"y": 21,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 23,
+									"y": 21,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 22,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 1,
+									"y": 22,
+									"character": "╤",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 2,
+									"y": 22,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 3,
+									"y": 22,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 4,
+									"y": 22,
+									"character": "╤",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 5,
+									"y": 22,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 6,
+									"y": 22,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 7,
+									"y": 22,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 8,
+									"y": 22,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 9,
+									"y": 22,
+									"character": "Æ",
+									"foreground": "#f4f4f4ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 10,
+									"y": 22,
+									"character": " ",
+									"foreground": "#f4f4f4ff",
+									"background": "#f4f4f4ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 11,
+									"y": 22,
+									"character": " ",
+									"foreground": "#f4f4f4ff",
+									"background": "#f4f4f4ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 12,
+									"y": 22,
+									"character": " ",
+									"foreground": "#f4f4f4ff",
+									"background": "#f4f4f4ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 13,
+									"y": 22,
+									"character": "É",
+									"foreground": "#f4f4f4ff",
+									"background": "#94b0c2ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 14,
+									"y": 22,
+									"character": "Æ",
+									"foreground": "#94b0c2ff",
+									"background": "#ef7d57ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 15,
+									"y": 22,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 16,
+									"y": 22,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 17,
+									"y": 22,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 18,
+									"y": 22,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 19,
+									"y": 22,
+									"character": "╤",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 20,
+									"y": 22,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 21,
+									"y": 22,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 22,
+									"y": 22,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 23,
+									"y": 22,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 0
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 23,
+									"character": "ö",
+									"foreground": "#73eff7ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 1,
+									"y": 23,
+									"character": "╤",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 270
+									}
+								},
+								{
+									"x": 2,
+									"y": 23,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 3,
+									"y": 23,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 4,
+									"y": 23,
+									"character": "╤",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 5,
+									"y": 23,
+									"character": "£",
+									"foreground": "#73eff7ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 6,
+									"y": 23,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 7,
+									"y": 23,
+									"character": " ",
+									"foreground": "#3b5dc9ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 8,
+									"y": 23,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 9,
+									"y": 23,
+									"character": " ",
+									"foreground": "#1a1c2cff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 10,
+									"y": 23,
+									"character": " ",
+									"foreground": "#1a1c2cff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 11,
+									"y": 23,
+									"character": "å",
+									"foreground": "#f4f4f4ff",
+									"background": "#ffcd75ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 12,
+									"y": 23,
+									"character": "å",
+									"foreground": "#f4f4f4ff",
+									"background": "#ef7d57ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 13,
+									"y": 23,
+									"character": " ",
+									"foreground": "#ef7d57ff",
+									"background": "#ef7d57ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 14,
+									"y": 23,
+									"character": " ",
+									"foreground": "#ef7d57ff",
+									"background": "#ef7d57ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 15,
+									"y": 23,
+									"character": "É",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 16,
+									"y": 23,
+									"character": "Æ",
+									"foreground": "#41a6f6ff",
+									"background": "#3b5dc9ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 17,
+									"y": 23,
+									"character": "Ç",
+									"foreground": "#41a6f6ff",
+									"background": "#1a1c2cff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 18,
+									"y": 23,
+									"character": "ö",
+									"foreground": "#73eff7ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 180
+									}
+								},
+								{
+									"x": 19,
+									"y": 23,
+									"character": "·",
+									"foreground": "#41a6f6ff",
+									"background": "#ef7d57ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": true,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 20,
+									"y": 23,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 21,
+									"y": 23,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 22,
+									"y": 23,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 23,
+									"y": 23,
+									"character": "ć",
+									"foreground": "#b13e53ff",
+									"background": "#41a6f6ff",
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								}
+							]
+						]
+					},
+					"font": {
+						"id": "not-a-valid-font-id",
+						"name": "Malformed demo font ID"
+					}
+				}
+			]
+		}
+	]
+}

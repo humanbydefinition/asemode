@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+    - name: Asemode installation and usage
+      url: https://github.com/humanbydefinition/Asemode#readme
+      about: Check the setup and usage guide before opening a support issue.
+    - name: Aseprite scripting API
+      url: https://aseprite.org/api/
+      about: Check the Aseprite API reference for scripting questions.
+    - name: Textmode Discord
+      url: https://discord.gg/sjrw8QXNks
+      about: Ask the community for help with textmode art and tools.

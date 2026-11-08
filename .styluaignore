@@ -1,0 +1,7 @@
+src/fonts/data/**
+src/fonts/bundled.lua
+src/fonts/resources.lua
+src/unicode/names/**
+src/unicode/name-label-ranges.lua
+src/unicode/blocks.lua
+src/core/version.lua

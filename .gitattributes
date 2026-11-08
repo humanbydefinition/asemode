@@ -1,0 +1,9 @@
+* text=auto eol=lf
+*.aseprite binary
+*.aseprite-extension binary
+*.png binary
+*.gz binary
+*.ttf binary
+docs/licenses/FROGBLOCK.txt -text
+docs/licenses/KITCHEN-SINK.txt -text
+docs/licenses/CHUNKY.txt -text

@@ -1,0 +1,11 @@
+**/*.md
+**/*.frag
+**/*.vert
+**/*.glsl
+**/*.lua
+**/*.ttf
+**/*.aseprite
+**/*.png
+package-lock.json
+.nvmrc
+.prettierignore

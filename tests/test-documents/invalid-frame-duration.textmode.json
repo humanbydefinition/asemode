@@ -1,0 +1,134 @@
+{
+	"format": "textmode.document",
+	"formatVersion": "4.0.0",
+	"metadata": {
+		"createdAt": "2026-08-28T12:00:00.000Z",
+		"generator": {
+			"name": "textmode.export.js",
+			"version": "1.8.1"
+		}
+	},
+	"frames": [
+		{
+			"durationMs": 0.5,
+			"layers": [
+				{
+					"id": "base",
+					"visible": true,
+					"opacity": 1,
+					"blendMode": "normal",
+					"offsetX": 0,
+					"offsetY": 0,
+					"rotationZ": 0,
+					"grid": {
+						"cols": 2,
+						"rows": 2,
+						"cellWidth": 8,
+						"cellHeight": 8
+					},
+					"cells": {
+						"encoding": "object-rows-v1",
+						"rows": [
+							[
+								{
+									"x": 0,
+									"y": 0,
+									"character": "A",
+									"foreground": {
+										"r": 255,
+										"g": 0,
+										"b": 0,
+										"a": 255
+									},
+									"background": {
+										"r": 0,
+										"g": 0,
+										"b": 0,
+										"a": 255
+									},
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								},
+								{
+									"x": 1,
+									"y": 0,
+									"character": "B",
+									"foreground": {
+										"r": 0,
+										"g": 255,
+										"b": 0,
+										"a": 255
+									},
+									"background": {
+										"r": 0,
+										"g": 0,
+										"b": 255,
+										"a": 128
+									},
+									"transform": {
+										"invert": false,
+										"flipX": true,
+										"flipY": false,
+										"rotation": 0
+									}
+								}
+							],
+							[
+								{
+									"x": 0,
+									"y": 1,
+									"character": "C",
+									"foreground": {
+										"r": 0,
+										"g": 0,
+										"b": 0,
+										"a": 0
+									},
+									"background": {
+										"r": 18,
+										"g": 52,
+										"b": 86,
+										"a": 255
+									},
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": true,
+										"rotation": 90
+									}
+								},
+								{
+									"x": 1,
+									"y": 1,
+									"character": "D",
+									"foreground": {
+										"r": 0,
+										"g": 0,
+										"b": 0,
+										"a": 0
+									},
+									"background": {
+										"r": 0,
+										"g": 0,
+										"b": 0,
+										"a": 0
+									},
+									"transform": {
+										"invert": false,
+										"flipX": false,
+										"flipY": false,
+										"rotation": 0
+									}
+								}
+							]
+						]
+					}
+				}
+			]
+		}
+	]
+}

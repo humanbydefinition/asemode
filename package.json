@@ -1,0 +1,89 @@
+{
+	"name": "asemode",
+	"displayName": "Asemode",
+	"description": "Native character-cell drawing, TrueType fonts, and portable textmode tilemaps for Aseprite.",
+	"version": "1.0.0",
+	"author": "textmode.art",
+	"license": "MIT",
+	"engines": {
+		"aseprite": ">=1.3.18.6",
+		"node": ">=24"
+	},
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": ">=24.0.0",
+			"onFail": "error"
+		},
+		"packageManager": {
+			"name": "npm",
+			"version": "^11.0.0",
+			"onFail": "error"
+		}
+	},
+	"contributes": {
+		"scripts": [
+			{
+				"path": "src/main.lua"
+			}
+		]
+	},
+	"scripts": {
+		"test": "npm run format:check && npm run check:jsdoc && npm run check:lua && npm run test:portable && npm run fonts:check && npm run test:fonts && npm run unicode:check && npm run test:font-identities && npm run build && npm run test:package && npm run test:tooling",
+		"build": "npm run fonts:generate && node scripts/build/generate-unicode-names.mjs && node scripts/build/package.mjs",
+		"fonts:generate": "node scripts/build/generate-font-resources.mjs",
+		"fonts:check": "node scripts/build/generate-font-resources.mjs --check",
+		"unicode:check": "node scripts/build/generate-unicode-names.mjs --check",
+		"test:fonts": "node scripts/check/test-font-resources.mjs",
+		"test:font-identities": "node scripts/check/test-font-identities.mjs",
+		"test:package": "node scripts/check/check-package.mjs",
+		"test:tooling": "node --test tests/node/tooling.test.mjs tests/node/luals.test.mjs tests/node/screenshots.test.mjs",
+		"format:lua": "stylua src tests scripts",
+		"format:lua:check": "stylua --check src tests scripts",
+		"lint:lua": "node scripts/check/lint-lua.mjs",
+		"test:lua": "node scripts/check/test-lua.mjs",
+		"check:lua": "npm run format:lua:check && npm run lint:lua && npm run test:lua",
+		"prepare": "textmode-release hooks",
+		"release": "semantic-release",
+		"test:portable": "node scripts/check/test-portable.mjs",
+		"format": "textmode-lint format scripts tests/node package.json release.config.cjs eslint.config.mjs .github",
+		"format:check": "textmode-lint format:check scripts tests/node package.json release.config.cjs eslint.config.mjs .github",
+		"itch:dry-run": "npm run build && node scripts/check/check-package.mjs --release && node scripts/build/itch.mjs dry-run",
+		"itch:preview": "npm run build && node scripts/check/check-package.mjs --release && node scripts/build/itch.mjs preview",
+		"itch:publish:first": "npm run build && node scripts/check/check-package.mjs --release && node scripts/build/itch.mjs publish:first",
+		"itch:publish": "npm run build && node scripts/check/check-package.mjs --release && node scripts/build/itch.mjs publish",
+		"itch:status": "node scripts/build/itch.mjs status",
+		"docs:screenshots": "node scripts/screenshots/generate.mjs",
+		"check:jsdoc": "eslint scripts tests/node release.config.cjs"
+	},
+	"private": true,
+	"devDependencies": {
+		"@johnnymorganz/stylua-bin": "2.6.0",
+		"@semantic-release/commit-analyzer": "^13.0.1",
+		"@semantic-release/exec": "^7.1.0",
+		"@semantic-release/git": "^11.0.1",
+		"@semantic-release/github": "^12.0.9",
+		"@semantic-release/npm": "^13.1.5",
+		"@semantic-release/release-notes-generator": "^14.1.0",
+		"@textmode/document": "4.0.0",
+		"@textmode/lint": "^0.1.2",
+		"@textmode/release": "^0.2.0",
+		"ajv": "^8.20.0",
+		"ajv-formats": "^3.0.1",
+		"eslint": "^10.14.0",
+		"eslint-plugin-jsdoc": "^65.4.3",
+		"semantic-release": "^25.0.5",
+		"unicode-name": "1.2.1",
+		"yauzl": "^3.4.0",
+		"yazl": "^3.3.1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/humanbydefinition/Asemode.git"
+	},
+	"bugs": {
+		"url": "https://github.com/humanbydefinition/Asemode/issues"
+	},
+	"homepage": "https://github.com/humanbydefinition/Asemode",
+	"prettier": "@textmode/lint/prettier"
+}

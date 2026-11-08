@@ -1,0 +1,35 @@
+{
+	"runtime.version": "Lua 5.4",
+	"runtime.path": ["?.lua", "?/init.lua"],
+	"workspace.library": ["tools/meta"],
+	"workspace.checkThirdParty": false,
+	"workspace.ignoreDir": [
+		"src/fonts/data",
+		"src/unicode/names",
+		"node_modules",
+		"dist",
+		".test-output",
+		"scripts",
+		"tests/fixtures",
+		"src/fonts/bundled.lua",
+		"src/fonts/resources.lua",
+		"src/unicode/name-label-ranges.lua",
+		"src/unicode/blocks.lua",
+		"src/core/version.lua"
+	],
+	"diagnostics.globals": ["init", "exit"],
+	"diagnostics.disable": ["lowercase-global"],
+	"diagnostics.severity": {
+		"undefined-global": "Error!",
+		"duplicate-set-field": "Error!",
+		"duplicate-doc-field": "Error!",
+		"unknown-diag-code": "Error!",
+		"undefined-doc-name": "Error!",
+		"incomplete-signature-doc": "Error!",
+		"undefined-doc-param": "Error!"
+	},
+	"diagnostics.neededFileStatus": {
+		"incomplete-signature-doc": "Any",
+		"undefined-doc-param": "Any"
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"runtime.version": "Lua 5.4",
+	"runtime.path": ["?.lua", "?/init.lua"],
+	"workspace.library": ["tools/meta"],
+	"workspace.checkThirdParty": false,
+	"workspace.ignoreDir": ["src/fonts/data", "src/unicode/names", "node_modules", "dist", ".test-output"],
+	"diagnostics.globals": ["init", "exit"],
+	"diagnostics.disable": ["lowercase-global"]
+}

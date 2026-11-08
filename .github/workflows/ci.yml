@@ -1,0 +1,95 @@
+name: CI
+
+on:
+    pull_request:
+    push:
+        branches: [main]
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+permissions:
+    contents: read
+
+jobs:
+    check:
+        name: Check
+        runs-on: ${{ matrix.os }}
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-latest, macos-latest, windows-latest]
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v7
+            - name: Setup Node.js
+              uses: actions/setup-node@v7
+              with:
+                  node-version-file: .nvmrc
+                  cache: npm
+            - name: Configure Windows compiler
+              if: runner.os == 'Windows'
+              uses: ilammy/msvc-dev-cmd@0b201ec74fa43914dc39ae48a89fd1d8cb592756 # v1
+            - name: Install Lua 5.4.6
+              uses: leafo/gh-actions-lua@32909a2dea0a48c433aec79e7fcd31b4cd55800f # v13
+              with:
+                  luaVersion: '5.4.6'
+            - name: Install dependencies
+              run: npm ci
+            - name: Install Lua Language Server
+              if: runner.os != 'Windows'
+              uses: jdx/mise-action@v5
+            - name: Install Lua Language Server on Windows
+              if: runner.os == 'Windows'
+              shell: pwsh
+              run: |
+                  $archive = Join-Path $env:RUNNER_TEMP 'lua-language-server.zip'
+                  $directory = Join-Path $env:RUNNER_TEMP 'lua-language-server'
+                  Invoke-WebRequest -Uri 'https://github.com/LuaLS/lua-language-server/releases/download/3.19.2/lua-language-server-3.19.2-win32-x64.zip' -OutFile $archive
+                  if ((Get-FileHash $archive -Algorithm SHA256).Hash -ne '4a3dc851b3b31e7b75a23f645d1ba4a2137579a55f5fa4edbb17a3e2a6254044') {
+                      throw 'Lua Language Server archive checksum does not match'
+                  }
+                  Expand-Archive -Path $archive -DestinationPath $directory
+                  $executable = Join-Path $directory 'bin/lua-language-server.exe'
+                  "LUA_LANGUAGE_SERVER=$executable" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+            - name: Verify
+              run: npm test
+            - name: Save diagnostics on failure
+              if: failure()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: lua-diagnostics-${{ matrix.os }}
+                  path: .test-output/luals/
+                  if-no-files-found: ignore
+
+    release:
+        name: Release
+        needs: [check]
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v7
+              with:
+                  fetch-depth: 0
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v7
+              with:
+                  node-version-file: .nvmrc
+                  cache: npm
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Create GitHub release
+              run: npm run release
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GIT_CONFIG_COUNT: '1'
+                  GIT_CONFIG_KEY_0: core.hooksPath
+                  GIT_CONFIG_VALUE_0: /dev/null
