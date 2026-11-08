@@ -499,7 +499,14 @@ test("settings panel suppresses range errors and auto-corrects minimums and on c
   local activeTimer
   app = {
     isUIAvailable = true,
-    pixelColor = { TILE_XFLIP = 0x10000000, TILE_YFLIP = 0x20000000, TILE_DFLIP = 0x40000000 },
+    pixelColor = {
+      TILE_XFLIP = 0x10000000,
+      TILE_YFLIP = 0x20000000,
+      TILE_DFLIP = 0x40000000,
+      tile = function(ti, flags)
+        return ti | (flags or 0)
+      end,
+    },
     fs = {
       filePath = require("tests.pure.filesystem").filePath,
       joinPath = require("tests.pure.filesystem").joinPath,
