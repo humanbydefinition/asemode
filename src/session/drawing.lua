@@ -83,6 +83,8 @@ function M.new(options)
       bg = state.bg,
       flags = state.flags,
       bgFlags = state.bgFlags,
+      secondaryFg = state.secondaryFg,
+      secondaryBg = state.secondaryBg,
       missingPrimary = state.primaryError or false,
       missingSecondary = state.secondaryError or false,
       invalidSaved = state.invalidSaved or false,
@@ -260,7 +262,8 @@ function M.new(options)
     end
     self:ensureActive()
     if button == MouseButton.RIGHT then
-      self:prepare(MouseButton.RIGHT, key, state.bgFlags or 0)
+      state.bgFlags = state.flags or 0
+      self:prepare(MouseButton.RIGHT, key, state.flags or 0)
     else
       state.glyph = key
       changed()
@@ -270,26 +273,29 @@ function M.new(options)
 
   ---Check whether a stamp action applies to the current target.
   ---@param id string Stamp action identifier.
+  ---@param target? integer|string Optional target: MouseButton.LEFT, MouseButton.RIGHT, "secondary", "both".
   ---@return boolean allowed Whether the action can run.
-  function session:canRunAction(id)
+  function session:canRunAction(id, target)
     local sprite, layer = self:active()
     if not sprite or sprite ~= state.ownerSprite or layer ~= state.lastLayer then
       return false
     end
-    return Stamps.canExecute(id, self:isBusy())
+    return Stamps.canExecute(id, self:isBusy(), target)
   end
 
   ---Apply a stamp action to the current drawing target.
   ---@param id string Stamp action identifier.
-  function session:runAction(id)
+  ---@param target? integer|string Optional mouse button or string target; right-click targets secondary stamp only, "both" targets both.
+  function session:runAction(id, target)
     U.check(not self:isBusy(), "Finish the current Asemode operation first")
     self:ensureActive()
-    local captured = Stamps.read(id, self:isBusy())
+    local captured = Stamps.read(id, self:isBusy(), target)
     local pending = state.pendingColors
     local sameTarget = pending
       and pending.sprite == captured.sprite
       and pending.layer == captured.layer
-    local fg, bg = captured.primary.meta.foregroundRGBA, captured.primary.meta.backgroundRGBA
+    local fg = captured.primary and captured.primary.meta.foregroundRGBA or state.fg
+    local bg = captured.primary and captured.primary.meta.backgroundRGBA or state.bg
     if sameTarget then
       if pending.source == "dialog" then
         fg, bg = state.fg, state.bg
@@ -297,14 +303,19 @@ function M.new(options)
         fg, bg = U.colorHex(app.fgColor), U.colorHex(app.bgColor)
       end
     end
+    local colors = sameTarget and { foregroundRGBA = fg, backgroundRGBA = bg } or nil
     local result = self:withSuppression(function()
-      return Stamps.apply(captured, { foregroundRGBA = fg, backgroundRGBA = bg })
+      return Stamps.apply(captured, colors, target)
     end)
     self:bindSprite(result.sprite)
     state.lastLayer = result.layer
-    state.glyph, state.flags, state.lastTile =
-      result.primary.meta.glyphKey, result.primary.flags, result.fgTile
-    state.primaryEmpty = false
+    if result.primary then
+      state.glyph, state.flags, state.lastTile =
+        result.primary.meta.glyphKey, result.primary.flags, result.fgTile
+      state.primaryEmpty = false
+    else
+      state.lastTile = result.fgTile
+    end
     state.bgGlyph = result.secondary and result.secondary.meta.glyphKey or nil
     state.bgFlags, state.lastBgTile =
       result.secondary and result.secondary.flags or 0, result.bgTile
@@ -312,17 +323,31 @@ function M.new(options)
       state.secondaryFg = result.secondary.meta.foregroundRGBA
       state.secondaryBg = result.secondary.meta.backgroundRGBA
     end
+    local secondaryOnly = target == "secondary" or (MouseButton and target == MouseButton.RIGHT)
     if id == "swapColors" then
-      state.fg, state.bg = result.primary.meta.foregroundRGBA, result.primary.meta.backgroundRGBA
-      state.pendingColors = nil
-    else
-      state.fg, state.bg = fg, bg
-      if not sameTarget then
+      -- Stamps.apply resolves pending colors for both stamps during a swap.
+      if not secondaryOnly then
+        if result.primary then
+          state.fg, state.bg =
+            result.primary.meta.foregroundRGBA, result.primary.meta.backgroundRGBA
+        end
         state.pendingColors = nil
+      elseif sameTarget then
+        state.fg, state.bg = fg, bg
+        state.pendingColors = nil
+      end
+    else
+      if not secondaryOnly then
+        state.fg, state.bg = fg, bg
+        if not sameTarget then
+          state.pendingColors = nil
+        end
       end
     end
     changed()
-    options.actionComplete()
+    if options.actionComplete then
+      options.actionComplete()
+    end
   end
 
   ---Capture a serializable snapshot of the active primary and secondary stamps.
@@ -397,60 +422,64 @@ function M.new(options)
     local fgTile, bgTile, missingPrimary, missingSecondary
     self:withSuppression(function()
       local index = Profile.index(sprite, id)
-      local rectangular = index.profile.cellWidth ~= index.profile.cellHeight
+      local square = index.profile ~= nil and index.profile.cellWidth == index.profile.cellHeight
+
+      ---Check whether the baked variant for a stamp exists in the font index.
+      ---@param stamp table Stamp definition with glyph, fg, bg, and flags.
+      ---@return boolean baked True if the oriented variant is registered.
+      local function baked(stamp)
+        local key = U.key(stamp.glyph, stamp.fg, stamp.bg, stamp.flags or 0)
+        return index.variants ~= nil and index.variants[key] ~= nil
+      end
+
+      ---Find the untransformed variant of a legacy square-cell stamp.
+      ---Legacy square-cell documents stored orientation in native tile flags.
+      ---@param stamp table Stamp definition with glyph, fg, bg, and flags.
+      ---@return integer? tile Paint tile index of the untransformed variant.
+      local function legacyBase(stamp)
+        if (stamp.flags or 0) == 0 or not square or not index.variants then
+          return nil
+        end
+        return index.variants[U.key(stamp.glyph, stamp.fg, stamp.bg, 0)]
+      end
 
       ---Check whether a stamp definition already exists in the font index.
       ---@param stamp table Stamp definition with glyph, fg, bg, and flags.
       ---@return boolean exists True if tile is registered in the font profile.
       local function exists(stamp)
-        local orientation = rectangular and stamp.flags or 0
-        local key = U.key(stamp.glyph, stamp.fg, stamp.bg, orientation)
-        return index.variants and index.variants[key] ~= nil
+        return baked(stamp) or legacyBase(stamp) ~= nil
+      end
+
+      ---Resolve the native tile value for a stamp, supporting legacy square-cell orientation.
+      ---@param stamp table Stamp definition with glyph, fg, bg, and flags.
+      ---@return integer tile Native tile value.
+      local function resolveTile(stamp)
+        if not stamp or stamp.empty then
+          return 0
+        end
+        local flags = stamp.flags or 0
+        if not baked(stamp) then
+          local base = legacyBase(stamp)
+          if base then
+            return app.pixelColor.tile(base, flags)
+          end
+        end
+        return Profile.orientedTile(sprite, id, stamp.glyph, stamp.fg, stamp.bg, flags)
       end
       local ready = (primary.empty or exists(primary)) and (not secondary or exists(secondary))
 
       ---Resolve native tiles for both primary and secondary stamps.
       local function prepare()
-        fgTile = primary.empty and 0
-          or Profile.orientedTile(sprite, id, primary.glyph, primary.fg, primary.bg, primary.flags)
-        bgTile = secondary
-            and Profile.orientedTile(
-              sprite,
-              id,
-              secondary.glyph,
-              secondary.fg,
-              secondary.bg,
-              secondary.flags
-            )
-          or 0
+        fgTile = resolveTile(primary)
+        bgTile = resolveTile(secondary)
       end
       if ready then
         prepare()
       else
         missingPrimary = not primary.empty and not exists(primary)
         missingSecondary = secondary and not exists(secondary) or false
-        fgTile = not primary.empty
-            and not missingPrimary
-            and Profile.orientedTile(
-              sprite,
-              id,
-              primary.glyph,
-              primary.fg,
-              primary.bg,
-              primary.flags
-            )
-          or 0
-        bgTile = secondary
-            and not missingSecondary
-            and Profile.orientedTile(
-              sprite,
-              id,
-              secondary.glyph,
-              secondary.fg,
-              secondary.bg,
-              secondary.flags
-            )
-          or 0
+        fgTile = not primary.empty and not missingPrimary and resolveTile(primary) or 0
+        bgTile = secondary and not missingSecondary and resolveTile(secondary) or 0
         print("[Asemode] A saved stamp is unavailable; select it again to recreate it.")
       end
       setNativeTile("fgTile", fgTile)

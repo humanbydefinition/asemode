@@ -234,8 +234,15 @@ return function(test)
       "AsemodePanel",
       "AsemodeLayer",
       "asemode_stamps",
+      "asemode_stamps_primary",
       "FirstStamp",
       "SecondStamp",
+      "asemode_stamps_secondary",
+      "SecondaryFirstStamp",
+      "SecondarySecondStamp",
+      "asemode_stamps_both",
+      "BothFirstStamp",
+      "BothSecondStamp",
       "asemode_selection",
       "AsemodeReplace",
       "AsemodeCopyCells",
@@ -247,9 +254,141 @@ return function(test)
       "AsemodeKeyboardShortcuts",
       "AsemodeCredits",
     }, ","))
-    events[7].onclick()
     events[8].onclick()
+    events[9].onclick()
     assert(actions[1] == "first" and actions[2] == "second")
     env.exit(plugin)
+  end)
+
+  test("orientedTile bakes transformed variants for square and non-square profiles", function()
+    local oldApp, oldImage, oldColorMode, oldJson = app, Image, ColorMode, json
+    local oldProfile, oldTransforms =
+      package.loaded["src.document.profile"], package.loaded["src.document.transforms"]
+    local JSON = require("src.portable.json")
+    json = { encode = JSON.stringify, decode = JSON.parse }
+    local U = require("src.core.util")
+    local pc = {
+      TILE_XFLIP = 0x10000000,
+      TILE_YFLIP = 0x20000000,
+      TILE_DFLIP = 0x40000000,
+      tile = function(ti, flags)
+        return ti | flags
+      end,
+      tileI = function(value)
+        return value & 0x1fffffff
+      end,
+      tileF = function(value)
+        return value & 0xe0000000
+      end,
+      rgba = function(r, g, b, a)
+        return r | (g << 8) | (b << 16) | (a << 24)
+      end,
+      rgbaA = function(c)
+        return (c >> 24) & 0xff
+      end,
+    }
+    app = {
+      pixelColor = pc,
+      transaction = function(_, fn)
+        fn()
+      end,
+    }
+    Image = function(w, h, _)
+      local pixels = {}
+      return {
+        width = w,
+        height = h,
+        bytes = string.rep("\0", w * h * 4),
+        getPixel = function(_, x, y)
+          return pixels[x .. ":" .. y] or 0xffffffff
+        end,
+        drawPixel = function(_, x, y, c)
+          pixels[x .. ":" .. y] = c
+        end,
+      }
+    end
+    ColorMode = { RGB = 1 }
+    package.loaded["src.document.profile"] = nil
+    package.loaded["src.document.transforms"] = nil
+    local Profile = require("src.document.profile")
+    local function withProps(t, initial)
+      local stored = initial or {}
+      t.properties = function(namespace, value)
+        assert(namespace == "asemode")
+        if value then
+          stored = value
+        end
+        return stored
+      end
+      return setmetatable(t, {
+        __len = function(self)
+          return (self.tiles and #self.tiles or 0) + 1
+        end,
+      })
+    end
+
+    local paintTileset = withProps({
+      true,
+      tiles = {},
+      name = "paint",
+    }, { schemaVersion = 1, fontProfileId = "p1", role = "paint" })
+    function paintTileset:tile(i)
+      return self.tiles[i]
+    end
+
+    local maskTile = withProps({
+      image = Image(8, 8, 1),
+    }, {
+      schemaVersion = 1,
+      glyphKey = "E",
+      imageHash = U.hash(string.rep("\0", 8 * 8 * 4)),
+      fontProfileId = "p1",
+    })
+
+    local masksTileset = withProps({
+      true,
+      true,
+      tiles = { [1] = maskTile },
+      name = "masks",
+    }, {
+      schemaVersion = 1,
+      fontProfileId = "p1",
+      role = "masks",
+      profileJson = '{"cellWidth":8,"cellHeight":8,"name":"Test"}',
+    })
+    function masksTileset:tile(i)
+      return self.tiles[i]
+    end
+
+    local sprite = {
+      tilesets = {
+        masksTileset,
+        paintTileset,
+      },
+      newTile = function(_, ts)
+        table.insert(ts, true)
+        local t = withProps({ index = #ts.tiles + 1 })
+        ts.tiles[t.index] = t
+        return t
+      end,
+    }
+
+    local flags = pc.TILE_XFLIP
+    local tileVal = Profile.orientedTile(sprite, "p1", "E", "#ffffffff", "#000000ff", flags)
+    assert(tileVal == 1, "expected first variant at index 1 with 0 native flags")
+    local createdTile = paintTileset:tile(1)
+    local Base = require("src.document.base")
+    local createdMeta = Base.meta(createdTile)
+    assert(createdMeta and createdMeta.schemaVersion == 2, "tile must have schemaVersion 2")
+    assert(createdMeta.orientation == flags, "tile must have orientation recorded in metadata")
+
+    local layer = { tileset = paintTileset }
+    local decodedMeta, decodedFlags = Profile.decode(layer, tileVal)
+    assert(decodedMeta and decodedMeta.glyphKey == "E")
+    assert(decodedFlags == flags, "decoded orientation flags must match baked orientation")
+
+    package.loaded["src.document.profile"], package.loaded["src.document.transforms"] =
+      oldProfile, oldTransforms
+    app, Image, ColorMode, json = oldApp, oldImage, oldColorMode, oldJson
   end)
 end

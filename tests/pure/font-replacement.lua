@@ -12,6 +12,7 @@ return function(test)
     "src.ui.font_workflow",
     "src.session.drawing",
     "src.session.native_operations",
+    "src.actions.stamps",
     "src.document.stamp_state",
   }
   for _, name in ipairs(modules) do
@@ -35,7 +36,20 @@ return function(test)
     layer = layer,
     fgTile = 99,
     bgTile = 98,
-    pixelColor = { TILE_XFLIP = 0x10000000, TILE_YFLIP = 0x20000000, TILE_DFLIP = 0x40000000 },
+    pixelColor = {
+      TILE_XFLIP = 0x10000000,
+      TILE_YFLIP = 0x20000000,
+      TILE_DFLIP = 0x40000000,
+      tile = function(ti, flags)
+        return ti | (flags or 0)
+      end,
+      tileI = function(value)
+        return value & 0xffff
+      end,
+      tileF = function(value)
+        return value & 0x70000000
+      end,
+    },
     isUIAvailable = false,
     site = { tilemapMode = 1 },
     preferences = {
@@ -76,6 +90,7 @@ return function(test)
     requireEligible = function() end,
     editable = function() end,
   }
+  local tileColors = {}
   local profile = {
     defaultStamps = function(input)
       if input.glyphs then
@@ -92,7 +107,8 @@ return function(test)
     invalidate = function() end,
     index = function()
       return {
-        profile = { pixelSize = 8 },
+        id = "old",
+        profile = { pixelSize = 8, cellWidth = 8, cellHeight = 8 },
         glyphs = { ["0"] = { meta = {} }, ["1"] = { meta = {} } },
         variants = {
           ["0\0#ffffffff#000000ff:0"] = 10,
@@ -103,17 +119,29 @@ return function(test)
     install = function()
       return "new"
     end,
-    orientedTile = function(_, _, glyph)
-      return glyph == "0" and 10 or 11
+    orientedTile = function(_, _, glyph, fg, bg, flags)
+      local ti = glyph == "0" and 10 or 11
+      if fg and bg then
+        tileColors[ti] = { fg = fg, bg = bg }
+      end
+      return ti | (flags or 0)
     end,
     decode = function(_, tile)
-      assert(tile == 10 or tile == 11, "old tile is outside the new tileset")
+      local ti = tile & 0xffff
+      local flags = tile & 0x70000000
+      if ti == 0 then
+        return nil, flags
+      end
+      assert(ti == 10 or ti == 11, "old tile is outside the new tileset")
+      local colors = tileColors[ti] or { fg = "#ffffffff", bg = "#000000ff" }
       return {
-        glyphKey = tile == 10 and "0" or "1",
-        foregroundRGBA = "#ffffffff",
-        backgroundRGBA = "#000000ff",
+        fontProfileId = "old",
+        glyphKey = ti == 10 and "0" or "1",
+        imageHash = "12345678",
+        foregroundRGBA = colors.fg,
+        backgroundRGBA = colors.bg,
       },
-        0
+        flags
     end,
   }
   function model.hasMarkedLayers(value)
@@ -156,6 +184,7 @@ return function(test)
   package.loaded["src.session.native_operations"] = nil
   package.loaded["src.document.rotate"] = nil
   package.loaded["src.document.flatten"] = nil
+  package.loaded["src.actions.stamps"] = nil
   package.loaded["src.document.stamp_state"] = nil
   package.loaded["src.ui.font_workflow"] = nil
   local drawing = require("src.session.drawing").new({
@@ -424,6 +453,7 @@ return function(test)
     app.layer = layer
     drawing:tick(true)
     assert(app.site.tilemapMode == 1 and app.site.tilesetMode == 0)
+    assert(prefs.grid.snap == false and prefs.show.grid == false)
     app.layer = regular
     app.site.tilemapMode, app.site.tilesetMode = 0, 0
     drawing:tick(true)
@@ -727,7 +757,7 @@ return function(test)
   end)
 
   test(
-    "selecting a new glyph preserves existing orientation flags for primary and secondary stamps",
+    "selecting a new glyph preserves primary orientation and aligns secondary stamp with grid display",
     function()
       local xflip = app.pixelColor.TILE_XFLIP
       local yflip = app.pixelColor.TILE_YFLIP
@@ -760,25 +790,274 @@ return function(test)
       )
 
       recordedFlags = {}
+      -- Selecting secondary glyph in the Asemode panel adopts the displayed grid flags (state.flags)
       drawing:selectGlyph(MouseButton.RIGHT, "0")
       local afterSecondary = drawing:snapshot()
       assert(afterSecondary.bgGlyph == "0", "secondary glyph was not updated")
       assert(
-        afterSecondary.bgFlags == yflip,
-        "secondary orientation flags were reset on glyph selection"
+        afterSecondary.bgFlags == xflip,
+        "secondary orientation flags did not adopt displayed primary flags"
       )
       assert(
         afterSecondary.flags == xflip,
         "primary flags were altered on secondary glyph selection"
       )
       assert(
-        #recordedFlags == 1 and recordedFlags[1].glyph == "0" and recordedFlags[1].flags == yflip,
-        "orientedTile did not receive preserved secondary flags"
+        #recordedFlags == 1 and recordedFlags[1].glyph == "0" and recordedFlags[1].flags == xflip,
+        "orientedTile did not receive adopted displayed grid flags"
       )
 
       profile.orientedTile = oldOrientedTile
     end
   )
+
+  test(
+    "stamp action transforms can target the secondary stamp exclusively via right-click",
+    function()
+      local Stamps = require("src.actions.stamps")
+      local xflip = app.pixelColor.TILE_XFLIP
+
+      drawing:setImportedStamps("0", "1")
+      drawing:prepare(MouseButton.LEFT, "0", 0)
+      drawing:prepare(MouseButton.RIGHT, "1", 0)
+
+      -- Verify right-clicking flipHorizontal transforms only secondary stamp
+      local captured = Stamps.read("flipHorizontal", false)
+      local result = Stamps.apply(captured, nil, MouseButton.RIGHT)
+      assert(result.primary.flags == 0, "primary stamp flags were altered by right-click action")
+      assert(
+        result.secondary.flags == xflip,
+        "secondary stamp flags were not flipped by right-click action"
+      )
+
+      -- Verify left-clicking flipHorizontal transforms only the primary stamp
+      captured = Stamps.read("flipHorizontal", false)
+      result = Stamps.apply(captured, nil, MouseButton.LEFT)
+      assert(result.primary.flags == xflip, "primary stamp was not flipped by left-click action")
+      assert(
+        result.secondary.flags == xflip,
+        "secondary stamp flags were modified by left-click action"
+      )
+
+      -- Verify transforming "both" respects different prior orientations
+      -- Currently: primary has xflip, secondary has xflip
+      -- Let's rotate clockwise for "both":
+      captured = Stamps.read("rotateClockwise", false)
+      result = Stamps.apply(captured, nil, "both")
+      local Transforms = require("src.document.transforms")
+      local expectedFlags = Transforms.rotate(xflip, true)
+      assert(
+        result.primary.flags == expectedFlags,
+        "primary stamp did not apply clockwise rotation on both"
+      )
+      assert(
+        result.secondary.flags == expectedFlags,
+        "secondary stamp did not apply clockwise rotation on both"
+      )
+
+      -- Verify resetting orientation for "both" resets both stamps to 0
+      captured = Stamps.read("resetOrientation", false)
+      result = Stamps.apply(captured, nil, "both")
+      assert(result.primary.flags == 0, "primary stamp was not reset by both reset")
+      assert(result.secondary.flags == 0, "secondary stamp was not reset by both reset")
+
+      -- Verify canRunAction enablement for primary, secondary, and both
+      assert(drawing:canRunAction("flipHorizontal", MouseButton.LEFT) == true)
+      assert(drawing:canRunAction("flipHorizontal", MouseButton.RIGHT) == true)
+      assert(drawing:canRunAction("flipHorizontal", "both") == true)
+
+      -- Verify controller stamp click target preferences
+      local Controller = require("src.ui.controller")
+      local prefs = {}
+      local c = Controller.new({ preferences = prefs })
+      assert(c:getStampClickTarget() == "primary")
+      c:setStampClickTarget("both")
+      assert(prefs.stampClickTarget == "both")
+      assert(c:getStampClickTarget() == "both")
+      c:setStampClickTarget("primary")
+      assert(prefs.stampClickTarget == "primary")
+      assert(c:getStampClickTarget() == "primary")
+    end
+  )
+
+  test("secondary stamp actions work when primary stamp is empty", function()
+    local xflip = app.pixelColor.TILE_XFLIP
+
+    drawing:setImportedStamps("0", "1")
+    drawing:prepare(MouseButton.LEFT, "0", 0)
+    drawing:prepare(MouseButton.RIGHT, "1", 0)
+
+    -- Select empty tile for primary (e.g. eraser mode)
+    app.fgTile = 0
+    drawing:syncNative()
+    assert(drawing:snapshot().primaryEmpty == true, "primary should be empty")
+
+    -- Check canRunAction
+    assert(drawing:canRunAction("flipHorizontal", MouseButton.LEFT) == false)
+    assert(drawing:canRunAction("flipHorizontal", "both") == false)
+    assert(drawing:canRunAction("flipHorizontal", MouseButton.RIGHT) == true)
+    assert(drawing:canRunAction("flipHorizontal", "secondary") == true)
+
+    -- Run action on secondary
+    drawing:runAction("flipHorizontal", "secondary")
+    assert(app.fgTile == 0, "app.fgTile was modified from empty tile 0")
+    local snap = drawing:snapshot()
+    assert(snap.primaryEmpty == true, "primary should remain empty")
+    assert(snap.bgFlags == xflip, "secondary flags were not updated")
+
+    -- Run swapColors on secondary
+    drawing:runAction("swapColors", "secondary")
+    assert(app.fgTile == 0, "app.fgTile was modified by secondary swapColors")
+  end)
+
+  test(
+    "swapColors resolves pending colors for every target and keeps independent colors",
+    function()
+      local red, blue, green = "#ff0000ff", "#0000ffff", "#00ff00ff"
+      local white, black = "#ffffffff", "#000000ff"
+
+      -- Primary: red ink on blue. Secondary: green ink on white.
+      local function setup()
+        drawing:ensureActive()
+        drawing:setImportedStamps("0", "1")
+        drawing:setColors(nil, green, white)
+        drawing:prepare(MouseButton.RIGHT, "1", 0)
+        drawing:setColors(nil, red, blue)
+        drawing:prepare(MouseButton.LEFT, "0", 0)
+      end
+
+      -- Queue an external white-on-black color change that is still in its debounce.
+      local function queuePending()
+        app.fgColor = { red = 255, green = 255, blue = 255, alpha = 255 }
+        app.bgColor = { red = 0, green = 0, blue = 0, alpha = 255 }
+        drawing:queueColorCommit("external")
+      end
+
+      local function expect(label, fg, bg, secondaryFg, secondaryBg)
+        local snap = drawing:snapshot()
+        assert(
+          snap.fg == fg and snap.bg == bg,
+          label .. ": primary colors are " .. snap.fg .. "/" .. snap.bg
+        )
+        assert(
+          snap.secondaryFg == secondaryFg and snap.secondaryBg == secondaryBg,
+          label .. ": secondary colors are " .. snap.secondaryFg .. "/" .. snap.secondaryBg
+        )
+        assert(snap.pendingColors == nil, label .. ": pending colors were not resolved")
+      end
+
+      -- Both stamps, pending colors: both swap the pending colors.
+      setup()
+      queuePending()
+      drawing:runAction("swapColors", "both")
+      expect("both with pending", black, white, black, white)
+
+      -- Both stamps, no pending colors: each stamp swaps its own colors.
+      setup()
+      drawing:runAction("swapColors", "both")
+      expect("both without pending", blue, red, white, green)
+
+      -- Primary only, pending colors: the secondary receives the pending colors unswapped.
+      setup()
+      queuePending()
+      drawing:runAction("swapColors", MouseButton.LEFT)
+      expect("primary with pending", black, white, white, black)
+
+      -- Primary only, no pending colors: the secondary is unchanged.
+      setup()
+      drawing:runAction("swapColors", MouseButton.LEFT)
+      expect("primary without pending", blue, red, green, white)
+
+      -- Secondary only, pending colors: the primary receives the pending colors unswapped.
+      setup()
+      queuePending()
+      drawing:runAction("swapColors", "secondary")
+      expect("secondary with pending", white, black, black, white)
+    end
+  )
+
+  test("legacy square-cell stamp orientation is preserved on document restore", function()
+    local xflip = app.pixelColor.TILE_XFLIP
+    local StampState = require("src.document.stamp_state")
+    local U = require("src.core.util")
+
+    local savedState = {
+      primary = { glyph = "0", fg = "#ffffffff", bg = "#000000ff", flags = xflip },
+      secondary = { glyph = "1", fg = "#ffffffff", bg = "#000000ff", flags = 0 },
+    }
+    StampState.write(sprite, layer, savedState)
+
+    local oldIndex = profile.index
+    profile.index = function(...)
+      local idx = oldIndex(...)
+      local legacyKey = U.key("0", "#ffffffff", "#000000ff", 0)
+      local bakedKey = U.key("0", "#ffffffff", "#000000ff", xflip)
+      idx.variants[bakedKey] = nil
+      assert(idx.variants[legacyKey] ~= nil, "base variant must exist in mock")
+      return idx
+    end
+
+    local messages = {}
+    local previousPrint = print
+    print = function(message)
+      messages[#messages + 1] = message
+    end
+
+    drawing:invalidateStamps()
+    drawing:ensureActive()
+
+    print = previousPrint
+    profile.index = oldIndex
+
+    local snap = drawing:snapshot()
+    assert(not snap.missingPrimary, "legacy stamp was falsely marked as missing")
+    assert(
+      #messages == 0,
+      "legacy stamp logged missing stamp warning: " .. table.concat(messages, "; ")
+    )
+    assert(app.fgTile ~= 0, "app.fgTile was reset to 0 for legacy stamp")
+    assert(snap.flags == xflip, "legacy orientation flags were lost")
+  end)
+
+  test("missing rectangular-cell stamp variants are reported, not rebuilt on restore", function()
+    local xflip = app.pixelColor.TILE_XFLIP
+    local StampState = require("src.document.stamp_state")
+
+    StampState.write(sprite, layer, {
+      primary = { glyph = "0", fg = "#ffffffff", bg = "#000000ff", flags = xflip },
+      secondary = { glyph = "1", fg = "#ffffffff", bg = "#000000ff", flags = 0 },
+    })
+
+    local oldIndex, oldOrientedTile = profile.index, profile.orientedTile
+    profile.index = function(...)
+      local idx = oldIndex(...)
+      idx.profile = { pixelSize = 8, cellWidth = 8, cellHeight = 16 }
+      return idx
+    end
+    local rebuilt = false
+    profile.orientedTile = function(s, id, glyph, fg, bg, flags)
+      if glyph == "0" and flags ~= 0 then
+        rebuilt = true
+      end
+      return oldOrientedTile(s, id, glyph, fg, bg, flags)
+    end
+    local messages = {}
+    local previousPrint = print
+    print = function(message)
+      messages[#messages + 1] = message
+    end
+
+    drawing:invalidateStamps()
+    drawing:ensureActive()
+
+    print = previousPrint
+    profile.index, profile.orientedTile = oldIndex, oldOrientedTile
+
+    local snap = drawing:snapshot()
+    assert(snap.missingPrimary, "missing rectangular-cell variant was not reported")
+    assert(not rebuilt, "missing rectangular-cell variant was rebuilt during restore")
+    assert(#messages == 1, "missing stamp warning was not logged")
+  end)
 
   -- Teardown: restore loaded modules and globals
   for _, name in ipairs(modules) do

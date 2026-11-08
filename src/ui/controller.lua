@@ -148,6 +148,29 @@ function M.new(plugin, options)
     return size
   end
 
+  ---Get the configured stamp action click target.
+  ---@return string target "primary" or "both"
+  function self:getStampClickTarget()
+    local target = self.plugin.preferences.stampClickTarget
+    if target == "both" then
+      return "both"
+    end
+    return Settings.STAMP_CLICK_DEFAULT
+  end
+
+  ---Set the stamp action click target and persist it in plugin preferences.
+  ---@param target string "primary" or "both"
+  ---@return string target Applied target
+  function self:setStampClickTarget(target)
+    local applied = target == "both" and "both" or Settings.STAMP_CLICK_DEFAULT
+    self.plugin.preferences.stampClickTarget = applied
+    self.dirty = true
+    if self.panel then
+      self.panel:repaint()
+    end
+    return applied
+  end
+
   ---Open the Asemode settings dialog.
   function self:settings()
     return SettingsDialog.open(self)
@@ -312,9 +335,14 @@ function M.new(plugin, options)
 
   ---Check whether a given stamp action is currently executable.
   ---@param index integer 1-based action icon index.
+  ---@param button? integer Mouse button.
   ---@return boolean enabled True if action can run.
-  local function actionEnabled(index)
-    return self.drawing:canRunAction(iconActions[index].id)
+  local function actionEnabled(index, button)
+    local target = button
+    if (not button or button == MouseButton.LEFT) and self:getStampClickTarget() == "both" then
+      target = "both"
+    end
+    return self.drawing:canRunAction(iconActions[index].id, target)
   end
 
   ---Resolve the action index under the pointer coordinates.
@@ -322,15 +350,18 @@ function M.new(plugin, options)
   ---@param y number Vertical coordinate.
   ---@param width number Total canvas width.
   ---@param height number Total canvas height.
+  ---@param button? integer Optional mouse button to check enablement for.
   ---@return integer? index 1-based action index if hit and enabled.
-  local function actionAt(x, y, width, height)
+  local function actionAt(x, y, width, height, button)
     if y < 0 or y >= height then
       return nil
     end
     for i = 1, #iconActions do
       local left, itemWidth = actionBounds(i, width)
       if x >= left and x < left + itemWidth then
-        return actionEnabled(i) and i or nil
+        local enabled = button and actionEnabled(i, button)
+          or (actionEnabled(i, MouseButton.LEFT) or actionEnabled(i, MouseButton.RIGHT))
+        return enabled and i or nil
       end
     end
   end
@@ -343,7 +374,7 @@ function M.new(plugin, options)
     self.actionWidth, self.actionHeight = gc.width, gc.height
     for i = 1, #iconActions do
       local x, itemWidth = actionBounds(i, gc.width)
-      local enabled = actionEnabled(i)
+      local enabled = actionEnabled(i, MouseButton.LEFT) or actionEnabled(i, MouseButton.RIGHT)
       local state = enabled and (self.actionDown == i and self.actionHot == i) and "button_selected"
         or (enabled and self.actionHot == i and "button_hot" or "button_normal")
       gc:drawThemeRect(state, Rectangle(x, 0, itemWidth, gc.height))
@@ -562,25 +593,32 @@ function M.new(plugin, options)
           end
         end,
         onmousedown = function(ev)
-          if ev.button == MouseButton.LEFT then
-            self.actionDown = actionAt(ev.x, ev.y, self.actionWidth or 320, self.actionHeight or 28)
+          if ev.button == MouseButton.LEFT or ev.button == MouseButton.RIGHT then
+            self.actionButton = ev.button
+            self.actionDown =
+              actionAt(ev.x, ev.y, self.actionWidth or 320, self.actionHeight or 28, ev.button)
             if self.panel then
               self.panel:repaint()
             end
           end
         end,
         onmouseup = function(ev)
-          local index = ev.button == MouseButton.LEFT
-              and actionAt(ev.x, ev.y, self.actionWidth or 320, self.actionHeight or 28)
+          local button = self.actionButton
+          local index = (ev.button == button)
+              and actionAt(ev.x, ev.y, self.actionWidth or 320, self.actionHeight or 28, button)
             or nil
           local pressed = self.actionDown
-          self.actionDown, self.actionHot = nil, index
+          self.actionDown, self.actionHot, self.actionButton = nil, index, nil
           if self.panel then
             self.panel:repaint()
           end
           if index and index == pressed then
             self:guard(function()
-              self.drawing:runAction(iconActions[index].id)
+              local target = button
+              if button == MouseButton.LEFT and self:getStampClickTarget() == "both" then
+                target = "both"
+              end
+              self.drawing:runAction(iconActions[index].id, target)
             end)()
           end
         end,

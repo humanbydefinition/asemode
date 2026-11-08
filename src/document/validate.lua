@@ -122,7 +122,7 @@ local function run(sprite, onlyLayer, options, context)
               problem = "Missing glyph metadata"
             elseif
               meta.schemaVersion == 2
-              and (not Transforms.validFlags(meta.orientation) or meta.orientation == 0 or w == h)
+              and (not Transforms.validFlags(meta.orientation) or meta.orientation == 0)
             then
               problem = "Invalid tile orientation"
             elseif not pcall(Repertoire.scalar, meta.glyphKey) then

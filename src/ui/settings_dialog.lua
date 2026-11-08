@@ -148,6 +148,25 @@ function M.open(self)
       self:setGlyphGridSize(d.data.glyphGridSize)
     end,
   })
+  d:newrow()
+  local targetLabels = {
+    primary = "Primary stamp only",
+    both = "Both stamps",
+  }
+  local targetValues = {
+    ["Primary stamp only"] = "primary",
+    ["Both stamps"] = "both",
+  }
+  d:combobox({
+    id = "stampClickTarget",
+    label = "Stamp action click",
+    options = { "Primary stamp only", "Both stamps" },
+    option = targetLabels[self:getStampClickTarget()] or targetLabels.primary,
+    onchange = function()
+      local chosen = targetValues[d.data.stampClickTarget] or "primary"
+      self:setStampClickTarget(chosen)
+    end,
+  })
 
   d:newrow()
   d:button({
@@ -165,6 +184,8 @@ function M.open(self)
       d:modify({ id = "defaultBackgroundColor", color = U.color(reset.backgroundColor) })
       self:setGlyphGridSize(GRID_CELL_DEFAULT)
       d:modify({ id = "glyphGridSize", option = tostring(GRID_CELL_DEFAULT) })
+      self:setStampClickTarget(Settings.STAMP_CLICK_DEFAULT)
+      d:modify({ id = "stampClickTarget", option = targetLabels[Settings.STAMP_CLICK_DEFAULT] })
       ready = true
     end),
   })
