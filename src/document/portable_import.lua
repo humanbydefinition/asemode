@@ -568,7 +568,7 @@ function M.prepareImport(document, options, target)
           addPaletteColor(cell.foreground)
           addPaletteColor(cell.background)
           local fg, bg = rgba(cell.foreground), rgba(cell.background)
-          local orientation = g.cellWidth ~= g.cellHeight and flags or 0
+          local orientation = flags
           local key = U.key(cell.character, fg, bg, orientation)
           local index = font.byKey[key]
           if not index then
@@ -585,7 +585,7 @@ function M.prepareImport(document, options, target)
               orientation = orientation,
             }
           end
-          values[x] = app.pixelColor.tile(index, orientation ~= 0 and 0 or flags)
+          values[x] = app.pixelColor.tile(index, 0)
           if extent and (x > extent.columns or y > extent.rows) then
             hiddenCells = true
           end

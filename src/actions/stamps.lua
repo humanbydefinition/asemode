@@ -152,12 +152,9 @@ function M.apply(state, colors)
     app.fgTile = primary.value
     app.bgTile = secondary and secondary.value or state.bgTile
   end
-  local function orientStamp(stamp, fg, bg, flags, native)
+  local function orientStamp(stamp, fg, bg, flags)
     if not stamp then
       return nil
-    end
-    if native then
-      return pc.tile(stamp.index, flags)
     end
     return Profile.orientedTile(state.sprite, state.profileId, stamp.meta.glyphKey, fg, bg, flags)
   end
@@ -176,16 +173,13 @@ function M.apply(state, colors)
         publish()
       end)
     else
-      local geometry = Model.geometry(state.sprite)
-      local square = geometry.cellWidth == geometry.cellHeight
       local function orient()
         local function nextValue(stamp)
           return orientStamp(
             stamp,
             stamp.meta.foregroundRGBA,
             stamp.meta.backgroundRGBA,
-            transformed(stamp.flags, id),
-            square
+            transformed(stamp.flags, id)
           )
         end
         primary.value = nextValue(primary)
@@ -194,11 +188,7 @@ function M.apply(state, colors)
         end
         publish()
       end
-      if square then
-        orient()
-      else
-        app.transaction("Orient Asemode Stamps", orient)
-      end
+      app.transaction("Orient Asemode Stamps", orient)
     end
   end)
   if not ok then

@@ -186,6 +186,14 @@ return function(test)
     assert(not pcall(Snapshot.capture, sprite, { layer }, 1))
   end)
 
+  test("oriented tile variants pass validation on square and non-square fonts", function()
+    local sprite, layer, _, tile = fixture()
+    tile.meta.schemaVersion = 2
+    tile.meta.orientation = app.pixelColor.TILE_XFLIP
+    assert(#Validate.run(sprite, layer) == 0)
+    Validate.requireValid(sprite, layer)
+  end)
+
   -- Teardown: restore document modules and host environment
   package.loaded["src.document.validate"] = nil
   package.loaded["src.document.snapshot"] = nil

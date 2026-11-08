@@ -397,14 +397,11 @@ function M.new(options)
     local fgTile, bgTile, missingPrimary, missingSecondary
     self:withSuppression(function()
       local index = Profile.index(sprite, id)
-      local rectangular = index.profile.cellWidth ~= index.profile.cellHeight
-
       ---Check whether a stamp definition already exists in the font index.
       ---@param stamp table Stamp definition with glyph, fg, bg, and flags.
       ---@return boolean exists True if tile is registered in the font profile.
       local function exists(stamp)
-        local orientation = rectangular and stamp.flags or 0
-        local key = U.key(stamp.glyph, stamp.fg, stamp.bg, orientation)
+        local key = U.key(stamp.glyph, stamp.fg, stamp.bg, stamp.flags or 0)
         return index.variants and index.variants[key] ~= nil
       end
       local ready = (primary.empty or exists(primary)) and (not secondary or exists(secondary))

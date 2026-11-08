@@ -376,11 +376,7 @@ end
 ---@param flags integer Native orientation flags.
 ---@return integer tile Encoded native tile value.
 function M.orientedTile(sprite, id, glyph, fg, bg, flags)
-  local profile = M.index(sprite, id).profile
-  if profile.cellWidth ~= profile.cellHeight then
-    return pc.tile(M.variant(sprite, id, glyph, fg, bg, flags), 0)
-  end
-  return pc.tile(M.variant(sprite, id, glyph, fg, bg), flags)
+  return pc.tile(M.variant(sprite, id, glyph, fg, bg, flags), 0)
 end
 
 ---Read and validate metadata and transform flags from a native tile value.
