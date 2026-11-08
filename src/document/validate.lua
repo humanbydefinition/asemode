@@ -116,8 +116,10 @@ local function run(sprite, onlyLayer, options, context)
           local problem = cache and cache[i]
           if problem == nil then
             if
-              (meta.schemaVersion ~= 1 and not (role == "paint" and meta.schemaVersion == 2))
-              or not meta.glyphKey
+              (
+                meta.schemaVersion ~= 1
+                and not (role == "paint" and (meta.schemaVersion == 2 or meta.schemaVersion == 3))
+              ) or not meta.glyphKey
             then
               problem = "Missing glyph metadata"
             elseif
@@ -125,6 +127,14 @@ local function run(sprite, onlyLayer, options, context)
               and (not Transforms.validFlags(meta.orientation) or meta.orientation == 0)
             then
               problem = "Invalid tile orientation"
+            elseif
+              meta.schemaVersion == 3
+              and (
+                (meta.orientation and not Transforms.validFlags(meta.orientation))
+                or (meta.outline ~= "circle" and meta.outline ~= "square")
+              )
+            then
+              problem = "Invalid tile outline"
             elseif not pcall(Repertoire.scalar, meta.glyphKey) then
               problem = "Invalid glyph identity"
             elseif

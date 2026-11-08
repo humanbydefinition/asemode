@@ -180,9 +180,18 @@ end
 ---@param fg string Foreground color.
 ---@param bg string Background color.
 ---@param orientation? integer Optional orientation.
+---@param outline? string Optional outline mode.
 ---@return string key Composite key.
-function M.key(glyph, fg, bg, orientation)
-  return glyph .. "\0" .. fg .. bg .. (orientation ~= nil and (":" .. tostring(orientation)) or "")
+function M.key(glyph, fg, bg, orientation, outline)
+  local key = glyph
+    .. "\0"
+    .. fg
+    .. bg
+    .. (orientation ~= nil and (":" .. tostring(orientation)) or "")
+  if outline and outline ~= "none" then
+    key = key .. ":" .. outline
+  end
+  return key
 end
 
 ---Recursively copy tables and host JSON objects into Lua tables.

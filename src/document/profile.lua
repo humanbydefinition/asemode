@@ -65,16 +65,25 @@ end
 ---@param fg string Hexadecimal foreground color in #rrggbbaa format.
 ---@param bg string Hexadecimal background color in #rrggbbaa format.
 ---@param orientation? integer Native tile orientation flags.
----@param image Image Rendered tile image.
+---@param outline? string Outline mode ("circle", "square", or nil).
+---@param image? Image Rendered tile image.
 ---@return table metadata Metadata record for the paint tile.
-function M.paintMeta(id, glyph, fg, bg, orientation, image)
+function M.paintMeta(id, glyph, fg, bg, orientation, outline, image)
+  if image == nil and type(outline) == "userdata" then
+    image = outline
+    outline = nil
+  end
+  local hasOrientation = orientation and orientation ~= 0
+  local hasOutline = outline and outline ~= "none"
+  local schema = (hasOutline and 3) or (hasOrientation and 2) or 1
   return {
-    schemaVersion = orientation and orientation ~= 0 and 2 or 1,
+    schemaVersion = schema,
     fontProfileId = id,
     glyphKey = glyph,
     foregroundRGBA = fg,
     backgroundRGBA = bg,
     orientation = orientation,
+    outline = hasOutline and outline or nil,
     imageHash = U.hash(image.bytes),
   }
 end
@@ -143,7 +152,8 @@ function M.index(sprite, profileId)
               v.glyphKey,
               v.foregroundRGBA,
               v.backgroundRGBA,
-              v.orientation or 0
+              v.orientation or 0,
+              v.outline or "none"
             )] =
               i
           end
@@ -212,6 +222,7 @@ function M.install(sprite, job, allowClipping, variants)
           variant.foregroundRGBA,
           variant.backgroundRGBA,
           variant.orientation,
+          variant.outline,
           tile.image
         )
       )
@@ -225,20 +236,89 @@ end
 ---@param mask Image Glyph alpha mask.
 ---@param fg string Foreground RGBA color.
 ---@param bg string Background RGBA color.
+---@param outline? string|fun() Optional outline mode ("circle", "square") or checkpoint callback.
 ---@param checkpoint? fun() Cooperative callback invoked per row.
 ---@return Image image Colorized glyph image.
-function M.colorize(mask, fg, bg, checkpoint)
+function M.colorize(mask, fg, bg, outline, checkpoint)
+  if type(outline) == "function" and checkpoint == nil then
+    checkpoint = outline
+    outline = nil
+  end
   local fr, fgc, fb, fa = U.rgba(fg)
   local br, bgc, bb, ba = U.rgba(bg)
-  local image = Image(mask.width, mask.height, ColorMode.RGB)
-  for y = 0, image.height - 1 do
+  local w, h = mask.width, mask.height
+  local image = Image(w, h, ColorMode.RGB)
+  local isOutline = outline == "circle" or outline == "square"
+  local isSquare = outline == "square"
+  for y = 0, h - 1 do
     if checkpoint then
       checkpoint()
     end
-    for x = 0, image.width - 1 do
+    for x = 0, w - 1 do
       local coverage = pc.rgbaA(mask:getPixel(x, y)) / 255
       local alpha = coverage * fa / 255
-      local bgAlpha = ba / 255 * (1 - alpha)
+      local bgAlpha = 0
+      if not isOutline then
+        bgAlpha = ba / 255 * (1 - alpha)
+      else
+        if coverage < 1 then
+          local maxNeighbor = 0
+          if x > 0 then
+            local a = pc.rgbaA(mask:getPixel(x - 1, y))
+            if a > maxNeighbor then
+              maxNeighbor = a
+            end
+          end
+          if x < w - 1 then
+            local a = pc.rgbaA(mask:getPixel(x + 1, y))
+            if a > maxNeighbor then
+              maxNeighbor = a
+            end
+          end
+          if y > 0 then
+            local a = pc.rgbaA(mask:getPixel(x, y - 1))
+            if a > maxNeighbor then
+              maxNeighbor = a
+            end
+          end
+          if y < h - 1 then
+            local a = pc.rgbaA(mask:getPixel(x, y + 1))
+            if a > maxNeighbor then
+              maxNeighbor = a
+            end
+          end
+          if isSquare then
+            if x > 0 and y > 0 then
+              local a = pc.rgbaA(mask:getPixel(x - 1, y - 1))
+              if a > maxNeighbor then
+                maxNeighbor = a
+              end
+            end
+            if x < w - 1 and y > 0 then
+              local a = pc.rgbaA(mask:getPixel(x + 1, y - 1))
+              if a > maxNeighbor then
+                maxNeighbor = a
+              end
+            end
+            if x > 0 and y < h - 1 then
+              local a = pc.rgbaA(mask:getPixel(x - 1, y + 1))
+              if a > maxNeighbor then
+                maxNeighbor = a
+              end
+            end
+            if x < w - 1 and y < h - 1 then
+              local a = pc.rgbaA(mask:getPixel(x + 1, y + 1))
+              if a > maxNeighbor then
+                maxNeighbor = a
+              end
+            end
+          end
+          if maxNeighbor > 0 then
+            local outCov = (maxNeighbor / 255) * (1 - coverage)
+            bgAlpha = ba / 255 * outCov
+          end
+        end
+      end
       local outAlpha = alpha + bgAlpha
       ---Blend single color channel components with alpha coverage.
       ---@param f integer Foreground color channel value (0-255).
@@ -304,9 +384,11 @@ end
 ---@param fg string Foreground RGBA color.
 ---@param bg string Background RGBA color.
 ---@param orientation? integer Baked transform flags.
+---@param outline? string Outline mode ("circle", "square", or nil).
 ---@return integer index Paint tile index.
-function M.variant(sprite, id, glyph, fg, bg, orientation)
+function M.variant(sprite, id, glyph, fg, bg, orientation, outline)
   orientation = orientation or 0
+  local outlineMode = (outline and outline ~= "none") and outline or "none"
   local index = M.index(sprite, id)
   Repertoire.scalar(glyph)
   local source = index.glyphs[glyph]
@@ -314,19 +396,19 @@ function M.variant(sprite, id, glyph, fg, bg, orientation)
     local result
     app.transaction("Prepare Asemode Stamp", function()
       M.ensureCharacters(sprite, id, { glyph })
-      result = M.variant(sprite, id, glyph, fg, bg, orientation)
+      result = M.variant(sprite, id, glyph, fg, bg, orientation, outline)
     end)
     return result
   end
   if Base.meta(source.tile).glyphKey ~= glyph then
     M.invalidate()
-    return M.variant(sprite, id, glyph, fg, bg, orientation)
+    return M.variant(sprite, id, glyph, fg, bg, orientation, outline)
   end
   U.check(
     source.meta.imageHash == U.hash(source.tile.image.bytes),
     "Canonical glyph was edited. Restore the font before creating variants."
   )
-  local key = U.key(glyph, fg, bg, orientation)
+  local key = U.key(glyph, fg, bg, orientation, outlineMode)
   if index.variants[key] then
     local candidate = index.paint:tile(index.variants[key])
     local meta = candidate and Base.meta(candidate)
@@ -336,9 +418,10 @@ function M.variant(sprite, id, glyph, fg, bg, orientation)
       or meta.foregroundRGBA ~= fg
       or meta.backgroundRGBA ~= bg
       or (meta.orientation or 0) ~= orientation
+      or (meta.outline or "none") ~= outlineMode
     then
       M.invalidate()
-      return M.variant(sprite, id, glyph, fg, bg, orientation)
+      return M.variant(sprite, id, glyph, fg, bg, orientation, outline)
     end
     U.check(
       meta.imageHash == U.hash(candidate.image.bytes),
@@ -352,14 +435,22 @@ function M.variant(sprite, id, glyph, fg, bg, orientation)
   U.check(bytesOk, "Paint tiles exceed 128 MiB; use a smaller cell size or fewer colors")
   local mask = orientation ~= 0 and Transforms.renderMask(source.tile.image, orientation)
     or source.tile.image
-  local image = M.colorize(mask, fg, bg)
+  local image = M.colorize(mask, fg, bg, outlineMode ~= "none" and outlineMode or nil)
   local tile
   app.transaction("Prepare Asemode Stamp", function()
     tile = sprite:newTile(index.paint)
     tile.image = image
     Base.setMeta(
       tile,
-      M.paintMeta(id, glyph, fg, bg, orientation ~= 0 and orientation or nil, tile.image)
+      M.paintMeta(
+        id,
+        glyph,
+        fg,
+        bg,
+        orientation ~= 0 and orientation or nil,
+        outlineMode ~= "none" and outlineMode or nil,
+        tile.image
+      )
     )
   end)
   -- A sprite change event may have invalidated the module cache during the transaction.
@@ -374,9 +465,10 @@ end
 ---@param fg string Foreground RGBA color.
 ---@param bg string Background RGBA color.
 ---@param flags integer Native orientation flags.
+---@param outline? string Outline mode ("circle", "square", or nil).
 ---@return integer tile Encoded native tile value.
-function M.orientedTile(sprite, id, glyph, fg, bg, flags)
-  return pc.tile(M.variant(sprite, id, glyph, fg, bg, flags), 0)
+function M.orientedTile(sprite, id, glyph, fg, bg, flags, outline)
+  return pc.tile(M.variant(sprite, id, glyph, fg, bg, flags, outline), 0)
 end
 
 ---Read and validate metadata and transform flags from a native tile value.
@@ -393,19 +485,18 @@ function M.decode(layer, value)
   U.check(tile, "Tile reference is out of range")
   local meta = Base.meta(tile)
   U.check(
-    (meta.schemaVersion == 1 or meta.schemaVersion == 2)
+    (meta.schemaVersion == 1 or meta.schemaVersion == 2 or meta.schemaVersion == 3)
       and meta.glyphKey
       and meta.foregroundRGBA
       and meta.backgroundRGBA,
     "Unknown tile " .. ti .. ". Try undoing recent edits or restoring an earlier .aseprite file."
   )
-  if meta.schemaVersion == 2 then
-    U.check(
-      Transforms.validFlags(meta.orientation) and meta.orientation ~= 0,
-      "Invalid tile orientation"
-    )
-    U.check(flags & pc.TILE_DFLIP == 0, "Diagonal native flags are unsupported on oriented tiles")
-    flags = meta.orientation ~ flags
+  if meta.schemaVersion == 2 or meta.schemaVersion == 3 then
+    if meta.orientation and meta.orientation ~= 0 then
+      U.check(Transforms.validFlags(meta.orientation), "Invalid tile orientation")
+      U.check(flags & pc.TILE_DFLIP == 0, "Diagonal native flags are unsupported on oriented tiles")
+      flags = meta.orientation ~ flags
+    end
   end
   return meta, flags
 end
