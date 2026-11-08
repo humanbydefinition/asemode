@@ -441,6 +441,7 @@ return function(test)
     app.layer = layer
     drawing:tick(true)
     assert(app.site.tilemapMode == 1 and app.site.tilesetMode == 0)
+    assert(prefs.grid.snap == false and prefs.show.grid == false)
     app.layer = regular
     app.site.tilemapMode, app.site.tilesetMode = 0, 0
     drawing:tick(true)
