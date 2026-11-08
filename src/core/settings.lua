@@ -1,5 +1,10 @@
 local U = require("src.core.util")
-local M = { GRID_CELL_SIZES = { 12, 20, 28, 36 }, GRID_CELL_DEFAULT = 20 }
+local M = {
+  GRID_CELL_SIZES = { 12, 20, 28, 36 },
+  GRID_CELL_DEFAULT = 20,
+  STAMP_CLICK_TARGETS = { "primary", "both" },
+  STAMP_CLICK_DEFAULT = "primary",
+}
 
 ---Check whether a value is an integer dimension in the range 1 to 1024.
 ---@param value any Value to validate.
@@ -170,6 +175,7 @@ end
 function M.reset(preferences)
   preferences.newSpriteDefaults = M.defaults()
   preferences.glyphGridSize = M.GRID_CELL_DEFAULT
+  preferences.stampClickTarget = M.STAMP_CLICK_DEFAULT
 end
 
 ---Validate and save all new-sprite defaults.
