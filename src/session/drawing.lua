@@ -259,11 +259,13 @@ function M.new(options)
       return
     end
     self:ensureActive()
-    if button ~= MouseButton.RIGHT then
-      state.glyph, state.flags = key, 0
+    if button == MouseButton.RIGHT then
+      self:prepare(MouseButton.RIGHT, key, state.bgFlags or 0)
+    else
+      state.glyph = key
       changed()
+      self:prepare(MouseButton.LEFT, key, state.flags or 0)
     end
-    self:prepare(button == MouseButton.RIGHT and button or MouseButton.LEFT, key, 0)
   end
 
   ---Check whether a stamp action applies to the current target.
