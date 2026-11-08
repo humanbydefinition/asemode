@@ -148,6 +148,29 @@ function M.new(plugin, options)
     return size
   end
 
+  ---Get the configured stamp action click target.
+  ---@return string target "primary" or "both"
+  function self:getStampClickTarget()
+    local target = self.plugin.preferences.stampClickTarget
+    if target == "both" then
+      return "both"
+    end
+    return Settings.STAMP_CLICK_DEFAULT
+  end
+
+  ---Set the stamp action click target and persist it in plugin preferences.
+  ---@param target string "primary" or "both"
+  ---@return string target Applied target
+  function self:setStampClickTarget(target)
+    local applied = target == "both" and "both" or Settings.STAMP_CLICK_DEFAULT
+    self.plugin.preferences.stampClickTarget = applied
+    self.dirty = true
+    if self.panel then
+      self.panel:repaint()
+    end
+    return applied
+  end
+
   ---Open the Asemode settings dialog.
   function self:settings()
     return SettingsDialog.open(self)
@@ -582,7 +605,11 @@ function M.new(plugin, options)
           end
           if index and index == pressed then
             self:guard(function()
-              self.drawing:runAction(iconActions[index].id, button)
+              local target = button
+              if button == MouseButton.LEFT and self:getStampClickTarget() == "both" then
+                target = "both"
+              end
+              self.drawing:runAction(iconActions[index].id, target)
             end)()
           end
         end,
