@@ -32,6 +32,8 @@ function M.new(options)
     bg = "#000000ff",
     flags = 0,
     bgFlags = 0,
+    outline = "none",
+    bgOutline = "none",
     secondaryFg = "#ffffffff",
     secondaryBg = "#000000ff",
     suppressionDepth = 0,
@@ -83,6 +85,8 @@ function M.new(options)
       bg = state.bg,
       flags = state.flags,
       bgFlags = state.bgFlags,
+      outline = state.outline or "none",
+      bgOutline = state.bgOutline or "none",
       missingPrimary = state.primaryError or false,
       missingSecondary = state.secondaryError or false,
       invalidSaved = state.invalidSaved or false,
@@ -200,12 +204,21 @@ function M.new(options)
     local id = Model.meta(layer).fontProfileId
     glyph, flags, button =
       glyph or state.glyph, flags == nil and state.flags or flags, button or MouseButton.LEFT
+    local activeOutline = (button == MouseButton.RIGHT) and state.bgOutline or state.outline
     local ok, err = pcall(function()
       self:withSuppression(function()
         if not options.panelOpen or options.panelOpen() then
           self:enter()
         end
-        local tile = Profile.orientedTile(sprite, id, glyph, state.fg, state.bg, flags)
+        local tile = Profile.orientedTile(
+          sprite,
+          id,
+          glyph,
+          state.fg,
+          state.bg,
+          flags,
+          activeOutline ~= "none" and activeOutline or nil
+        )
         if button == MouseButton.RIGHT then
           setNativeTile("bgTile", tile)
           state.bgGlyph, state.bgFlags, state.lastBgTile = glyph, flags, app.bgTile
@@ -249,6 +262,35 @@ function M.new(options)
     if state.pendingColors == pending then
       state.pendingColors = nil
     end
+  end
+
+  ---Set the outline mode for the primary, secondary, or both stamps.
+  ---@param mode string Outline mode ("none", "circle", "square").
+  ---@param target? integer|string Target: MouseButton.LEFT, MouseButton.RIGHT, "secondary", "both".
+  function session:setOutline(mode, target)
+    if self:isBusy() then
+      return
+    end
+    self:ensureActive()
+    mode = (mode == "circle" or mode == "square") and mode or "none"
+    local secondaryOnly = target == "secondary" or (MouseButton and target == MouseButton.RIGHT)
+    local both = target == "both"
+    if secondaryOnly then
+      state.bgOutline = mode
+      if state.bgGlyph then
+        self:prepare(MouseButton.RIGHT, state.bgGlyph, state.bgFlags)
+      end
+    elseif both then
+      state.outline = mode
+      state.bgOutline = mode
+      self:prepareBoth()
+    else
+      state.outline = mode
+      if not state.primaryEmpty then
+        self:prepare(MouseButton.LEFT, state.glyph, state.flags)
+      end
+    end
+    changed()
   end
 
   ---Select and prepare a glyph for the requested mouse button.
@@ -307,6 +349,7 @@ function M.new(options)
     state.lastLayer = result.layer
     state.glyph, state.flags, state.lastTile =
       result.primary.meta.glyphKey, result.primary.flags, result.fgTile
+    state.outline = result.primary.meta.outline or "none"
     state.primaryEmpty = false
     state.bgGlyph = result.secondary and result.secondary.meta.glyphKey or nil
     state.bgFlags, state.lastBgTile =
@@ -314,6 +357,7 @@ function M.new(options)
     if result.secondary then
       state.secondaryFg = result.secondary.meta.foregroundRGBA
       state.secondaryBg = result.secondary.meta.backgroundRGBA
+      state.bgOutline = result.secondary.meta.outline or "none"
     end
     local secondaryOnly = target == "secondary" or (MouseButton and target == MouseButton.RIGHT)
     if id == "swapColors" then
@@ -342,6 +386,7 @@ function M.new(options)
         fg = state.fg,
         bg = state.bg,
         flags = state.flags,
+        outline = state.outline ~= "none" and state.outline or nil,
         empty = state.primaryEmpty and true or nil,
       },
       secondary = state.bgGlyph and {
@@ -349,6 +394,7 @@ function M.new(options)
         fg = state.secondaryFg,
         bg = state.secondaryBg,
         flags = state.bgFlags,
+        outline = state.bgOutline ~= "none" and state.bgOutline or nil,
       } or nil,
     }
   end
@@ -409,7 +455,8 @@ function M.new(options)
       ---@param stamp table Stamp definition with glyph, fg, bg, and flags.
       ---@return boolean exists True if tile is registered in the font profile.
       local function exists(stamp)
-        local key = U.key(stamp.glyph, stamp.fg, stamp.bg, stamp.flags or 0)
+        local key =
+          U.key(stamp.glyph, stamp.fg, stamp.bg, stamp.flags or 0, stamp.outline or "none")
         return index.variants and index.variants[key] ~= nil
       end
       local ready = (primary.empty or exists(primary)) and (not secondary or exists(secondary))
@@ -417,7 +464,15 @@ function M.new(options)
       ---Resolve native tiles for both primary and secondary stamps.
       local function prepare()
         fgTile = primary.empty and 0
-          or Profile.orientedTile(sprite, id, primary.glyph, primary.fg, primary.bg, primary.flags)
+          or Profile.orientedTile(
+            sprite,
+            id,
+            primary.glyph,
+            primary.fg,
+            primary.bg,
+            primary.flags,
+            primary.outline
+          )
         bgTile = secondary
             and Profile.orientedTile(
               sprite,
@@ -425,7 +480,8 @@ function M.new(options)
               secondary.glyph,
               secondary.fg,
               secondary.bg,
-              secondary.flags
+              secondary.flags,
+              secondary.outline
             )
           or 0
       end
@@ -442,7 +498,8 @@ function M.new(options)
               primary.glyph,
               primary.fg,
               primary.bg,
-              primary.flags
+              primary.flags,
+              primary.outline
             )
           or 0
         bgTile = secondary
@@ -453,7 +510,8 @@ function M.new(options)
               secondary.glyph,
               secondary.fg,
               secondary.bg,
-              secondary.flags
+              secondary.flags,
+              secondary.outline
             )
           or 0
         print("[Asemode] A saved stamp is unavailable; select it again to recreate it.")
@@ -464,9 +522,11 @@ function M.new(options)
     end)
     state.glyph, state.fg, state.bg, state.flags =
       primary.glyph, primary.fg, primary.bg, primary.flags
+    state.outline = primary.outline or "none"
     state.primaryEmpty = primary.empty or false
     state.bgGlyph, state.bgFlags =
       secondary and secondary.glyph or nil, secondary and secondary.flags or 0
+    state.bgOutline = secondary and secondary.outline or "none"
     state.secondaryFg = secondary and secondary.fg or primary.fg
     state.secondaryBg = secondary and secondary.bg or primary.bg
     state.ownerSprite, state.lastLayer = sprite, layer
@@ -502,6 +562,7 @@ function M.new(options)
         state.invalidSaved = nil
         state.primaryEmpty = false
         state.glyph, state.flags = meta.glyphKey, flags
+        state.outline = meta.outline or "none"
         if not state.pendingColors then
           state.fg, state.bg = meta.foregroundRGBA, meta.backgroundRGBA
           self:withSuppression(function()
@@ -516,6 +577,7 @@ function M.new(options)
         state.invalidSaved = nil
         state.primaryEmpty = true
         state.flags = 0
+        state.outline = "none"
       end
       state.lastTile = tile
       changed()
@@ -531,6 +593,7 @@ function M.new(options)
         state.invalidSaved = nil
         state.bgGlyph = meta and meta.glyphKey or nil
         state.bgFlags = flags or 0
+        state.bgOutline = meta and meta.outline or "none"
         if meta then
           state.secondaryFg, state.secondaryBg = meta.foregroundRGBA, meta.backgroundRGBA
         end

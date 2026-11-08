@@ -32,6 +32,7 @@ local function validStamp(stamp)
     and stamp.flags >= 0
     and stamp.flags & ~(pc.TILE_XFLIP | pc.TILE_YFLIP | pc.TILE_DFLIP) == 0
     and (stamp.empty == nil or type(stamp.empty) == "boolean")
+    and (stamp.outline == nil or stamp.outline == "circle" or stamp.outline == "square")
 end
 
 ---Validate and serialize primary and optional secondary stamp state.
@@ -117,7 +118,15 @@ function M.reconcileLayer(sprite, layer, profileId)
   local ProfileImpl = currentProfile()
   for _, stamp in ipairs({ saved.primary, saved.secondary }) do
     if not stamp.empty then
-      ProfileImpl.orientedTile(sprite, profileId, stamp.glyph, stamp.fg, stamp.bg, stamp.flags)
+      ProfileImpl.orientedTile(
+        sprite,
+        profileId,
+        stamp.glyph,
+        stamp.fg,
+        stamp.bg,
+        stamp.flags,
+        stamp.outline
+      )
     end
   end
 end

@@ -40,6 +40,11 @@ local M = {
       command = "AsemodeResetOrientation",
       title = "Reset Orientation",
     },
+    {
+      id = "toggleOutline",
+      command = "AsemodeToggleOutline",
+      title = "Toggle Glyph Outline",
+    },
   },
   TARGETS = {
     {
@@ -192,11 +197,28 @@ function M.apply(state, colors, targetButton)
     app.fgTile = primary.value
     app.bgTile = secondary and secondary.value or state.bgTile
   end
-  local function orientStamp(stamp, fg, bg, flags)
+  local function nextOutline(outline)
+    if outline == "circle" then
+      return "square"
+    elseif outline == "square" then
+      return "none"
+    else
+      return "circle"
+    end
+  end
+  local function orientStamp(stamp, fg, bg, flags, outline)
     if not stamp then
       return nil
     end
-    return Profile.orientedTile(state.sprite, state.profileId, stamp.meta.glyphKey, fg, bg, flags)
+    return Profile.orientedTile(
+      state.sprite,
+      state.profileId,
+      stamp.meta.glyphKey,
+      fg,
+      bg,
+      flags,
+      outline ~= nil and outline or stamp.meta.outline
+    )
   end
   local ok, err = pcall(function()
     if id == "swapColors" then
@@ -227,6 +249,39 @@ function M.apply(state, colors, targetButton)
           publish()
         end)
       end
+    elseif id == "toggleOutline" then
+      local function toggle()
+        local function nextValue(stamp)
+          local nextMode = nextOutline(stamp.meta.outline)
+          return orientStamp(
+            stamp,
+            stamp.meta.foregroundRGBA,
+            stamp.meta.backgroundRGBA,
+            stamp.flags,
+            nextMode
+          )
+        end
+        if secondaryOnly then
+          secondary.value = nextValue(secondary)
+        elseif both then
+          primary.value = nextValue(primary)
+          if secondary then
+            secondary.value = nextValue(secondary)
+          end
+        else
+          primary.value = nextValue(primary)
+        end
+        publish()
+      end
+      local txName
+      if secondaryOnly then
+        txName = "Toggle Asemode Secondary Stamp Outline"
+      elseif both then
+        txName = "Toggle Asemode Stamp Outlines"
+      else
+        txName = "Toggle Asemode Primary Stamp Outline"
+      end
+      app.transaction(txName, toggle)
     else
       local function orient()
         local function nextValue(stamp)
