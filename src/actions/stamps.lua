@@ -105,8 +105,9 @@ end
 ---Read the live stamp selection without changing resources or UI state.
 ---@param id string Stamp action identifier.
 ---@param busy boolean Whether another Asemode operation is active.
+---@param target? integer|string Optional target: MouseButton.LEFT, MouseButton.RIGHT, "secondary", "both".
 ---@return AsemodeStampSnapshot snapshot Captured host state; validate it before applying.
-function M.read(id, busy)
+function M.read(id, busy, target)
   local action = byId[id]
   U.check(action, "Unknown Asemode stamp action: " .. tostring(id))
   U.check(not busy, "Finish the current Asemode operation first")
@@ -115,6 +116,7 @@ function M.read(id, busy)
   local profileId = Model.editable(sprite, layer)
   local fgTile, bgTile = app.fgTile, app.bgTile
   local index = Profile.index(sprite, profileId)
+  local secondaryOnly = target == "secondary" or (MouseButton and target == MouseButton.RIGHT)
   return {
     action = action,
     sprite = sprite,
@@ -122,7 +124,7 @@ function M.read(id, busy)
     profileId = profileId,
     fgTile = fgTile,
     bgTile = bgTile,
-    primary = stamp(layer, fgTile, index, false),
+    primary = stamp(layer, fgTile, index, secondaryOnly),
     secondary = stamp(layer, bgTile, index, true),
   }
 end
@@ -133,13 +135,16 @@ end
 ---@param target? integer|string Optional target: MouseButton.LEFT, MouseButton.RIGHT, "secondary", "both".
 ---@return boolean allowed Whether the action can run.
 function M.canExecute(id, busy, target)
-  local ok, captured = pcall(M.read, id, busy)
+  local ok, captured = pcall(M.read, id, busy, target)
   if not ok then
     return false
   end
   local secondaryOnly = target == "secondary" or (MouseButton and target == MouseButton.RIGHT)
   local both = target == "both"
   if (secondaryOnly or both) and not captured.secondary then
+    return false
+  end
+  if not secondaryOnly and not captured.primary then
     return false
   end
   return true
@@ -171,7 +176,7 @@ end
 ---@param targetButton? integer|string Optional target: MouseButton.LEFT, MouseButton.RIGHT, "secondary", "both".
 ---@return AsemodeStampSnapshot snapshot Updated live stamp state.
 function M.apply(state, colors, targetButton)
-  local live = M.read(state.action.id, false)
+  local live = M.read(state.action.id, false, targetButton)
   U.check(
     live.sprite == state.sprite
       and live.layer == state.layer
@@ -188,8 +193,11 @@ function M.apply(state, colors, targetButton)
   if secondaryOnly or both then
     U.check(secondary ~= nil, "Select a secondary stamp first")
   end
+  if not secondaryOnly then
+    U.check(primary ~= nil, "Select a primary Asemode stamp first")
+  end
   local function publish()
-    app.fgTile = primary.value
+    app.fgTile = primary and primary.value or state.fgTile
     app.bgTile = secondary and secondary.value or state.bgTile
   end
   local function orientStamp(stamp, fg, bg, flags)
@@ -200,33 +208,58 @@ function M.apply(state, colors, targetButton)
   end
   local ok, err = pcall(function()
     if id == "swapColors" then
-      if secondaryOnly then
-        app.transaction("Swap Asemode Secondary Stamp Colors", function()
-          local sfg, sbg = secondary.meta.foregroundRGBA, secondary.meta.backgroundRGBA
-          secondary.value = orientStamp(secondary, sbg, sfg, secondary.flags)
-          publish()
-        end)
-      elseif both then
-        local fg = colors and colors.foregroundRGBA or primary.meta.foregroundRGBA
-        local bg = colors and colors.backgroundRGBA or primary.meta.backgroundRGBA
-        app.transaction("Swap Asemode Ink and Cell Colors", function()
-          primary.value = orientStamp(primary, bg, fg, primary.flags)
-          app.fgColor, app.bgColor = U.color(bg), U.color(fg)
-          if secondary then
-            local sfg, sbg = secondary.meta.foregroundRGBA, secondary.meta.backgroundRGBA
-            secondary.value = orientStamp(secondary, sbg, sfg, secondary.flags)
-          end
-          publish()
-        end)
-      else
-        local fg = colors and colors.foregroundRGBA or primary.meta.foregroundRGBA
-        local bg = colors and colors.backgroundRGBA or primary.meta.backgroundRGBA
-        app.transaction("Swap Asemode Ink and Cell Colors", function()
-          primary.value = orientStamp(primary, bg, fg, primary.flags)
-          app.fgColor, app.bgColor = U.color(bg), U.color(fg)
-          publish()
-        end)
+      -- Pending colors (`colors`) apply to both stamps, as the debounced color
+      -- commit would. Resolve them first so the swap does not discard them for
+      -- the stamp that is not swapped. Without pending colors, each stamp keeps
+      -- its own colors.
+      ---Read the colors a stamp swaps from.
+      ---@param target table Decoded stamp record.
+      ---@return string fg Foreground RGBA color.
+      ---@return string bg Background RGBA color.
+      local function current(target)
+        if colors then
+          return colors.foregroundRGBA, colors.backgroundRGBA
+        end
+        return target.meta.foregroundRGBA, target.meta.backgroundRGBA
       end
+      ---Swap the ink and cell colors of a stamp.
+      ---@param target table Decoded stamp record.
+      ---@return string fg New foreground RGBA color.
+      ---@return string bg New background RGBA color.
+      local function swap(target)
+        local fg, bg = current(target)
+        target.value = orientStamp(target, bg, fg, target.flags)
+        return bg, fg
+      end
+      ---Apply pending colors to a stamp that is not swapped.
+      ---@param target table? Decoded stamp record.
+      local function recolor(target)
+        if target and colors then
+          target.value =
+            orientStamp(target, colors.foregroundRGBA, colors.backgroundRGBA, target.flags)
+        end
+      end
+      local txName = secondaryOnly and "Swap Asemode Secondary Stamp Colors"
+        or "Swap Asemode Ink and Cell Colors"
+      app.transaction(txName, function()
+        if secondaryOnly then
+          swap(secondary)
+          recolor(primary)
+          if colors then
+            app.fgColor = U.color(colors.foregroundRGBA)
+            app.bgColor = U.color(colors.backgroundRGBA)
+          end
+        else
+          local fg, bg = swap(primary)
+          if both then
+            swap(secondary)
+          else
+            recolor(secondary)
+          end
+          app.fgColor, app.bgColor = U.color(fg), U.color(bg)
+        end
+        publish()
+      end)
     else
       local function orient()
         local function nextValue(stamp)
@@ -263,12 +296,12 @@ function M.apply(state, colors, targetButton)
   if not ok then
     Profile.invalidate()
     app.fgTile, app.bgTile = state.fgTile, state.bgTile
-    if id == "swapColors" and not secondaryOnly then
+    if id == "swapColors" then
       app.fgColor, app.bgColor = oldFgColor, oldBgColor
     end
     error(err, 0)
   end
-  return M.read(id, false)
+  return M.read(id, false, targetButton)
 end
 
 return M
