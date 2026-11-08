@@ -16,9 +16,6 @@ function M.install(session, state)
       if preferences.grid.snap == false then
         preferences.grid.snap = saved.snap
       end
-      if preferences.show.grid == true then
-        preferences.show.grid = saved.showGrid
-      end
     end
     state.pendingHostContext = saved
     self:restoreHostModes()
@@ -56,12 +53,11 @@ function M.install(session, state)
       state.nativeDrawingContext = {
         sprite = sprite,
         snap = preferences.grid.snap,
-        showGrid = preferences.show.grid,
         tilemapMode = app.site.tilemapMode,
         tilesetMode = app.site.tilesetMode,
       }
     end
-    preferences.grid.snap, preferences.show.grid = false, true
+    preferences.grid.snap = false
     app.command.TilesetMode({ mode = "manual" })
     if app.site.tilemapMode ~= TilemapMode.TILES then
       app.command.ToggleTilesMode()
