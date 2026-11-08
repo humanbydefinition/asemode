@@ -14,17 +14,51 @@ function init(plugin)
   local Stamps = require("src.actions.stamps")
   controller = Controller.new(plugin)
   plugin:newMenuGroup({ id = "asemode_menu", title = "Asemode", group = "sprite_properties" })
-  local stampCommands = {}
-  for _, action in ipairs(Stamps.definitions) do
-    stampCommands[#stampCommands + 1] = {
-      action.command,
-      action.title,
-      function()
-        controller.drawing:runAction(action.id)
-      end,
-      function()
-        return controller.drawing:canRunAction(action.id)
-      end,
+  local stampGroups = {}
+  local targets = Stamps.TARGETS
+    or {
+      {
+        id = "primary",
+        groupId = "asemode_stamps_primary",
+        title = "Primary",
+        target = "primary",
+      },
+      {
+        id = "secondary",
+        groupId = "asemode_stamps_secondary",
+        title = "Secondary",
+        target = "secondary",
+      },
+      { id = "both", groupId = "asemode_stamps_both", title = "Both", target = "both" },
+    }
+  for _, target in ipairs(targets) do
+    local groupCommands = {}
+    for _, action in ipairs(Stamps.definitions) do
+      local commandId = action.command
+      if target.id == "secondary" then
+        commandId = action.command:match("^Asemode")
+            and action.command:gsub("^Asemode", "AsemodeSecondary")
+          or ("Secondary" .. action.command)
+      elseif target.id == "both" then
+        commandId = action.command:match("^Asemode")
+            and action.command:gsub("^Asemode", "AsemodeBoth")
+          or ("Both" .. action.command)
+      end
+      groupCommands[#groupCommands + 1] = {
+        commandId,
+        action.title,
+        function()
+          controller.drawing:runAction(action.id, target.target)
+        end,
+        function()
+          return controller.drawing:canRunAction(action.id, target.target)
+        end,
+      }
+    end
+    stampGroups[#stampGroups + 1] = {
+      groupId = target.groupId,
+      title = target.title,
+      entries = groupCommands,
     }
   end
   local commands = {
@@ -59,7 +93,7 @@ function init(plugin)
         return Model.eligible(app.sprite)
       end,
     },
-    { groupId = "asemode_stamps", title = "Stamps", entries = stampCommands },
+    { groupId = "asemode_stamps", title = "Stamps", entries = stampGroups },
     {
       groupId = "asemode_selection",
       title = "Selection",
