@@ -2,7 +2,7 @@
 	"name": "asemode",
 	"displayName": "Asemode",
 	"description": "Native character-cell drawing, TrueType fonts, and portable textmode tilemaps for Aseprite.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "textmode.art",
 	"license": "MIT",
 	"engines": {
