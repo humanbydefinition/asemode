@@ -853,6 +853,18 @@ return function(test)
       assert(drawing:canRunAction("flipHorizontal", MouseButton.LEFT) == true)
       assert(drawing:canRunAction("flipHorizontal", MouseButton.RIGHT) == true)
       assert(drawing:canRunAction("flipHorizontal", "both") == true)
+
+      -- Verify controller stamp click target preferences
+      local Controller = require("src.ui.controller")
+      local prefs = {}
+      local c = Controller.new({ preferences = prefs })
+      assert(c:getStampClickTarget() == "primary")
+      c:setStampClickTarget("both")
+      assert(prefs.stampClickTarget == "both")
+      assert(c:getStampClickTarget() == "both")
+      c:setStampClickTarget("primary")
+      assert(prefs.stampClickTarget == "primary")
+      assert(c:getStampClickTarget() == "primary")
     end
   )
 

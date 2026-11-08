@@ -401,6 +401,7 @@ test("new sprite defaults validate and resolve stable font identity", function()
     prefs.newSpriteDefaults.fontId == "atascii"
       and prefs.newSpriteDefaults.backgroundColor == "#ffffff00"
       and prefs.glyphGridSize == 20
+      and prefs.stampClickTarget == "primary"
   )
   prefs.newSpriteDefaults.columns = 0 / 0
   prefs.newSpriteDefaults.backgroundColor = "bad"
