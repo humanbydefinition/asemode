@@ -12,6 +12,7 @@ return function(test)
     "src.ui.font_workflow",
     "src.session.drawing",
     "src.session.native_operations",
+    "src.actions.stamps",
     "src.document.stamp_state",
   }
   for _, name in ipairs(modules) do
@@ -35,7 +36,17 @@ return function(test)
     layer = layer,
     fgTile = 99,
     bgTile = 98,
-    pixelColor = { TILE_XFLIP = 0x10000000, TILE_YFLIP = 0x20000000, TILE_DFLIP = 0x40000000 },
+    pixelColor = {
+      TILE_XFLIP = 0x10000000,
+      TILE_YFLIP = 0x20000000,
+      TILE_DFLIP = 0x40000000,
+      tileI = function(value)
+        return value & 0xffff
+      end,
+      tileF = function(value)
+        return value & 0x70000000
+      end,
+    },
     isUIAvailable = false,
     site = { tilemapMode = 1 },
     preferences = {
@@ -92,6 +103,7 @@ return function(test)
     invalidate = function() end,
     index = function()
       return {
+        id = "old",
         profile = { pixelSize = 8 },
         glyphs = { ["0"] = { meta = {} }, ["1"] = { meta = {} } },
         variants = {
@@ -103,17 +115,21 @@ return function(test)
     install = function()
       return "new"
     end,
-    orientedTile = function(_, _, glyph)
-      return glyph == "0" and 10 or 11
+    orientedTile = function(_, _, glyph, _, _, flags)
+      return (glyph == "0" and 10 or 11) | (flags or 0)
     end,
     decode = function(_, tile)
-      assert(tile == 10 or tile == 11, "old tile is outside the new tileset")
+      local ti = tile & 0xffff
+      local flags = tile & 0x70000000
+      assert(ti == 10 or ti == 11, "old tile is outside the new tileset")
       return {
-        glyphKey = tile == 10 and "0" or "1",
+        fontProfileId = "old",
+        glyphKey = ti == 10 and "0" or "1",
+        imageHash = "12345678",
         foregroundRGBA = "#ffffffff",
         backgroundRGBA = "#000000ff",
       },
-        0
+        flags
     end,
   }
   function model.hasMarkedLayers(value)
@@ -156,6 +172,7 @@ return function(test)
   package.loaded["src.session.native_operations"] = nil
   package.loaded["src.document.rotate"] = nil
   package.loaded["src.document.flatten"] = nil
+  package.loaded["src.actions.stamps"] = nil
   package.loaded["src.document.stamp_state"] = nil
   package.loaded["src.ui.font_workflow"] = nil
   local drawing = require("src.session.drawing").new({
@@ -727,7 +744,7 @@ return function(test)
   end)
 
   test(
-    "selecting a new glyph preserves existing orientation flags for primary and secondary stamps",
+    "selecting a new glyph preserves primary orientation and aligns secondary stamp with grid display",
     function()
       local xflip = app.pixelColor.TILE_XFLIP
       local yflip = app.pixelColor.TILE_YFLIP
@@ -760,23 +777,81 @@ return function(test)
       )
 
       recordedFlags = {}
+      -- Selecting secondary glyph in the Asemode panel adopts the displayed grid flags (state.flags)
       drawing:selectGlyph(MouseButton.RIGHT, "0")
       local afterSecondary = drawing:snapshot()
       assert(afterSecondary.bgGlyph == "0", "secondary glyph was not updated")
       assert(
-        afterSecondary.bgFlags == yflip,
-        "secondary orientation flags were reset on glyph selection"
+        afterSecondary.bgFlags == xflip,
+        "secondary orientation flags did not adopt displayed primary flags"
       )
       assert(
         afterSecondary.flags == xflip,
         "primary flags were altered on secondary glyph selection"
       )
       assert(
-        #recordedFlags == 1 and recordedFlags[1].glyph == "0" and recordedFlags[1].flags == yflip,
-        "orientedTile did not receive preserved secondary flags"
+        #recordedFlags == 1 and recordedFlags[1].glyph == "0" and recordedFlags[1].flags == xflip,
+        "orientedTile did not receive adopted displayed grid flags"
       )
 
       profile.orientedTile = oldOrientedTile
+    end
+  )
+
+  test(
+    "stamp action transforms can target the secondary stamp exclusively via right-click",
+    function()
+      local Stamps = require("src.actions.stamps")
+      local xflip = app.pixelColor.TILE_XFLIP
+
+      drawing:setImportedStamps("0", "1")
+      drawing:prepare(MouseButton.LEFT, "0", 0)
+      drawing:prepare(MouseButton.RIGHT, "1", 0)
+
+      -- Verify right-clicking flipHorizontal transforms only secondary stamp
+      local captured = Stamps.read("flipHorizontal", false)
+      local result = Stamps.apply(captured, nil, MouseButton.RIGHT)
+      assert(result.primary.flags == 0, "primary stamp flags were altered by right-click action")
+      assert(
+        result.secondary.flags == xflip,
+        "secondary stamp flags were not flipped by right-click action"
+      )
+
+      -- Verify left-clicking flipHorizontal transforms only the primary stamp
+      captured = Stamps.read("flipHorizontal", false)
+      result = Stamps.apply(captured, nil, MouseButton.LEFT)
+      assert(result.primary.flags == xflip, "primary stamp was not flipped by left-click action")
+      assert(
+        result.secondary.flags == xflip,
+        "secondary stamp flags were modified by left-click action"
+      )
+
+      -- Verify transforming "both" respects different prior orientations
+      -- Currently: primary has xflip, secondary has xflip
+      -- Let's rotate clockwise for "both":
+      captured = Stamps.read("rotateClockwise", false)
+      result = Stamps.apply(captured, nil, "both")
+      local Transforms = require("src.document.transforms")
+      local expectedFlags = Transforms.rotate(xflip, true)
+      assert(
+        result.primary.flags == expectedFlags,
+        "primary stamp did not apply clockwise rotation on both"
+      )
+      assert(
+        result.secondary.flags == expectedFlags,
+        "secondary stamp did not apply clockwise rotation on both"
+      )
+
+      -- Verify resetting orientation for "both" resets both stamps to 0
+      captured = Stamps.read("resetOrientation", false)
+      result = Stamps.apply(captured, nil, "both")
+      assert(result.primary.flags == 0, "primary stamp was not reset by both reset")
+      assert(result.secondary.flags == 0, "secondary stamp was not reset by both reset")
+
+      -- Verify canRunAction enablement for primary, secondary, and both
+      assert(drawing:canRunAction("flipHorizontal", MouseButton.LEFT) == true)
+      assert(drawing:canRunAction("flipHorizontal", MouseButton.RIGHT) == true)
+      assert(drawing:canRunAction("flipHorizontal", "both") == true)
     end
   )
 

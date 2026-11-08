@@ -234,8 +234,15 @@ return function(test)
       "AsemodePanel",
       "AsemodeLayer",
       "asemode_stamps",
+      "asemode_stamps_primary",
       "FirstStamp",
       "SecondStamp",
+      "asemode_stamps_secondary",
+      "SecondaryFirstStamp",
+      "SecondarySecondStamp",
+      "asemode_stamps_both",
+      "BothFirstStamp",
+      "BothSecondStamp",
       "asemode_selection",
       "AsemodeReplace",
       "AsemodeCopyCells",
@@ -247,8 +254,8 @@ return function(test)
       "AsemodeKeyboardShortcuts",
       "AsemodeCredits",
     }, ","))
-    events[7].onclick()
     events[8].onclick()
+    events[9].onclick()
     assert(actions[1] == "first" and actions[2] == "second")
     env.exit(plugin)
   end)
