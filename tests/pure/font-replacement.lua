@@ -726,6 +726,60 @@ return function(test)
     rawset(model, "markedLayer", oldMarked)
   end)
 
+  test(
+    "selecting a new glyph preserves existing orientation flags for primary and secondary stamps",
+    function()
+      local xflip = app.pixelColor.TILE_XFLIP
+      local yflip = app.pixelColor.TILE_YFLIP
+      local recordedFlags = {}
+      local oldOrientedTile = profile.orientedTile
+      profile.orientedTile = function(s, id, glyph, fg, bg, flags)
+        table.insert(recordedFlags, { glyph = glyph, flags = flags })
+        return oldOrientedTile(s, id, glyph, fg, bg, flags)
+      end
+
+      drawing:setImportedStamps("0", "1")
+      drawing:prepare(MouseButton.LEFT, "0", xflip)
+      drawing:prepare(MouseButton.RIGHT, "1", yflip)
+      local before = drawing:snapshot()
+      assert(before.flags == xflip, "initial primary flags not set")
+      assert(before.bgFlags == yflip, "initial secondary flags not set")
+
+      recordedFlags = {}
+      drawing:selectGlyph(MouseButton.LEFT, "1")
+      local afterPrimary = drawing:snapshot()
+      assert(afterPrimary.glyph == "1", "primary glyph was not updated")
+      assert(afterPrimary.flags == xflip, "primary orientation flags were reset on glyph selection")
+      assert(
+        afterPrimary.bgFlags == yflip,
+        "secondary flags were altered on primary glyph selection"
+      )
+      assert(
+        #recordedFlags == 1 and recordedFlags[1].glyph == "1" and recordedFlags[1].flags == xflip,
+        "orientedTile did not receive preserved primary flags"
+      )
+
+      recordedFlags = {}
+      drawing:selectGlyph(MouseButton.RIGHT, "0")
+      local afterSecondary = drawing:snapshot()
+      assert(afterSecondary.bgGlyph == "0", "secondary glyph was not updated")
+      assert(
+        afterSecondary.bgFlags == yflip,
+        "secondary orientation flags were reset on glyph selection"
+      )
+      assert(
+        afterSecondary.flags == xflip,
+        "primary flags were altered on secondary glyph selection"
+      )
+      assert(
+        #recordedFlags == 1 and recordedFlags[1].glyph == "0" and recordedFlags[1].flags == yflip,
+        "orientedTile did not receive preserved secondary flags"
+      )
+
+      profile.orientedTile = oldOrientedTile
+    end
+  )
+
   -- Teardown: restore loaded modules and globals
   for _, name in ipairs(modules) do
     package.loaded[name] = saved[name]
