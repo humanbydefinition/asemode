@@ -12,7 +12,7 @@ Welcome to **Asemode**, the extension that brings native character-cell and text
 
 Before installing Asemode, ensure your environment meets these specifications:
 
-- **Aseprite Version:** Standard release of **Aseprite 1.3.18.6 or later** (Lua API version 41 or higher). Verify your version under **Help > About**.
+- **Aseprite Version:** Standard release of **Aseprite 1.3.18.6 or later**. Verify your version under **Help > About**.
 - **Color Mode:** Asemode operates strictly on **RGB color mode** documents. Indexed and Grayscale modes are not supported due to per-cell RGBA color indexing.
 - **Tile Management Conflicts:** Projects assigned to other tile-management extensions cannot be converted to Asemode layers.
 
@@ -32,7 +32,7 @@ Before installing Asemode, ensure your environment meets these specifications:
 1. Download the `.aseprite-extension` package from [GitHub Releases](https://github.com/humanbydefinition/Asemode/releases) or [itch.io](https://humanbydefinition.itch.io/asemode).
 2. Open **Edit > Preferences... > Extensions**.
 3. Click **Add Extension**, select the downloaded file, and ensure **Asemode** is enabled.
-4. Click **OK** to apply.
+4. Click **Apply** to confirm.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/about.png">
