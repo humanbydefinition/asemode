@@ -64,11 +64,13 @@ Asemode rasterizes static TrueType vector fonts into 1-bit pixel masks suitable 
   <img alt="Fonts dialog Upload .ttf tab showing file browser, font size input, baseline offset, and rasterization options." src="../images/screenshots/dark/font-upload.png" width="540">
 </picture>
 
-2. Choose a `.ttf` file from your computer.
-3. Configure rasterization parameters:
-   - **Font Size (px):** Target pixel height (typically `8`, `12`, `16`, or `24`).
-   - **Baseline Offset:** Adjust vertical alignment within the cell box.
-4. Click **Next** to proceed to the metrics preview.
+2. Choose a `.ttf` file using the **TTF font** file picker.
+3. Configure font properties and rasterization parameters:
+   - **Display name:** Enter an identifier for the font.
+   - **Save to Library:** Keep checked to persist the font in your user font catalog.
+   - **Font size:** Target pixel height (typically `8`, `12`, `16`, or `24` px).
+   - **Rendering:** Toggle **Antialias outlines** if desired.
+4. Click **Add layer** to compile the font and open the metrics preview.
 
 ---
 
@@ -98,7 +100,7 @@ If character outlines exceed cell bounds (e.g. descenders in `g`, `j`, `y` or ta
 
 ## 5. User Font Management
 
-Click **Manage User Fonts** in the Fonts dialog to audit, delete, or clean up custom typefaces:
+Click **Manage user fonts..** in the Fonts dialog to audit, rename, or remove custom typefaces:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/manage-user-fonts-populated.png">
@@ -106,9 +108,10 @@ Click **Manage User Fonts** in the Fonts dialog to audit, delete, or clean up cu
   <img alt="Manage User Fonts dialog listing custom installed user fonts with author metadata and delete buttons." src="../images/screenshots/dark/manage-user-fonts-populated.png" width="520">
 </picture>
 
-- **Deleting Fonts:** Click **Delete** next to any user font. Active layers using this font will fall back to default typography.
+- **Renaming Fonts:** Select a font in the **User font** dropdown, edit the **Display name**, and click **Rename**.
+- **Removing Fonts:** Click **Remove** to delete the selected font. Active layers using this font will fall back to default typography.
 - **Resetting Library:** Click **Reset** to restore a clean font library if preferences become damaged.
-- **Corrupt Font Handling:** If a custom font file becomes corrupted or unreadable, Asemode displays a recovery notice, allowing you to delete the broken entry without affecting other fonts.
+- **Done:** Click **Done** when finished to return to the font catalog.
 
 ---
 

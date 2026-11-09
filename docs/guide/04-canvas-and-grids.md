@@ -21,35 +21,36 @@ Because each tile in Aseprite's tilemap corresponds directly to one character ce
 
 To adjust your grid or cell dimensions, open **Sprite > Asemode > Grid..** (Command: `AsemodeRegrid`).
 
-### Tab 1: Cell Size
-Adjust the pixel width and height of each character cell:
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/grid.png">
-  <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/grid.png">
-  <img alt="Grid dialog Cell Size tab showing width and height inputs for individual character cells." src="../images/screenshots/dark/grid.png" width="500">
-</picture>
-
-- Scales overall canvas pixel dimensions while preserving the total number of character columns and rows.
-- Useful when migrating artwork to a font with a different aspect ratio (e.g. from 8×8 square to 8×16 tall).
-
-### Tab 2: Grid Size
+### Tab 1: Grid Size
 Expand or contract the number of character columns and rows:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/grid-size.png">
   <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/grid-size.png">
-  <img alt="Grid dialog Grid Size tab showing columns and rows inputs alongside anchor point controls." src="../images/screenshots/dark/grid-size.png" width="500">
+  <img alt="Grid dialog Grid Size tab showing columns and rows inputs alongside resize grid button." src="../images/screenshots/dark/grid-size.png" width="500">
 </picture>
 
-- **Columns & Rows:** Set new grid boundaries (e.g., expand from 40 to 80 columns).
-- **Anchor Positioning:** Choose which corner or center point to anchor existing artwork during expansion or cropping.
+- **Columns & Rows:** Set new grid dimensions (e.g., expand from 40 to 80 columns). Existing artwork anchors to the top-left.
+- Click **Resize grid..** to preview changes in the **Confirm canvas size** dialog.
+
+### Tab 2: Cell Size
+Adjust the pixel width and height of each character cell:
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/grid.png">
+  <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/grid.png">
+  <img alt="Grid dialog Cell Size tab showing Cell width and Cell height inputs for character cells." src="../images/screenshots/dark/grid.png" width="500">
+</picture>
+
+- **Cell width & Cell height:** Scales pixel dimensions per cell while preserving total character columns and rows.
+- Useful when migrating artwork to a font with a different aspect ratio (e.g. from 8×8 square to 8×16 tall).
+- Click **Resize cells..** to open the **Confirm regrid** dialog.
 
 ---
 
 ## 3. Regrid Confirmation & Content Protection
 
-When you apply changes, Asemode evaluates all textmode layers across every animation cel:
+When you resize cell dimensions via `Resize cells..`, Asemode evaluates all textmode layers across every animation cel:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/confirm-regrid-warnings.png">
@@ -57,8 +58,9 @@ When you apply changes, Asemode evaluates all textmode layers across every anima
   <img alt="Confirm regrid dialog displaying yellow warning banner about truncated cells and content impact." src="../images/screenshots/dark/confirm-regrid-warnings.png" width="500">
 </picture>
 
-- If expanding the canvas, the dialog summarizes new dimensions and applies changes cleanly.
-- If contracting the canvas, a yellow warning banner alerts you to any cells that will be cropped, identifying affected layers and cell counts.
+- The dialog summarizes cell size changes, visible grid dimensions, and font counts.
+- If smaller dimensions truncate glyphs or cells, a yellow warning banner details the impact.
+- Click **Regrid** to apply.
 
 > [!CAUTION]
 > Truncated cells outside new boundaries cannot be recovered once saved. Always review content warnings before confirming.
