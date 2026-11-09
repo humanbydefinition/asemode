@@ -34,12 +34,6 @@ Before installing Asemode, ensure your environment meets these specifications:
 3. Click **Add Extension**, select the downloaded file, and ensure **Asemode** is enabled.
 4. Click **Apply** to confirm.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/about.png">
-  <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/about.png">
-  <img alt="About dialog showing Asemode version, author credits, and community links in Aseprite." src="../images/screenshots/dark/about.png" width="480">
-</picture>
-
 > [!NOTE]
 > Aseprite may request file access when loading a custom font or writing a portable JSON export. Grant access to that specific file; full script trust is not required.
 
@@ -57,13 +51,13 @@ Before installing Asemode, ensure your environment meets these specifications:
 
 2. Configure canvas dimensions and typography:
    - **Columns / Rows:** Character cell count (defaults to `40 × 25`).
-   - **Font:** Choose from 18 bundled retro fonts (e.g., `atascii`, `cpc464`, `unscii-8`).
-   - **Size:** Cell pixel dimensions (e.g., `8` for 8×8 px).
-   - **Background Color:** Canvas fill color (defaults to transparent `#ffffff00`).
-3. Click **OK**. Asemode automatically initializes an aligned tilemap layer and opens the drawing panel.
+   - **Font:** Choose from 18 bundled retro fonts (e.g., `ATASCII`, `CPC464`, `UNSCII-8`).
+   - **Font size:** Cell pixel dimensions (defaults to `8` for 8×8 px).
+   - **Background:** Canvas fill color (defaults to transparent `#ffffff00`).
+3. Click **Create**. Asemode automatically initializes an aligned tilemap layer and opens the drawing panel.
 
 > [!TIP]
-> A grid of 40 columns by 25 rows with an 8×8 font creates a 320×200 pixel canvas—matching the classic display resolution of Commodore 64, Atari 8-bit, and CGA composite displays.
+> A grid of 40 columns by 25 rows with an 8×8 font creates a 320×200 pixel canvas - matching the classic display resolution of Commodore 64, Atari 8-bit, and CGA composite displays.
 
 ---
 
