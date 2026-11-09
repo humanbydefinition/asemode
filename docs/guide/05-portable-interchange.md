@@ -10,12 +10,13 @@ Asemode is designed as an open creative hub within the **`textmode.art`** ecosys
 
 ## 1. The Textmode Document v4 Specification
 
-The [Textmode Document format](https://github.com/humanbydefinition/textmode-document) is a platform-independent JSON schema representing multi-layer textmode art:
+The [Textmode Document format](https://github.com/humanbydefinition/textmode-document) is a platform-independent JSON schema representing multi-layer, animated textmode art:
 
-- **Metadata:** Author credits, canvas dimensions (columns and rows), and schema version.
-- **Font Descriptors:** Font identity hashes, families, and glyph bounding boxes.
-- **Layer Stacks:** Layer names, opacity, visibility, and per-frame cell matrices.
-- **Cell Records:** Unicode code points, 32-bit RGBA ink (foreground) colors, and 32-bit RGBA cell (background) colors.
+- **Format & Metadata:** Format identifier (`textmode.document`), semantic version (`4.0.0`), and optional creation timestamp with generator info.
+- **Frames & Animation:** Ordered frame array with per-frame display duration (`durationMs`) and layer collections.
+- **Layer & Grid Architecture:** Unique layer IDs, grid dimensions (`cols`, `rows`), cell pixel size (`cellWidth`, `cellHeight`), opacity, blend modes, and coordinate offsets.
+- **Font Descriptors:** Font identity hashes (`sfnt-v1-sha256:<digest>`) and family names.
+- **Cell Records:** 2D cell matrices with UTF-8 characters, independent 32-bit RGBA `foreground` (ink) and `background` (cell) colors, and per-cell stamp transforms (`flipX`, `flipY`, `rotation`).
 
 ---
 
@@ -26,7 +27,7 @@ The [Textmode Document format](https://github.com/humanbydefinition/textmode-doc
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/export.png">
   <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/export.png">
-  <img alt="Export Textmode Document dialog showing target file selector, layer selection list, and author fields." src="../images/screenshots/dark/export.png" width="500">
+  <img alt="Export Textmode Document dialog showing target file selector, frame mode options, and layer selection." src="../images/screenshots/dark/export.png" width="500">
 </picture>
 
 2. In the **Export Textmode Document** dialog, configure:
@@ -99,7 +100,7 @@ If an imported file predates schema version 4, contains invalid syntax, or lacks
 </picture>
 
 - **Diagnostic Details:** Outlines the exact syntax error, missing font reference, or OS sandboxing notice.
-- **Resolution:** Click **Back to options** to return to the configuration modal and adjust your settings. Ensure the document is formatted as Textmode Document v4 or updated via [`textmode.art`](https://textmode.art).
+- **Resolution:** Click **Back to options** to return to the configuration modal and adjust your settings. Ensure the document is formatted as Textmode Document v4 or updated via [`create.textmode.art`](https://create.textmode.art).
 
 ---
 
