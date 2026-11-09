@@ -56,33 +56,39 @@ Stamp actions can be triggered for the **Primary Stamp** (prefix `Asemode`), **S
 
 ## 2. Bundled Retro Font Specifications
 
-| Font ID | Display Name | Native Cell Size | Best For | Character Set |
-| :--- | :--- | :--- | :--- | :--- |
-| `atascii` | ATASCII | 8×8 px | Atari 8-bit demos, retro gaming | Atari standard character set |
-| `bescii` | Bescii Mono | 8×8 px | BESCII textmode art | Monospace Latin & box drawing |
-| `cpc464` | Amstrad CPC 464 | 8×8 px | European 8-bit aesthetic | CPC 464 system characters |
-| `dungeonmode` | Dungeon Mode | 8×8 px | Roguelike games, gothic maps | Fantasy symbols, runes, borders |
-| `rook` | Rook | 8×8 px | Minimalist micro-graphics | Geometric icons & Latin |
-| `t64` | T64 | 8×8 px | C64 / PETSCII style art | PETSCII-inspired graphics |
-| `ursafont` | UrsaFont | 8×8 px | Arcade text & UI elements | Pixel display lettering |
-| `unscii-8` | Unscii Standard | 8×8 px | General ASCII/Unicode art | Full Basic Latin, Box, Blocks |
-| `unscii-8-thin` | Unscii Thin | 8×8 px | High-density text overlays | Thin 1px stroke Latin & symbols |
-| `unscii-8-alt` | Unscii Alternate | 8×8 px | Stylized retro computing | Distinct serifs and glyph curves |
-| `unscii-8-mcr` | Unscii Micro | 8×8 px | Compact tech UI | Condensed technical symbols |
-| `unscii-8-fantasy`| Unscii Fantasy | 8×8 px | Narrative titles & lore | Ornate fantasy lettering |
+| Font ID | Display Name | Native Cell Size |
+| :--- | :--- | :--- |
+| `atascii` | ATASCII | 8×8 px |
+| `bescii` | BESCII | 8×8 px |
+| `chunky` | CHUNKY | 8×8 px |
+| `cpc464` | CPC464 | 8×8 px |
+| `cultist-script` | Cultist Script | 8×8 px |
+| `dungeon-mode` | DUNGEON.mode | 8×8 px |
+| `frogblock` | FROGBLOCK | 8×8 px |
+| `ibm-cga` | IBM CGA | 8×8 px |
+| `kitchen-sink` | Kitchen Sink | 6×8 px |
+| `mycelium-og` | Mycelium OG | 8×8 px |
+| `rook` | Rook | 8×8 px |
+| `t64` | T64 | 8×8 px |
+| `unscii-8` | UNSCII 8 | 8×8 px |
+| `unscii-8-alt` | UNSCII 8 Alt | 8×8 px |
+| `unscii-8-fantasy` | UNSCII 8 Fantasy | 8×8 px |
+| `unscii-8-mcr` | UNSCII 8 MCR | 8×8 px |
+| `unscii-8-thin` | UNSCII 8 Thin | 8×8 px |
+| `ursafont` | UrsaFont | 8×8 px |
 
 ---
 
 ## 3. Supported Unicode Blocks & Ranges
 
-Asemode's glyph browser lazy-loads over 170,000 Unicode character names across 5 planes:
+Asemode's glyph browser lazy-loads character names across Unicode planes and indexes glyphs against all 340+ official **Unicode 16.0 blocks**. The panel's category selector dynamically populates with any block present in the active font, including common textmode groups such as:
 
-- **Basic Latin (ASCII):** Codes `U+0020` to `U+007E` (standard alphanumeric text and punctuation).
-- **Latin-1 Supplement:** Codes `U+00A0` to `U+00FF` (accented characters, copyright, currency).
-- **Box Drawing:** Codes `U+2500` to `U+257F` (single, double, triple, and rounded line borders).
-- **Block Elements:** Codes `U+2580` to `U+259F` (light, medium, dark shades, quadrant blocks).
-- **Geometric Shapes:** Codes `U+25A0` to `U+25FF` (triangles, diamonds, circles, stars).
-- **Miscellaneous Symbols:** Codes `U+2600` to `U+26FF` (card suits, weather, musical notes).
+- **Basic Latin (ASCII):** Codes `U+0000` to `U+007F` (standard alphanumeric text, punctuation, and control symbols).
+- **Latin-1 Supplement & Extended:** Codes `U+0080` to `U+024F` (accented characters, currency, and symbols).
+- **Arrows & Math Operators:** Codes `U+2190` to `U+22FF` (directional arrows, arithmetic, and logic symbols).
+- **Box Drawing:** Codes `U+2500` to `U+257F` (single, double, triple, and rounded line connectors).
+- **Block Elements:** Codes `U+2580` to `U+259F` (solid, shaded, half, and quadrant blocks).
+- **Geometric Shapes & Symbols:** Codes `U+25A0` to `U+27BF` (geometric forms, miscellaneous symbols, and dingbats).
 
 ---
 
