@@ -10,22 +10,28 @@ Typography is the core visual engine of textmode art. Asemode pairs **18 bundled
 
 ## 1. Bundled Retro Font Catalog
 
-Asemode comes pre-packaged with curated bitmap fonts representing computing history and textmode culture:
+Asemode comes pre-packaged with curated pixel fonts representing retro computing platforms and modern textmode art:
 
-| Font Identifier | Display Name | Cell Size | Vintage Origin / Aesthetic |
-| :--- | :--- | :--- | :--- |
-| `atascii` | ATASCII | 8×8 | Atari 8-bit home computers (400/800/XL/XE). |
-| `bescii` | Bescii Mono | 8×8 | BESCII textmode standard. |
-| `cpc464` | Amstrad CPC 464 | 8×8 | Classic 1980s British 8-bit microcomputer. |
-| `dungeonmode` | Dungeon Mode | 8×8 | Roguelike fantasy symbols and gothic runes. |
-| `rook` | Rook | 8×8 | Minimalist geometric bitmap font. |
-| `t64` | T64 | 8×8 | Commodore 64 / PETSCII-inspired character set. |
-| `ursafont` | UrsaFont | 8×8 | Stylized arcade bitmap font. |
-| `unscii-8` | Unscii Standard | 8×8 | Comprehensive Unicode block and box drawing font. |
-| `unscii-8-thin` | Unscii Thin | 8×8 | Lightweight delicate strokes for high density. |
-| `unscii-8-alt` | Unscii Alternate | 8×8 | Alternate stylized glyph variants. |
-| `unscii-8-mcr` | Unscii Micro | 8×8 | Dense technical computing character set. |
-| `unscii-8-fantasy`| Unscii Fantasy | 8×8 | Ornate decorative lettering. |
+| Font Identifier | Display Name | Native Cell Size |
+| :--- | :--- | :--- |
+| `atascii` | ATASCII | 8×8 px |
+| `bescii` | BESCII | 8×8 px |
+| `chunky` | CHUNKY | 8×8 px |
+| `cpc464` | CPC464 | 8×8 px |
+| `cultist-script` | Cultist Script | 8×8 px |
+| `dungeon-mode` | DUNGEON.mode | 8×8 px |
+| `frogblock` | FROGBLOCK | 8×8 px |
+| `ibm-cga` | IBM CGA | 8×8 px |
+| `kitchen-sink` | Kitchen Sink | 6×8 px |
+| `mycelium-og` | Mycelium OG | 8×8 px |
+| `rook` | Rook | 8×8 px |
+| `t64` | T64 | 8×8 px |
+| `unscii-8` | UNSCII 8 | 8×8 px |
+| `unscii-8-alt` | UNSCII 8 Alt | 8×8 px |
+| `unscii-8-fantasy` | UNSCII 8 Fantasy | 8×8 px |
+| `unscii-8-mcr` | UNSCII 8 MCR | 8×8 px |
+| `unscii-8-thin` | UNSCII 8 Thin | 8×8 px |
+| `ursafont` | UrsaFont | 8×8 px |
 
 ### Font Specimens & Licenses
 Inspect character specimens, author attributions, and open-source licenses for any font under **Sprite > Asemode > About..** on the **Fonts** tab:
