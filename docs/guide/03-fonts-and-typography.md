@@ -105,7 +105,7 @@ Click **Manage user fonts..** in the Fonts dialog to audit, rename, or remove cu
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/manage-user-fonts-populated.png">
   <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/manage-user-fonts-populated.png">
-  <img alt="Manage User Fonts dialog listing custom installed user fonts with author metadata and delete buttons." src="../images/screenshots/dark/manage-user-fonts-populated.png" width="520">
+  <img alt="Manage User Fonts dialog showing user font selector, display name field, library usage stats, and action buttons." src="../images/screenshots/dark/manage-user-fonts-populated.png" width="520">
 </picture>
 
 - **Renaming Fonts:** Select a font in the **User font** dropdown, edit the **Display name**, and click **Rename**.
