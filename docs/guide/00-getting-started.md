@@ -30,7 +30,7 @@ Before installing Asemode, ensure your environment meets these specifications:
 ## 2. Installation & Permissions
 
 1. Download the `.aseprite-extension` package from [GitHub Releases](https://github.com/humanbydefinition/Asemode/releases) or [itch.io](https://humanbydefinition.itch.io/asemode).
-2. Open **Edit > Preferences... > Extensions** (or **Aseprite > Preferences...** on macOS).
+2. Open **Edit > Preferences... > Extensions**.
 3. Click **Add Extension**, select the downloaded file, and ensure **Asemode** is enabled.
 4. Click **OK** to apply.
 
