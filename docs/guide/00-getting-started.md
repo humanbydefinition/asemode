@@ -16,14 +16,14 @@ Before installing Asemode, ensure your environment meets these specifications:
 - **Color Mode:** Asemode operates strictly on **RGB color mode** documents. Indexed and Grayscale modes are not supported due to per-cell RGBA color indexing.
 - **Tile Management Conflicts:** Projects assigned to other tile-management extensions cannot be converted to Asemode layers.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/alert-version-requirement.png">
-  <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/alert-version-requirement.png">
-  <img alt="Aseprite alert modal dialog warning that Asemode requires Aseprite version 1.3.18.6 or higher to run." src="../images/screenshots/dark/alert-version-requirement.png" width="460">
-</picture>
-
 > [!IMPORTANT]
-> On unsupported Aseprite versions, Asemode displays a version alert and disables extension commands to protect your files.
+> On unsupported Aseprite versions, Asemode displays a version alert and disables extension commands to protect your files:
+>
+> <picture>
+>   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/alert-version-requirement.png">
+>   <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/alert-version-requirement.png">
+>   <img alt="Aseprite alert modal dialog warning that Asemode requires Aseprite version 1.3.18.6 or higher to run." src="../images/screenshots/dark/alert-version-requirement.png" width="460">
+> </picture>
 
 ---
 
