@@ -58,14 +58,14 @@ Standard clipboard paste (`Ctrl+V` / `Cmd+V`) injects raw pixel bitmaps, which d
 ### Missing Glyph Warnings
 If pasted cells contain characters not supported by the destination layer's font, Asemode prompts you before proceeding:
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/alert-paste-missing-glyphs.png">
-  <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/alert-paste-missing-glyphs.png">
-  <img alt="Alert modal warning that pasted cells contain characters missing in the active layer's font, offering substitute options." src="../images/screenshots/dark/alert-paste-missing-glyphs.png" width="500">
-</picture>
-
 > [!WARNING]
-> Missing characters will be replaced by fallback glyphs (such as spaces). Review target font compatibility before confirming.
+> Missing characters will be replaced by fallback glyphs (such as spaces). Review target font compatibility before confirming:
+>
+> <picture>
+>   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/alert-paste-missing-glyphs.png">
+>   <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/alert-paste-missing-glyphs.png">
+>   <img alt="Alert modal warning that pasted cells contain characters missing in the active layer's font, offering substitute options." src="../images/screenshots/dark/alert-paste-missing-glyphs.png" width="500">
+> </picture>
 
 ---
 
