@@ -29,8 +29,13 @@ The [Textmode Document format](https://github.com/humanbydefinition/textmode-doc
   <img alt="Export Textmode Document dialog showing target file selector, layer selection list, and author fields." src="../images/screenshots/dark/export.png" width="500">
 </picture>
 
-2. Select the destination file path and choose which textmode layers to include.
-3. Review the export summary dialog:
+2. In the **Export Textmode Document** dialog, configure:
+- **Artwork JSON:** Select the destination `.textmode.json` file path.
+- **Frames:** Choose **All frames** or **Active frame**.
+- **Layers:** Choose **All Asemode layers** or **Active Asemode layer**.
+Click **Export** to prepare the export summary.
+
+3. Review the export summary in the **Review Textmode Export** dialog:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/review-export-warnings.png">
@@ -38,9 +43,9 @@ The [Textmode Document format](https://github.com/humanbydefinition/textmode-doc
   <img alt="Review Textmode Export dialog with warnings detailing excluded raster layers and out-of-bounds cells." src="../images/screenshots/dark/review-export-warnings.png" width="520">
 </picture>
 
-- Confirms total layer count, cell dimensions, and file destination.
-- Highlights any non-textmode raster layers excluded from the export or cells extending beyond bounds.
-4. Click **Export** to write the `.textmode.json` file.
+- Confirms **Frames:**, **Layers:**, and **Coverage:** (**Current canvas**).
+- Highlights any diagnostic notices, such as `Native layers are not exported.` or omitted occupied cells outside the canvas.
+4. Click **Save JSON** to write the `.textmode.json` file.
 
 ---
 
@@ -54,8 +59,8 @@ The [Textmode Document format](https://github.com/humanbydefinition/textmode-doc
   <img alt="Import Textmode JSON file selection dialog." src="../images/screenshots/dark/import-json.png" width="500">
 </picture>
 
-2. Select your `.textmode.json` file. Asemode reads the document and matches fonts asynchronously.
-3. In the **Import Textmode Layers** dialog, select the layers you wish to import:
+2. Under **Artwork JSON**, select your `.textmode.json` file and click **Read document**. Asemode reads the document and matches fonts asynchronously.
+3. In the **Import Textmode Layers** dialog, configure your target and layer mappings:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/import-layers-paginated-recovery.png">
@@ -63,9 +68,13 @@ The [Textmode Document format](https://github.com/humanbydefinition/textmode-doc
   <img alt="Import Textmode Layers dialog with font recovery controls for replacing missing document fonts with local substitutes." src="../images/screenshots/dark/import-layers-paginated-recovery.png" width="520">
 </picture>
 
-- **Font Recovery:** If an imported document references a font not installed locally, use the dropdown to assign a local substitute.
-- **Pagination:** Multi-layer documents are paginated for easy review.
-4. Confirm layer import in the **Review Import** dialog:
+- **Destination:** Choose **New sprite** or **Add layers to active sprite**.
+- **Default font:** Assign the fallback typeface for unmapped layers.
+- **Font size**, **Cell width**, **Cell height:** Verify pixel dimensions per character cell.
+- **Font Recovery & Pagination:** For multi-layer documents, navigate pages using **Previous page** / **Next page**. Check or uncheck layers to include, and assign local substitute fonts from the dropdown for missing typefaces.
+Click **Prepare import..**.
+
+4. Confirm layer import in the **Review Textmode Import** dialog:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/review-import-warnings.png">
@@ -73,11 +82,15 @@ The [Textmode Document format](https://github.com/humanbydefinition/textmode-doc
   <img alt="Review Textmode Import dialog showing yellow diagnostic warning box regarding font substitutions and bounds." src="../images/screenshots/dark/review-import-warnings.png" width="520">
 </picture>
 
+- Summarizes **Target:**, **Frames:**, **Layers:**, **Grid:**, **Cell size:**, and **Fonts:**.
+- Displays yellow diagnostic warning boxes for font substitutions, metrics shifts, or out-of-bounds cells. Click **Preview <Font>...** if glyph clipping warnings appear.
+5. Click **Import** to generate or populate the sprite layers.
+
 ---
 
 ## 4. Troubleshooting Import Issues
 
-If an imported file predates schema version 4, contains invalid syntax, or lacks filesystem permissions, Asemode displays a diagnostic resolution modal:
+If an imported file predates schema version 4, contains invalid syntax, or lacks filesystem permissions, Asemode displays the **Import needs changes** dialog:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/import-needs-changes.png">
@@ -85,8 +98,8 @@ If an imported file predates schema version 4, contains invalid syntax, or lacks
   <img alt="Import needs changes dialog explaining schema validation issues and recommending fixes." src="../images/screenshots/dark/import-needs-changes.png" width="520">
 </picture>
 
-- **Schema Issues:** Ensure the document was exported using Textmode Document v4 or updated via [`textmode.art`](https://textmode.art).
-- **File Permissions:** If access is denied by OS sandboxing, move the file into a standard folder (e.g. Documents) and grant file access when prompted by Aseprite.
+- **Diagnostic Details:** Outlines the exact syntax error, missing font reference, or OS sandboxing notice.
+- **Resolution:** Click **Back to options** to return to the configuration modal and adjust your settings. Ensure the document is formatted as Textmode Document v4 or updated via [`textmode.art`](https://textmode.art).
 
 ---
 
