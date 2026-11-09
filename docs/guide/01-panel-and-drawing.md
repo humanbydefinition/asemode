@@ -52,7 +52,7 @@ Toggle the panel at any time via **Sprite > Asemode > Open/Close Asemode Panel**
 ```
 
 - **Primary Stamp:** Bound to your primary brush action (left mouse button).
-- **Secondary Stamp:** Bound to your secondary brush action (right mouse button)—ideal for shadow fills, solid blocks, or background clears.
+- **Secondary Stamp:** Bound to your secondary brush action (right mouse button) - ideal for shadow fills, solid blocks, or background clears.
 - **Ink Color:** Synchronizes with Aseprite's palette **Foreground Color**.
 - **Cell Color:** Synchronizes with Aseprite's palette **Background Color**.
 - **Transparent Cells:** Set Cell Color opacity to `0` to let underlying pixel art or backdrop layers show through cleanly.
@@ -80,19 +80,19 @@ Manipulate stamps using the panel buttons or menu commands under **Sprite > Asem
 ## 5. The Glyph Browser & Unicode Navigation
 
 1. **Selecting Glyphs:** Left-click any grid cell to set the **Primary Stamp**; right-click to set the **Secondary Stamp**.
-2. **Filtering by Unicode Block:** Use the category dropdown to jump between standard blocks:
+2. **Filtering by Unicode Block:** Use the category dropdown (default: `"All characters"`) to jump between standard blocks:
    - *Basic Latin (ASCII)*
    - *Latin-1 Supplement*
    - *Box Drawing* (single, double, and rounded borders)
    - *Block Elements* (shading tiles, half-blocks, quadrant blocks)
    - *Geometric Shapes & Arrows*
-3. **Searching:** Type names or codes (e.g., `heart`, `arrow`, `box`, `U+2588`) to filter instantly.
+3. **Searching:** Type into the search field (`placeholder: "Character name"`) to filter by character name (e.g., `heart`, `arrow`, `box`) or code point (`U+2588`).
 
 ---
 
 ## 6. Panel Status Banners
 
-When document state requires user attention, the panel displays a contextual notification banner:
+When document state requires user attention, the top info area displays a contextual status banner:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/asemode-panel-locked.png">
@@ -100,12 +100,12 @@ When document state requires user attention, the panel displays a contextual not
   <img alt="Asemode panel showing yellow status banner indicating that the active layer is locked and cannot be edited." src="../images/screenshots/dark/asemode-panel-locked.png" width="560">
 </picture>
 
-| Status Banner | Cause | Recommended Action |
+| Banner Display | Status State | Recommended Action |
 | :--- | :--- | :--- |
-| **Locked Layer** | Active layer is locked in the timeline. | Click the padlock icon in the timeline to unlock. |
-| **Layer Unavailable** | Active layer is an ordinary raster layer. | Select a Textmode layer or choose `Add Textmode Layer..`. |
-| **Missing Stamp** | Stamp character is missing in the active font. | Click any character in the glyph grid to recreate the stamp. |
-| **Unsupported Version** | Project metadata requires a newer Asemode build. | Update Asemode to restore full editing support. |
+| **"Unlock and show the layer"** | Active layer is locked or hidden in the timeline. | Click the padlock or eye icon in the timeline to make it editable. |
+| **"Asemode layer unavailable"** | Active layer is a raster layer or font profile is missing. | Select a Textmode layer or choose `Add Textmode Layer..`. |
+| **"Unsupported project version"** | Project metadata requires a newer Asemode build. | Update Asemode to restore full editing support. |
+| **"Select a primary stamp"** | Active primary stamp is missing or invalid in current font. | Click any character in the glyph grid to recreate the stamp. |
 
 ---
 
