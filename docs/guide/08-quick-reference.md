@@ -105,4 +105,4 @@ Asemode's glyph browser lazy-loads over 170,000 Unicode character names across 5
 
 ---
 
-[← Back to Settings & Shortcuts](07-settings-and-shortcuts.md) | [Back to User Guide Overview](../USER_GUIDE.md)
+[← Previous: Settings, Customization & Shortcuts](07-settings-and-shortcuts.md) • [User Guide Home](../USER_GUIDE.md)

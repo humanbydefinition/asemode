@@ -1,6 +1,6 @@
 # Settings, Customization & Shortcuts
 
-[← Previous: Native Operation Guards & Document Integrity](06-native-guards-and-safety.md) | [User Guide Home](../USER_GUIDE.md) | [Next: Quick Reference & Command Palette →](08-quick-reference.md)
+[← Previous: Native Operation Guards & Document Integrity](06-native-guards-and-safety.md) • [User Guide Home](../USER_GUIDE.md) • [Next: Quick Reference & Command Palette →](08-quick-reference.md)
 
 ---
 
@@ -10,7 +10,7 @@ Asemode is built to adapt to your creative pace. Through the **Settings** dialog
 
 ## 1. The Asemode Settings Dialog
 
-To open the preferences window, select **Sprite > Asemode > Settings..** (Command: `AsemodeSettings`).
+To open preferences, select **Sprite > Asemode > Settings..** (Command: `AsemodeSettings`).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/settings.png">
@@ -37,14 +37,12 @@ To open the preferences window, select **Sprite > Asemode > Settings..** (Comman
 
 ## 2. Keyboard Shortcut Integration
 
-Asemode registers every command and stamp transform directly with Aseprite's native command bus. You can bind custom keys to any action to build an ultra-fast textmode painting workflow.
+Asemode registers every command and stamp transform with Aseprite's native command bus. You can bind custom keys to any action to build an ultra-fast textmode painting workflow.
 
 ### Opening the Shortcut Configuration
 Choose **Sprite > Asemode > Keyboard Shortcuts...** (Command: `AsemodeKeyboardShortcuts`) or navigate to **Edit > Keyboard Shortcuts**. In the search filter, type `Asemode` to view all available commands.
 
 ### Recommended Shortcut Map
-
-Here is an ergonomic layout optimized for one-handed keyboard control while painting with the mouse or drawing tablet:
 
 | Action | Command Identifier | Recommended Key | Notes |
 | :--- | :--- | :--- | :--- |
@@ -71,7 +69,4 @@ Depending on your screen resolution or drawing tablet, you can optimize the char
 
 ---
 
-## 4. Next Steps
-
-- [Proceed to Chapter 8: Quick Reference & Command Palette →](08-quick-reference.md)
-- [Back to User Guide Overview](../USER_GUIDE.md)
+[← Previous: Native Operation Guards & Document Integrity](06-native-guards-and-safety.md) • [User Guide Home](../USER_GUIDE.md) • [Next: Quick Reference & Command Palette →](08-quick-reference.md)
