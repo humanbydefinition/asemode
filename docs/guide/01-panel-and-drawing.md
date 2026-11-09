@@ -80,12 +80,7 @@ Manipulate stamps using the panel buttons or menu commands under **Sprite > Asem
 ## 5. The Glyph Browser & Unicode Navigation
 
 1. **Selecting Glyphs:** Left-click any grid cell to set the **Primary Stamp**; right-click to set the **Secondary Stamp**.
-2. **Filtering by Unicode Block:** Use the category dropdown (default: `"All characters"`) to jump between standard blocks:
-   - *Basic Latin (ASCII)*
-   - *Latin-1 Supplement*
-   - *Box Drawing* (single, double, and rounded borders)
-   - *Block Elements* (shading tiles, half-blocks, quadrant blocks)
-   - *Geometric Shapes & Arrows*
+2. **Filtering by Unicode Block:** Use the category dropdown (default: `"All characters"`) to jump between blocks present in the active font (such as *Basic Latin*, *Latin-1 Supplement*, *Box Drawing*, *Block Elements*, or *Geometric Shapes*).
 3. **Searching:** Type into the search field (`placeholder: "Character name"`) to filter by character name (e.g., `heart`, `arrow`, `box`) or code point (`U+2588`).
 
 ---
