@@ -1,6 +1,6 @@
 # Fonts & Typography System
 
-[← Previous: Multi-Layer Architecture & Composition](02-layers-and-composition.md) • [User Guide Home](../USER_GUIDE.md) • [Next: Canvas, Grids & Regridding →](04-canvas-and-grids.md)
+[← Previous: Multi-Layer Architecture & Composition](02-layers-and-composition.md) • [User Guide Home](README.md) • [Next: Canvas, Grids & Regridding →](04-canvas-and-grids.md)
 
 ---
 
@@ -121,4 +121,4 @@ Click **Manage user fonts..** in the Fonts dialog to audit, rename, or remove cu
 
 ---
 
-[← Previous: Multi-Layer Architecture & Composition](02-layers-and-composition.md) • [User Guide Home](../USER_GUIDE.md) • [Next: Canvas, Grids & Regridding →](04-canvas-and-grids.md)
+[← Previous: Multi-Layer Architecture & Composition](02-layers-and-composition.md) • [User Guide Home](README.md) • [Next: Canvas, Grids & Regridding →](04-canvas-and-grids.md)

@@ -1,6 +1,6 @@
 # Portable Interchange & Ecosystem Integration
 
-[← Previous: Canvas, Grids & Regridding](04-canvas-and-grids.md) • [User Guide Home](../USER_GUIDE.md) • [Next: Native Operation Guards & Document Integrity →](06-native-guards-and-safety.md)
+[← Previous: Canvas, Grids & Regridding](04-canvas-and-grids.md) • [User Guide Home](README.md) • [Next: Native Operation Guards & Document Integrity →](06-native-guards-and-safety.md)
 
 ---
 
@@ -113,4 +113,4 @@ If an imported file predates schema version 4, contains invalid syntax, or lacks
 
 ---
 
-[← Previous: Canvas, Grids & Regridding](04-canvas-and-grids.md) • [User Guide Home](../USER_GUIDE.md) • [Next: Native Operation Guards & Document Integrity →](06-native-guards-and-safety.md)
+[← Previous: Canvas, Grids & Regridding](04-canvas-and-grids.md) • [User Guide Home](README.md) • [Next: Native Operation Guards & Document Integrity →](06-native-guards-and-safety.md)

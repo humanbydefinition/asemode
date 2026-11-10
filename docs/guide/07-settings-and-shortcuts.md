@@ -1,6 +1,6 @@
 # Settings, Customization & Shortcuts
 
-[← Previous: Native Operation Guards & Document Integrity](06-native-guards-and-safety.md) • [User Guide Home](../USER_GUIDE.md) • [Next: Quick Reference & Command Palette →](08-quick-reference.md)
+[← Previous: Native Operation Guards & Document Integrity](06-native-guards-and-safety.md) • [User Guide Home](README.md) • [Next: Quick Reference & Command Palette →](08-quick-reference.md)
 
 ---
 
@@ -71,4 +71,4 @@ Depending on your screen resolution or drawing tablet, you can optimize the char
 
 ---
 
-[← Previous: Native Operation Guards & Document Integrity](06-native-guards-and-safety.md) • [User Guide Home](../USER_GUIDE.md) • [Next: Quick Reference & Command Palette →](08-quick-reference.md)
+[← Previous: Native Operation Guards & Document Integrity](06-native-guards-and-safety.md) • [User Guide Home](README.md) • [Next: Quick Reference & Command Palette →](08-quick-reference.md)

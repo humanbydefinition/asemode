@@ -1,6 +1,6 @@
 # Multi-Layer Architecture & Composition
 
-[← Previous: The Asemode Panel & Drawing Workflow](01-panel-and-drawing.md) • [User Guide Home](../USER_GUIDE.md) • [Next: Fonts & Typography System →](03-fonts-and-typography.md)
+[← Previous: The Asemode Panel & Drawing Workflow](01-panel-and-drawing.md) • [User Guide Home](README.md) • [Next: Fonts & Typography System →](03-fonts-and-typography.md)
 
 ---
 
@@ -94,4 +94,4 @@ Click **Apply** to confirm.
 
 ---
 
-[← Previous: The Asemode Panel & Drawing Workflow](01-panel-and-drawing.md) • [User Guide Home](../USER_GUIDE.md) • [Next: Fonts & Typography System →](03-fonts-and-typography.md)
+[← Previous: The Asemode Panel & Drawing Workflow](01-panel-and-drawing.md) • [User Guide Home](README.md) • [Next: Fonts & Typography System →](03-fonts-and-typography.md)

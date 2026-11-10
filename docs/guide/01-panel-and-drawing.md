@@ -1,6 +1,6 @@
 # The Asemode Panel & Drawing Workflow
 
-[← Previous: Getting Started](00-getting-started.md) • [User Guide Home](../USER_GUIDE.md) • [Next: Multi-Layer Architecture & Composition →](02-layers-and-composition.md)
+[← Previous: Getting Started](00-getting-started.md) • [User Guide Home](README.md) • [Next: Multi-Layer Architecture & Composition →](02-layers-and-composition.md)
 
 ---
 
@@ -104,4 +104,4 @@ When document state requires user attention, the top info area displays a contex
 
 ---
 
-[← Previous: Getting Started](00-getting-started.md) • [User Guide Home](../USER_GUIDE.md) • [Next: Multi-Layer Architecture & Composition →](02-layers-and-composition.md)
+[← Previous: Getting Started](00-getting-started.md) • [User Guide Home](README.md) • [Next: Multi-Layer Architecture & Composition →](02-layers-and-composition.md)

@@ -1,6 +1,6 @@
 # Getting Started with Asemode
 
-[User Guide Home](../USER_GUIDE.md) • [Next: The Asemode Panel & Drawing Workflow →](01-panel-and-drawing.md)
+[User Guide Home](README.md) • [Next: The Asemode Panel & Drawing Workflow →](01-panel-and-drawing.md)
 
 ---
 
@@ -74,4 +74,4 @@ Before installing Asemode, ensure your environment meets these specifications:
 
 ---
 
-[User Guide Home](../USER_GUIDE.md) • [Next: The Asemode Panel & Drawing Workflow →](01-panel-and-drawing.md)
+[User Guide Home](README.md) • [Next: The Asemode Panel & Drawing Workflow →](01-panel-and-drawing.md)

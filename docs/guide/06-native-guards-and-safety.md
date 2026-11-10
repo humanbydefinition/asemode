@@ -1,6 +1,6 @@
 # Native Operation Guards & Document Integrity
 
-[← Previous: Portable Interchange & Ecosystem Integration](05-portable-interchange.md) • [User Guide Home](../USER_GUIDE.md) • [Next: Settings, Customization & Shortcuts →](07-settings-and-shortcuts.md)
+[← Previous: Portable Interchange & Ecosystem Integration](05-portable-interchange.md) • [User Guide Home](README.md) • [Next: Settings, Customization & Shortcuts →](07-settings-and-shortcuts.md)
 
 ---
 
@@ -64,4 +64,4 @@ If an unexpected Lua error occurs during document processing, Asemode traps the 
 
 ---
 
-[← Previous: Portable Interchange & Ecosystem Integration](05-portable-interchange.md) • [User Guide Home](../USER_GUIDE.md) • [Next: Settings, Customization & Shortcuts →](07-settings-and-shortcuts.md)
+[← Previous: Portable Interchange & Ecosystem Integration](05-portable-interchange.md) • [User Guide Home](README.md) • [Next: Settings, Customization & Shortcuts →](07-settings-and-shortcuts.md)

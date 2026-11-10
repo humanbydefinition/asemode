@@ -61,7 +61,7 @@ file; the extension does not require full script trust.
 
 ## Next steps
 
-Read the [User Guide](docs/USER_GUIDE.md) to get started with drawing, fonts,
+Read the [User Guide](docs/guide/README.md) to get started with drawing, fonts,
 layers, and exchanging artwork with the `textmode.art` ecosystem.
 
 > [!NOTE]

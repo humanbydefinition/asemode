@@ -1,6 +1,6 @@
 # Quick Reference & Command Palette
 
-[← Previous: Settings, Customization & Shortcuts](07-settings-and-shortcuts.md) | [User Guide Home](../USER_GUIDE.md)
+[← Previous: Settings, Customization & Shortcuts](07-settings-and-shortcuts.md) | [User Guide Home](README.md)
 
 ---
 
@@ -111,4 +111,4 @@ Asemode's glyph browser lazy-loads character names across Unicode planes and ind
 
 ---
 
-[← Previous: Settings, Customization & Shortcuts](07-settings-and-shortcuts.md) • [User Guide Home](../USER_GUIDE.md)
+[← Previous: Settings, Customization & Shortcuts](07-settings-and-shortcuts.md) • [User Guide Home](README.md)

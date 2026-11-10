@@ -1,6 +1,6 @@
 # Canvas, Grids & Regridding
 
-[← Previous: Fonts & Typography System](03-fonts-and-typography.md) • [User Guide Home](../USER_GUIDE.md) • [Next: Portable Interchange & Ecosystem Integration →](05-portable-interchange.md)
+[← Previous: Fonts & Typography System](03-fonts-and-typography.md) • [User Guide Home](README.md) • [Next: Portable Interchange & Ecosystem Integration →](05-portable-interchange.md)
 
 ---
 
@@ -82,4 +82,4 @@ If you invoke Aseprite's native **Sprite > Canvas Size** while working on a text
 
 ---
 
-[← Previous: Fonts & Typography System](03-fonts-and-typography.md) • [User Guide Home](../USER_GUIDE.md) • [Next: Portable Interchange & Ecosystem Integration →](05-portable-interchange.md)
+[← Previous: Fonts & Typography System](03-fonts-and-typography.md) • [User Guide Home](README.md) • [Next: Portable Interchange & Ecosystem Integration →](05-portable-interchange.md)
