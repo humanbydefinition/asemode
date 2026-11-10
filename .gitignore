@@ -3,7 +3,6 @@ node_modules/
 .tools/
 .test-output/
 /dist/
-/docs/USER_GUIDE.local.md
 
 # Locally supplied optional fonts for release builds
 /assets/fonts/CHUNKY.ttf
