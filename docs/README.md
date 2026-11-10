@@ -6,11 +6,9 @@ This directory contains user documentation, guides, and screenshot assets.
 
 | Path | Purpose |
 | :--- | :--- |
-| [`guide/README.md`](guide/README.md) | Master user guide portal, pathways, architecture overview, and index. |
-| [`guide/`](guide/) | Modular user guide chapters (00-08) covering tutorials, workflows, typography, grids, JSON interop, safety guards, settings, and quick reference. |
+| [`guide/`](guide/) | Master user guide portal, pathways, and architecture overview, plus modular chapters (00-08) covering tutorials, workflows, typography, grids, JSON interop, safety guards, settings, and quick reference. |
 | [`SCREENSHOTS.md`](SCREENSHOTS.md) | Complete gallery of Asemode dialogs in Aseprite's default light and dark themes. |
-| [`images/screenshots/`](images/screenshots/) | Generated screenshot assets used across the guide and gallery. |
-| [`images/readme-header.png`](images/readme-header.png) | Header image used by the project README and guide hub. |
+| [`images/`](images/) | Header image used by the project README and guide hub, plus generated screenshots used across the guide and gallery. |
 
 Font license files are stored in [`assets/fonts/licenses/`](../assets/fonts/licenses/). See [Third-Party Notices](../THIRD_PARTY_NOTICES.md) for attribution and licensing information.
 
