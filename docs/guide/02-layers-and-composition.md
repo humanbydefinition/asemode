@@ -27,7 +27,7 @@ Add new textmode layers to any RGB sprite at any time via **Sprite > Asemode > A
 
 ## 2. Hybrid Compositions: Mixing Pixel Art and Textmode
 
-Asemode layers integrate seamlessly with Aseprite's timeline:
+Asemode layers integrate seamlessly with Aseprite's timeline. The stack below is ordered from front to back, as it appears from top to bottom in the timeline:
 
 ```text
 Layer Stack Hierarchy:
@@ -41,6 +41,8 @@ Layer Stack Hierarchy:
 │ [Raster Layer]   "Background_Gradient"        │
 └───────────────────────────────────────────────┘
 ```
+
+Textmode layers are native Aseprite tilemap layers. Raster layers are standard pixel layers.
 
 - **Layer Ordering & Opacity:** Drag layers in the timeline to place text above or below pixel art. Adjust layer opacity sliders to create subtle shaded or translucent text effects.
 - **Blending Modes:** Multiply, Screen, Overlay, and Addition blend modes work as expected with textmode layers.

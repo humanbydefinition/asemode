@@ -17,27 +17,13 @@
 **Asemode** brings character-cell and textmode drawing to [Aseprite](https://www.aseprite.org/). It combines native Aseprite drawing tools with dedicated character stamps, independent foreground (ink) and background (cell) color channels, retro and custom TrueType typography, and full compatibility with the [`textmode.art`](https://textmode.art) ecosystem.
 
 ```text
-┌────────────────────────────────────────────────────────────────────────┐
-│                        Aseprite Workspace                              │
-│                                                                        │
-│   ┌───────────────────────────┐      ┌─────────────────────────────┐   │
-│   │    Active RGB Canvas      │      │     Asemode Panel           │   │
-│   │                           │      │                             │   │
-│   │   [Textmode Tilemap]      │◄─────┤ • Primary / Secondary Stamp │   │
-│   │   • Character Cells       │      │ • Ink (FG) & Cell (BG) Color│   │
-│   │   • 1-Bit Font Tileset    │      │ • Stamp Flip & 90° Rotation │   │
-│   │   • Dual RGBA Colors      │      │ • Unicode Glyph Browser     │   │
-│   │                           │      └──────────────┬──────────────┘   │
-│   │   [Pixel Art Layer]       │                     │                  │
-│   │   • Sprites, Shading, FX  │                     │                  │
-│   └─────────────┬─────────────┘                     │                  │
-└─────────────────┼───────────────────────────────────┼──────────────────┘
-                  ▼                                   ▼
-       Portable Textmode JSON               TrueType (.ttf) Fonts
-       • Textmode Document v4               • 18 Bundled Retro Typefaces
-       • create.textmode.art                • Custom Font Rasterization
-       • export.textmode.art                • Font Metrics & Diagnostics
+TrueType fonts -> Glyph masks -> Paint tiles -> Textmode layer
+Asemode panel --------------------------------> Textmode layer
+Textmode layer <-> Textmode Document JSON
+Textmode layer + raster layers -> Composited RGB sprite
 ```
+
+The Asemode panel edits the active textmode layer. Each textmode layer is a native Aseprite tilemap that uses paint tiles built from font glyph masks, with one tile variant for each glyph and ink/cell color pair. Aseprite composites textmode layers with standard raster layers in the RGB sprite. Textmode layers can also import from or export to Textmode Document JSON.
 
 ---
 

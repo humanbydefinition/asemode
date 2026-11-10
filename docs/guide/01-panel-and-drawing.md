@@ -42,13 +42,10 @@ Toggle the panel at any time via **Sprite > Asemode > Open/Close Asemode Panel**
 ## 3. The Dual Stamp & Color System
 
 ```text
-┌─────────────────────────┐
-│ Cell Background Color   │
-│   ┌─────────────────┐   │
-│   │  Ink Glyph (█)  │   │
-│   │                 │   │
-│   └─────────────────┘   │
-└─────────────────────────┘
+Character cell
++-------+
+|   A   |  A: ink color
++-------+  Surrounding area: cell color
 ```
 
 - **Primary Stamp:** Bound to your primary brush action (left mouse button).
