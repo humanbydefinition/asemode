@@ -6,7 +6,7 @@ This directory contains user documentation, guides, and screenshot assets.
 
 | Path | Purpose |
 | :--- | :--- |
-| [`guide/`](guide/) | Master user guide portal, pathways, and architecture overview, plus modular chapters (00-08) covering tutorials, workflows, typography, grids, JSON interop, safety guards, settings, and quick reference. |
+| [`guide/`](guide/) | User guide portal, pathways, and architecture overview, plus modular chapters (00-08) covering tutorials, workflows, typography, grids, JSON interop, safety guards, settings, and quick reference. |
 | [`SCREENSHOTS.md`](SCREENSHOTS.md) | Complete gallery of Asemode dialogs in Aseprite's default light and dark themes. |
 | [`images/`](images/) | Header image used by the project README and guide hub, plus generated screenshots used across the guide and gallery. |
 
