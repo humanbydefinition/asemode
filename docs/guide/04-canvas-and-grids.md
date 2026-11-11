@@ -55,11 +55,11 @@ When you resize cell dimensions via `Resize cells..`, Asemode evaluates all text
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/confirm-regrid-warnings.png">
   <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/confirm-regrid-warnings.png">
-  <img alt="Confirm regrid dialog displaying yellow warning banner about truncated cells and content impact." src="../images/screenshots/dark/confirm-regrid-warnings.png" width="500">
+  <img alt="Confirm regrid dialog displaying warning banner about truncated cells and content impact." src="../images/screenshots/dark/confirm-regrid-warnings.png" width="500">
 </picture>
 
 - The dialog summarizes cell size changes, visible grid dimensions, and font counts.
-- If smaller dimensions truncate glyphs or cells, a yellow warning banner details the impact.
+- If smaller dimensions truncate glyphs or cells, a warning banner details the impact.
 - Click **Regrid** to apply.
 
 > [!CAUTION]

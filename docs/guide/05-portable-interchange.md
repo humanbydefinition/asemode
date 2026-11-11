@@ -80,11 +80,11 @@ Click **Prepare import..**.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/review-import-warnings.png">
   <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/review-import-warnings.png">
-  <img alt="Review Textmode Import dialog showing yellow diagnostic warning box regarding font substitutions and bounds." src="../images/screenshots/dark/review-import-warnings.png" width="520">
+  <img alt="Review Textmode Import dialog showing diagnostic warning box regarding font substitutions and bounds." src="../images/screenshots/dark/review-import-warnings.png" width="520">
 </picture>
 
 - Summarizes **Target:**, **Frames:**, **Layers:**, **Grid:**, **Cell size:**, and **Fonts:**.
-- Displays yellow diagnostic warning boxes for font substitutions, metrics shifts, or out-of-bounds cells. Click **Preview <Font>...** if glyph clipping warnings appear.
+- Displays diagnostic warning boxes for font substitutions, metrics shifts, or out-of-bounds cells. Click **Preview <Font>...** if glyph clipping warnings appear.
 5. Click **Import** to generate or populate the sprite layers.
 
 ---
