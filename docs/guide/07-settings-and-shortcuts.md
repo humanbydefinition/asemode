@@ -48,26 +48,16 @@ Choose **Sprite > Asemode > Keyboard Shortcuts...** (Command: `AsemodeKeyboardSh
 
 | Action | Command Identifier | Recommended Key | Notes |
 | :--- | :--- | :--- | :--- |
-| **Swap Ink and Cell Colors** | `AsemodeSwapColors` | `X` or `Shift+X` | Quickly invert foreground and background colors. |
-| **Flip Stamp Horizontally** | `AsemodeFlipHorizontal` | `H` | Mirrors the active stamp along the vertical axis. |
-| **Flip Stamp Vertically** | `AsemodeFlipVertical` | `V` | Flips the active stamp upside down. |
-| **Rotate Stamp Clockwise** | `AsemodeRotateClockwise` | `R` | Rotates glyph 90° clockwise. |
-| **Rotate Counterclockwise**| `AsemodeRotateCounterclockwise` | `Shift+R` | Rotates glyph 90° counter-clockwise. |
-| **Reset Orientation** | `AsemodeResetOrientation` | `Alt+R` | Clears all rotation and flip states. |
-| **Toggle Asemode Panel** | `AsemodePanel` | `Tab` or `F4` | Quickly hide or reveal the dockable panel. |
-| **Copy Cells** | `AsemodeCopyCells` | `Ctrl+Shift+C` | Captures cells with glyphs and colors. |
-| **Paste Cells** | `AsemodePasteCells` | `Ctrl+Shift+V` | Pastes cells snapping to active grid. |
-| **Replace Selection** | `AsemodeReplace` | `Ctrl+Shift+R` | Opens character and color replacement dialog. |
-
----
-
-## 3. Customizing the Glyph Browser
-
-Depending on your screen resolution or drawing tablet, you can optimize the character grid display:
-
-- **Compact Grid (`12px`):** Best for low-resolution displays or when the panel is floating over a small canvas.
-- **Standard Grid (`20px` - Default):** Balanced readability and hit targets for standard 1080p and 1440p monitors.
-- **Expanded Grid (`28px` / `36px`):** Excellent for 4K / high-DPI displays or touchscreen tablet workflows where larger touch targets are preferred.
+| **Swap Ink and Cell Colors** | `AsemodeSwapColors` | `TODO` | Quickly invert foreground and background colors. |
+| **Flip Stamp Horizontally** | `AsemodeFlipHorizontal` | `TODO` | Mirrors the active stamp along the vertical axis. |
+| **Flip Stamp Vertically** | `AsemodeFlipVertical` | `TODO` | Flips the active stamp upside down. |
+| **Rotate Stamp Clockwise** | `AsemodeRotateClockwise` | `TODO` | Rotates glyph 90° clockwise. |
+| **Rotate Counterclockwise**| `AsemodeRotateCounterclockwise` | `TODO` | Rotates glyph 90° counter-clockwise. |
+| **Reset Orientation** | `AsemodeResetOrientation` | `TODO` | Clears all rotation and flip states. |
+| **Toggle Asemode Panel** | `AsemodePanel` | `TODO` | Quickly hide or reveal the dockable panel. |
+| **Copy Cells** | `AsemodeCopyCells` | `TODO` | Captures cells with glyphs and colors. |
+| **Paste Cells** | `AsemodePasteCells` | `TODO` | Pastes cells snapping to active grid. |
+| **Replace Selection** | `AsemodeReplace` | `TODO` | Opens character and color replacement dialog. |
 
 ---
 
