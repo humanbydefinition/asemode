@@ -6,8 +6,7 @@
 
 **Native character-cell drawing, TrueType typography, and portable textmode art for Aseprite.**
 
-[Getting Started](00-getting-started.md) • [Drawing Workflow](01-panel-and-drawing.md) • [Layers & Composition](02-layers-and-composition.md) • [Typography System](03-fonts-and-typography.md) • [Grids & Canvas](04-canvas-and-grids.md)
-
+[Getting Started](00-getting-started.md) • [Drawing Workflow](01-panel-and-drawing.md) • [Layers & Composition](02-layers-and-composition.md) • [Typography System](03-fonts-and-typography.md) • [Grids & Canvas](04-canvas-and-grids.md)<br>
 [Portable Interchange](05-portable-interchange.md) • [Safety Guards](06-native-guards-and-safety.md) • [Settings & Shortcuts](07-settings-and-shortcuts.md) • [Quick Reference](08-quick-reference.md)
 
 </div>
