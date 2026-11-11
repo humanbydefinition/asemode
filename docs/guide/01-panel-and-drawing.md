@@ -4,7 +4,7 @@
 
 ---
 
-The **Asemode Panel** is your command center for textmode drawing. It connects Aseprite's native drawing tools with character cells, allowing you to paint glyphs, swap ink/cell colors, transform stamps, and browse Unicode characters seamlessly.
+The **Asemode Panel** is your command center for textmode drawing. It connects Aseprite's native drawing tools with character cells, allowing you to paint glyphs, transform stamps, and browse Unicode characters seamlessly. Ink and cell colors come from Aseprite's native foreground and background colors.
 
 Toggle the panel at any time via **Sprite > Asemode > Open/Close Asemode Panel** (Command: `AsemodePanel`).
 
@@ -15,13 +15,11 @@ Toggle the panel at any time via **Sprite > Asemode > Open/Close Asemode Panel**
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/asemode.png">
   <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/asemode.png">
-  <img alt="The Asemode main dockable panel showing active primary and secondary stamps, color selectors, stamp transform icons, and the glyph grid." src="../images/screenshots/dark/asemode.png" width="560">
+  <img alt="The Asemode main dockable panel showing active primary and secondary stamps, stamp transform icons, and the glyph grid." src="../images/screenshots/dark/asemode.png" width="560">
 </picture>
 
 1. **Stamp Preview & Orientation:** Displays active **Primary** (left-click) and **Secondary** (right-click) stamps along with flip/rotation indicators.
-2. **Color Wells:** Two synchronized color selectors:
-   - **Ink Color:** Foreground color rendering the glyph strokes.
-   - **Cell Color:** Background color filling the rectangular cell behind the glyph.
+2. **Ink & Cell Colors:** Use Aseprite's native color picker. The glyph uses **Foreground Color** (ink) and the cell uses **Background Color** (cell).
 3. **Stamp Transform Controls:** Quick-action buttons to swap colors, flip stamps horizontally/vertically, and rotate 90° clockwise or counter-clockwise.
 4. **Interactive Glyph Browser:** Searchable character grid with Unicode block filtering.
 
@@ -50,9 +48,9 @@ Character cell
 
 - **Primary Stamp:** Bound to your primary brush action (left mouse button).
 - **Secondary Stamp:** Bound to your secondary brush action (right mouse button) - ideal for shadow fills, solid blocks, or background clears.
-- **Ink Color:** Synchronizes with Aseprite's palette **Foreground Color**.
-- **Cell Color:** Synchronizes with Aseprite's palette **Background Color**.
-- **Transparent Cells:** Set Cell Color opacity to `0` to let underlying pixel art or backdrop layers show through cleanly.
+- **Ink Color:** Comes from Aseprite's **Foreground Color**; change it in the native color picker.
+- **Cell Color:** Comes from Aseprite's **Background Color**; change it in the native color picker.
+- **Transparent Cells:** Set the **Background Color** alpha to `0` to let underlying pixel art or backdrop layers show through cleanly.
 
 ---
 
