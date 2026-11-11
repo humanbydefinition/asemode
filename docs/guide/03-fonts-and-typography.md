@@ -34,7 +34,7 @@ Asemode comes pre-packaged with curated pixel fonts representing retro computing
 | `ursafont` | UrsaFont | 8×8 px |
 
 ### Font Specimens & Licenses
-Inspect character specimens, author attributions, and open-source licenses for any font under **Sprite > Asemode > About..** on the **Fonts** tab:
+Inspect character specimens, author attributions, and licenses for any font under **Sprite > Asemode > About..** on the **Fonts** tab:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/about-fonts.png">
@@ -100,7 +100,7 @@ If character outlines exceed cell bounds (e.g. descenders in `g`, `j`, `y` or ta
 </picture>
 
 > [!WARNING]
-> Clipped glyphs will have outer pixels cropped on the canvas. If clipping warnings appear, return to the upload tab to increase the font size or adjust baseline offsets.
+> Clipped glyphs will have outer pixels cropped on the canvas. If clipping warnings appear, return to the upload tab to adjust the font size or grid cell dimensions.
 
 ---
 
