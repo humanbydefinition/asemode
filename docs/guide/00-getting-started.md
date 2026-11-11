@@ -66,7 +66,7 @@ Before installing Asemode, ensure your environment meets these specifications:
 ![Aseprite workspace showing the Asemode panel, glyph browser, and a textmode artwork on the canvas](../images/readme-header.png)
 
 - **The Canvas Grid:** Every cell snaps directly to character boundaries. Draw using standard Aseprite tools (Pencil, Line, Shapes, Bucket).
-- **The Asemode Panel:** Controls your **Primary Stamp** (left-click), **Secondary Stamp** (right-click), **Ink Color** (foreground glyph), **Cell Color** (cell background), and **Glyph Browser**.
+- **The Asemode Panel:** Controls your **Primary Stamp** (left-click), **Secondary Stamp** (right-click), stamp transforms, and the **Glyph Browser**. Ink and cell colors come from Aseprite's native foreground and background colors.
 
 ---
 

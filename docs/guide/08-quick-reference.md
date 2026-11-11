@@ -104,7 +104,7 @@ Asemode's glyph browser lazy-loads character names across Unicode planes and ind
 **A:** Applying raster filters directly to tilesets would distort the 1-bit font glyph masks. To apply filters, add a standard raster layer behind or above your textmode layer.
 
 ### Q: Can I export transparent textmode art?
-**A:** Yes! When drawing, set your **Cell Color** (background) to transparent (alpha `0`). When you export via **File > Export As...**, only the glyph strokes will be rendered.
+**A:** Yes! When drawing, set Aseprite's **Background Color** alpha to `0` so cells are transparent. When you export via **File > Export As...**, only the glyph strokes will be rendered.
 
 ### Q: How do I round-trip between Aseprite and `create.textmode.art`?
 **A:** Export your Aseprite artwork using **Sprite > Asemode > Export..** as `.textmode.json`. Open `create.textmode.art`, drag the JSON file in, edit in the browser, export again, and use **Sprite > Asemode > Import Textmode JSON..** to bring it back into Aseprite.
