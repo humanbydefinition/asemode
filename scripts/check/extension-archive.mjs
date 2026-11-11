@@ -53,7 +53,7 @@ export function checkRelease(entries, zip, archiveName, checksum, registry, edit
 		'README.md',
 		'LICENSE',
 		'THIRD_PARTY_NOTICES.md',
-		'docs/USER_GUIDE.md',
+		'docs/guide/README.md',
 		'assets/fonts/licenses/CHUNKY.txt',
 		'assets/fonts/licenses/FROGBLOCK.txt',
 		'assets/fonts/licenses/KITCHEN-SINK.txt',

@@ -61,11 +61,13 @@ file; the extension does not require full script trust.
 
 ## Next steps
 
-Read the [User Guide](docs/USER_GUIDE.md) to get started with drawing, fonts,
+Read the [User Guide](docs/guide/README.md) to get started with drawing, fonts,
 layers, and exchanging artwork with the `textmode.art` ecosystem.
 
-> [!NOTE]
-> The User Guide is a work in progress.
+- [Getting Started](docs/guide/00-getting-started.md) covers installation and your first canvas.
+- [Fonts & Typography](docs/guide/03-fonts-and-typography.md) explains bundled fonts and TrueType imports.
+- [Portable Interchange](docs/guide/05-portable-interchange.md) describes Textmode Document import and export.
+- [Quick Reference](docs/guide/08-quick-reference.md) lists commands, shortcuts, and troubleshooting answers.
 
 ## Contributing
 

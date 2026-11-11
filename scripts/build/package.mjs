@@ -71,7 +71,7 @@ async function build(root, output, edition = 'default') {
 		'CONTRIBUTING.md',
 		'CODE_OF_CONDUCT.md',
 		'SECURITY.md',
-		'docs/USER_GUIDE.md',
+		'docs/guide/README.md',
 		'docs/images/readme-header.png',
 		'examples/textmode-tycoon',
 	]
