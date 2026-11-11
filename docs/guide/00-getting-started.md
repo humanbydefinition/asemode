@@ -63,11 +63,7 @@ Before installing Asemode, ensure your environment meets these specifications:
 
 ## 4. The Textmode Workspace
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/asemode.png">
-  <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/asemode.png">
-  <img alt="Aseprite canvas view with the dockable Asemode panel on the right, displaying active stamps, swatches, and the Unicode glyph picker grid." src="../images/screenshots/dark/asemode.png" width="580">
-</picture>
+![Aseprite workspace showing the Asemode panel, glyph browser, and a textmode artwork on the canvas](../images/readme-header.png)
 
 - **The Canvas Grid:** Every cell snaps directly to character boundaries. Draw using standard Aseprite tools (Pencil, Line, Shapes, Bucket).
 - **The Asemode Panel:** Controls your **Primary Stamp** (left-click), **Secondary Stamp** (right-click), **Ink Color** (foreground glyph), **Cell Color** (cell background), and **Glyph Browser**.
