@@ -84,13 +84,7 @@ Manipulate stamps using the panel buttons or menu commands under **Sprite > Asem
 
 ## 6. Panel Status Banners
 
-When document state requires user attention, the top info area displays a contextual status banner:
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/asemode-panel-locked.png">
-  <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/asemode-panel-locked.png">
-  <img alt="Asemode panel showing yellow status banner indicating that the active layer is locked and cannot be edited." src="../images/screenshots/dark/asemode-panel-locked.png" width="560">
-</picture>
+When document state requires user attention, the top info area displays a contextual status banner.
 
 | Banner Display | Status State | Recommended Action |
 | :--- | :--- | :--- |
