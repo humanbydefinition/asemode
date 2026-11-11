@@ -4,9 +4,9 @@
 
 ---
 
-Asemode documents use Aseprite's native **tilemap** system, where each character cell references a tile in an underlying font tileset. While this architecture gives you native performance and full tool compatibility, standard raster operations (like color-format reduction, blurring filters, or free-form canvas rotation) would silently corrupt character cell identities.
+Asemode documents use Aseprite's native **tilemap** system, where each character cell references a tile in an underlying font tileset. While this architecture gives you native performance and full tool compatibility, standard raster operations (like color-format reduction, blurring filters, or non-orthogonal canvas rotation) can silently corrupt character cell identities.
 
-To protect your artwork, Asemode includes an **Active Guard Subsystem** that monitors native Aseprite commands, blocking destructive actions and offering safe alternatives.
+To protect your artwork, Asemode includes an **Active Guard Subsystem** that monitors native Aseprite commands, blocking destructive actions, safely rewriting supported operations, and offering safe alternatives.
 
 ---
 
@@ -31,7 +31,7 @@ If a native command bypasses these rules, character glyphs would be flattened in
 
 The table below lists all guarded native commands, their rationale, and the recommended workflow to accomplish your goal safely:
 
-| Native Operation | Command / Trigger | Why It Is Blocked | Safe Alternative |
+| Native Operation | Command / Trigger | Why It Is Guarded | Safe Alternative |
 | :--- | :--- | :--- | :--- |
 | **Raster Filters** | **Edit > Adjustments** (Invert, Hue/Sat, Brightness, Blur, Despeckle, Convolution) | Modifying tile pixels corrupts 1-bit font glyph masks and creates orphaned tiles. | To change colors on text cells, use **Sprite > Asemode > Selection > Replace..**. To apply raster filters, use a separate standard pixel art layer. |
 | **Color Mode Conversion** | **Sprite > Color Mode** (Indexed, Grayscale) | Indexed mode limits the sprite to a single 256-color global palette, conflicting with per-cell RGBA pairs. | Keep your master sprite in RGB mode. Export indexed copies via **File > Export As...** or export to `.textmode.json`. |
@@ -41,7 +41,7 @@ The table below lists all guarded native commands, their rationale, and the reco
 | **Native Insert Text** | **Edit > Insert Text** | Inserts anti-aliased or off-grid bitmap text rather than font-cell tiles. | Paint characters using stamps from the **Asemode Panel**. |
 | **Native Sprite Size** | **Sprite > Sprite Size** | Bilinear or nearest-neighbor pixel resampling distorts 1-bit font glyphs. | Use **Sprite > Asemode > Grid..** to scale cell sizes or change column/row counts cleanly. |
 | **Native Canvas Size** | **Sprite > Canvas Size** | Arbitrary pixel offsets shift character cells out of grid alignment. | Asemode intercepts canvas resizing and guides you through grid-aligned dimension adjustments. |
-| **Canvas Rotation** | **Sprite > Rotate Canvas** | Non-orthogonal canvas rotation breaks rectangular tile grid orientation. | Rotate individual stamps via **Sprite > Asemode > Stamps > Rotate 90° Clockwise**, or rotate exported flat renders. |
+| **Canvas Rotation** | **Sprite > Rotate Canvas** | Rotation must update cell orientation flags and grid metadata. Asemode remaps 90° increments; other angles can break rectangular tile alignment. | Asemode handles 90° clockwise, 90° counterclockwise, and 180° rotations automatically, including rectangular cells. Rotate exported flat renders for other angles. |
 
 ---
 
