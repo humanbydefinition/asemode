@@ -106,18 +106,17 @@ If a glyph's outline bounds extend beyond its cell, the preview shows pixels out
 
 ## 5. User Font Management
 
-Click **Manage user fonts..** in the Fonts dialog to audit, rename, or remove custom typefaces:
+Click **Manage user fonts..** in the Fonts dialog to view your saved user fonts, rename one, or remove it from the local Library:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/manage-user-fonts-populated.png">
   <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/manage-user-fonts-populated.png">
-  <img alt="Manage User Fonts dialog showing user font selector, display name field, library usage stats, and action buttons." src="../images/screenshots/dark/manage-user-fonts-populated.png" width="520">
+  <img alt="Manage User Fonts dialog showing a user font selector, display name, Library usage, Rename and Remove buttons." src="../images/screenshots/dark/manage-user-fonts-populated.png" width="520">
 </picture>
 
-- **Renaming Fonts:** Select a font in the **User font** dropdown, edit the **Display name**, and click **Rename**.
-- **Removing Fonts:** Click **Remove** to delete the selected font. Active layers using this font will fall back to default typography.
-- **Resetting Library:** Click **Reset** to restore a clean font library if preferences become damaged.
-- **Done:** Click **Done** when finished to return to the font catalog.
+Select a font from **User font** to edit its **Display name**, then click **Rename** to save the new name. Click **Remove** and confirm to remove the font from the local Library. This does not remove font data already embedded in existing sprites or the original font file.
+
+If the saved Library cannot be read, the dialog offers **Reset User Library**; reset discards the unreadable Library data.
 
 ---
 
