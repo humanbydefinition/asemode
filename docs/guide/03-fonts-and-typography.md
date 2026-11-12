@@ -91,16 +91,16 @@ Before finalizing an import, Asemode analyzes character cell bounds and displays
 </picture>
 
 ### Resolving Clipping Warnings
-If character outlines exceed cell bounds (e.g. descenders in `g`, `j`, `y` or tall accents in `Â`, `Ê`), Asemode flags the clipping in red:
+If a glyph's outline bounds extend beyond its cell, the preview shows pixels outside the cell in orange. The preview shows up to eight glyphs, with glyphs that may clip first. The **Fit** count covers the full font job, not only the sample.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/font-metrics-preview-clipping.png">
   <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/font-metrics-preview-clipping.png">
-  <img alt="Font Metrics Preview dialog highlighting clipped glyph outlines in red with warning diagnostics." src="../images/screenshots/dark/font-metrics-preview-clipping.png" width="520">
+  <img alt="Font Metrics Preview showing orange glyph pixels outside the cell boundaries." src="../images/screenshots/dark/font-metrics-preview-clipping.png" width="520">
 </picture>
 
 > [!WARNING]
-> Clipped glyphs will have outer pixels cropped on the canvas. If clipping warnings appear, return to the upload tab to adjust the font size or grid cell dimensions.
+> If visible glyph pixels extend outside the cell, the canvas crops them. To reduce clipping, close the preview and choose a smaller font size. An existing document uses its current grid cell dimensions; change the grid if larger cells are needed.
 
 ---
 
