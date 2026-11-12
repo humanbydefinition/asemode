@@ -344,7 +344,6 @@ function M.new(deps)
           FontPreview.paint(ev.context, job, sample, extent)
         end,
       })
-      :label({ text = "Extreme overflow is cropped in this preview", visible = extent.truncated })
       :button({
         text = "Use font",
         focus = true,

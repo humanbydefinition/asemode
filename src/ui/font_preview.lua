@@ -66,10 +66,10 @@ end
 ---Prepare bounded overflow masks for the selected TrueType glyphs.
 ---@param job AsemodeFontJob Prepared font and masks.
 ---@param sample table[] Selected glyphs.
----@return table extent Maximum overflow on each edge and truncation flag.
+---@return table extent Maximum overflow on each edge.
 function M.prepare(job, sample)
   local p = job.profile
-  local extent = { left = 0, right = 0, top = 0, bottom = 0, truncated = false }
+  local extent = { left = 0, right = 0, top = 0, bottom = 0 }
   local pc = app.pixelColor
   for _, item in ipairs(sample) do
     local glyph = job.glyphs[item.index]
@@ -85,7 +85,6 @@ function M.prepare(job, sample)
       for _, edge in ipairs({ "left", "right", "top", "bottom" }) do
         padding[edge] = math.min(OVERFLOW_LIMIT, raw[edge])
         extent[edge] = math.max(extent[edge], padding[edge])
-        extent.truncated = extent.truncated or raw[edge] > OVERFLOW_LIMIT
       end
       local width = p.cellWidth + padding.left + padding.right
       local height = p.cellHeight + padding.top + padding.bottom

@@ -129,14 +129,14 @@ return function(test)
     local sample = { { index = 1, clipped = true } }
     local extent = Preview.prepare(job, sample)
     assert(extent.left == 2 and extent.right == 2 and extent.top == 1 and extent.bottom == 1)
-    assert(not extent.truncated and measured.originX == 2 and measured.baseline == 7)
+    assert(measured.originX == 2 and measured.baseline == 7)
     local img = sample[1].overflow
     assert(img.width == 12 and img.height == 10)
     assert(img.pixels[0] == 255 and img.pixels[1 * img.width + 2] == nil)
     assert(img.pixels[1 * img.width + 10] == 255 and img.pixels[9 * img.width + 2] == 255)
     g.xMax = 10000
     local limited = Preview.prepare(job, sample)
-    assert(limited.truncated and limited.right == 128 and sample[1].overflow.width == 138)
+    assert(limited.right == 128 and sample[1].overflow.width == 138)
     rawset(Render, "mask", oldMask)
     app, Image, ColorMode = oldApp, oldImage, oldMode
   end)
