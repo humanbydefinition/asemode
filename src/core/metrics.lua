@@ -2,19 +2,30 @@ local U = require("src.core.util")
 local M = {}
 
 -- This is an outline-bounds check, not a count of cropped raster pixels.
+---Find the cell edges crossed by a glyph's outline bounds.
+---@param profile table Cell geometry and font scale.
+---@param glyph table Glyph outline and bounds.
+---@return table edges Flags for the left, right, top, and bottom edges.
+function M.clippedEdges(profile, glyph)
+  if glyph.renderFallback or not glyph.contours or #glyph.contours == 0 then
+    return { left = false, right = false, top = false, bottom = false }
+  end
+  local scale = profile.scale
+  return {
+    left = profile.originX + (glyph.offsetX or 0) + glyph.xMin * scale < 0,
+    right = profile.originX + (glyph.offsetX or 0) + glyph.xMax * scale > profile.cellWidth,
+    top = profile.baseline - glyph.yMax * scale < 0,
+    bottom = profile.baseline - glyph.yMin * scale > profile.cellHeight,
+  }
+end
+
 ---Test whether a glyph outline extends beyond its cell.
 ---@param profile table Cell geometry and font scale.
 ---@param glyph table Glyph outline and bounds.
 ---@return boolean clipped Whether the outline extends outside the cell.
 function M.isClipped(profile, glyph)
-  if glyph.renderFallback or not glyph.contours or #glyph.contours == 0 then
-    return false
-  end
-  local scale = profile.scale
-  return profile.originX + (glyph.offsetX or 0) + glyph.xMin * scale < 0
-    or profile.originX + (glyph.offsetX or 0) + glyph.xMax * scale > profile.cellWidth
-    or profile.baseline - glyph.yMax * scale < 0
-    or profile.baseline - glyph.yMin * scale > profile.cellHeight
+  local edges = M.clippedEdges(profile, glyph)
+  return edges.left or edges.right or edges.top or edges.bottom
 end
 
 ---Measure a cell profile and update glyph horizontal offsets.

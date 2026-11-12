@@ -212,6 +212,12 @@ return function(test)
           if name == "label" and arg and arg.id then
             self.labels[arg.id] = arg
           end
+          if name == "label" and arg and arg.label then
+            self.labels[arg.label] = arg
+          end
+          if name == "canvas" then
+            self.canvas = arg
+          end
           if name == "button" then
             buttons[arg.text] = arg.onclick
           end
@@ -286,6 +292,73 @@ return function(test)
       return true
     end,
   })
+  test("unclipped font preview uses the original canvas size", function()
+    workflow:preview(job, function() end)
+    assert(lastDialog.canvas.width == 180 and lastDialog.canvas.height == 70)
+    assert(lastDialog.labels.Key == nil)
+  end)
+  test("font preview connects clipping diagnostics to the canvas and confirmation", function()
+    local oldRectangle, previousColor = Rectangle, Color
+    local preview = require("src.ui.font_preview")
+    local oldPrepare = preview.prepare
+    rawset(preview, "prepare", function()
+      return { left = 0, right = 0, top = 0, bottom = 0 }
+    end)
+    Rectangle = function(x, y, width, height)
+      return { x = x, y = y, width = width, height = height }
+    end
+    Color = function()
+      return "outline"
+    end
+    local clippedJob = {
+      profile = {
+        name = "Clipped",
+        kind = "truetype",
+        cellWidth = 8,
+        cellHeight = 8,
+        naturalWidth = 9,
+        naturalHeight = 8,
+        baseline = 6,
+        originX = 0,
+        scale = 1,
+        clippedGlyphs = 1,
+      },
+      glyphs = {
+        { glyphKey = "A", contours = { {} }, xMin = 0, xMax = 9, yMin = -2, yMax = 6 },
+      },
+      masks = { {} },
+    }
+    local confirmed
+    workflow:preview(clippedJob, function(result, allowClipping)
+      confirmed = result == clippedJob and allowClipping
+    end)
+    assert(lastDialog.canvas.width == 180 and lastDialog.canvas.height == 100)
+    assert(lastDialog.labels.Fit.text == "1 glyph(s) may clip")
+    assert(lastDialog.labels.Key == nil and lastDialog.labels.Preview == nil)
+    local gc = {
+      width = 180,
+      height = 70,
+      theme = {
+        color = { editor_face = "surface", selected = "warning", button_selected_text = "text" },
+      },
+    }
+    local bars = 0
+    function gc:drawThemeRect() end
+    function gc:drawImage() end
+    function gc:strokeRect() end
+    function gc:fillRect()
+      if self.color == "warning" then
+        bars = bars + 1
+      end
+    end
+    lastDialog.canvas.onpaint({ context = gc })
+    assert(bars == 0)
+    buttons["Use font"]()
+    assert(confirmed)
+    rawset(preview, "prepare", oldPrepare)
+    Rectangle, Color = oldRectangle, previousColor
+  end)
+
   test("replacing a font selects readable stamps from the new tileset", function()
     workflow:importFont(false)
     buttons["Replace layer font.."]()

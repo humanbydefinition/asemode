@@ -41,7 +41,6 @@ The table below lists all guarded native commands, their rationale, and the reco
 | **Native Insert Text** | **Edit > Insert Text** | Inserts anti-aliased or off-grid bitmap text rather than font-cell tiles. | Paint characters using stamps from the **Asemode Panel**. |
 | **Native Sprite Size** | **Sprite > Sprite Size** | Bilinear or nearest-neighbor pixel resampling distorts 1-bit font glyphs. | Use **Sprite > Asemode > Grid..** to scale cell sizes or change column/row counts cleanly. |
 | **Native Canvas Size** | **Sprite > Canvas Size** | Arbitrary pixel offsets shift character cells out of grid alignment. | Asemode intercepts canvas resizing and guides you through grid-aligned dimension adjustments. |
-| **Canvas Rotation** | **Sprite > Rotate Canvas** | Rotation must update cell orientation flags and grid metadata. Asemode remaps 90° increments; other angles can break rectangular tile alignment. | Asemode handles 90° clockwise, 90° counterclockwise, and 180° rotations automatically, including rectangular cells. Rotate exported flat renders for other angles. |
 
 ---
 

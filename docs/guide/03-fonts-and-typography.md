@@ -91,33 +91,32 @@ Before finalizing an import, Asemode analyzes character cell bounds and displays
 </picture>
 
 ### Resolving Clipping Warnings
-If character outlines exceed cell bounds (e.g. descenders in `g`, `j`, `y` or tall accents in `Â`, `Ê`), Asemode flags the clipping in red:
+If a glyph's outline bounds extend beyond its cell, the preview shows pixels outside the cell in orange. The preview shows up to eight glyphs, with glyphs that may clip first. The **Fit** count covers the full font job, not only the sample.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/font-metrics-preview-clipping.png">
   <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/font-metrics-preview-clipping.png">
-  <img alt="Font Metrics Preview dialog highlighting clipped glyph outlines in red with warning diagnostics." src="../images/screenshots/dark/font-metrics-preview-clipping.png" width="520">
+  <img alt="Font Metrics Preview showing orange glyph pixels outside the cell boundaries." src="../images/screenshots/dark/font-metrics-preview-clipping.png" width="520">
 </picture>
 
 > [!WARNING]
-> Clipped glyphs will have outer pixels cropped on the canvas. If clipping warnings appear, return to the upload tab to adjust the font size or grid cell dimensions.
+> If visible glyph pixels extend outside the cell, the canvas crops them. To reduce clipping, close the preview and choose a smaller font size. An existing document uses its current grid cell dimensions; change the grid if larger cells are needed.
 
 ---
 
 ## 5. User Font Management
 
-Click **Manage user fonts..** in the Fonts dialog to audit, rename, or remove custom typefaces:
+Click **Manage user fonts..** in the Fonts dialog to view your saved user fonts, rename one, or remove it from the local Library:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/manage-user-fonts-populated.png">
   <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/manage-user-fonts-populated.png">
-  <img alt="Manage User Fonts dialog showing user font selector, display name field, library usage stats, and action buttons." src="../images/screenshots/dark/manage-user-fonts-populated.png" width="520">
+  <img alt="Manage User Fonts dialog showing a user font selector, display name, Library usage, Rename and Remove buttons." src="../images/screenshots/dark/manage-user-fonts-populated.png" width="520">
 </picture>
 
-- **Renaming Fonts:** Select a font in the **User font** dropdown, edit the **Display name**, and click **Rename**.
-- **Removing Fonts:** Click **Remove** to delete the selected font. Active layers using this font will fall back to default typography.
-- **Resetting Library:** Click **Reset** to restore a clean font library if preferences become damaged.
-- **Done:** Click **Done** when finished to return to the font catalog.
+Select a font from **User font** to edit its **Display name**, then click **Rename** to save the new name. Click **Remove** and confirm to remove the font from the local Library. This does not remove font data already embedded in existing sprites or the original font file.
+
+If the saved Library cannot be read, the dialog offers **Reset User Library**; reset discards the unreadable Library data.
 
 ---
 

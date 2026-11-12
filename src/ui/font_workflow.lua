@@ -286,6 +286,7 @@ function M.new(deps)
     end
     local d, p = nil, job.profile
     local sample = FontPreview.sample(job)
+    local extent = FontPreview.prepare(job, sample)
     d = deps.dialog("Font Metrics Preview", { singleton = "fontMetrics" })
     if target and target.isValid then
       local g = Model.managed(target) and U.copy(Model.geometry(target))
@@ -337,10 +338,10 @@ function M.new(deps)
           or (p.kind == "bitmap" and "Bitmap masks use the full cell" or "All glyph outlines fit"),
       })
       :canvas({
-        width = FontPreview.WIDTH,
-        height = FontPreview.HEIGHT,
+        width = p.clippedGlyphs > 0 and FontPreview.WIDTH or FontPreview.COMPACT_WIDTH,
+        height = p.clippedGlyphs > 0 and FontPreview.HEIGHT or FontPreview.COMPACT_HEIGHT,
         onpaint = function(ev)
-          FontPreview.paint(ev.context, job, sample)
+          FontPreview.paint(ev.context, job, sample, extent)
         end,
       })
       :button({
