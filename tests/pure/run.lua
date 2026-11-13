@@ -620,5 +620,6 @@ test("settings panel suppresses range errors and auto-corrects minimums and on c
 end)
 
 require("tests.pure.domain-helpers")(test)
+require("tests.pure.blend")(test)
 
 print("ASEMODE_PURE_OK " .. count)

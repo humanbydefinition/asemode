@@ -15,6 +15,11 @@ local blendNames = {
   colorBurn = "COLOR_BURN",
   difference = "DIFFERENCE",
   exclusion = "EXCLUSION",
+  hslHue = "HSL_HUE",
+  hslSaturation = "HSL_SATURATION",
+  hslColor = "HSL_COLOR",
+  hslLuminosity = "HSL_LUMINOSITY",
+  divide = "DIVIDE",
 }
 ---Convert a portable blend mode name to a native Aseprite mode.
 ---@param name string Portable blend mode name.
