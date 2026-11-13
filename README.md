@@ -22,7 +22,7 @@ edit glyphs directly on the canvas with native tools.
 - **Native drawing** - Paint glyphs with Aseprite's native drawing tools.
 - **Fonts and glyphs** - Choose from bundled fonts or upload a static TrueType font; search characters by Unicode name or block.
 - **Textmode layers** - Combine textmode, pixel art, and animation in the same RGB sprite, with a different font for each Textmode layer.
-- **Colors and stamps** - Set ink and cell colors, swap colors, and flip or rotate glyph stamps.
+- **Colors and stamps** - Use Aseprite's foreground and background colors for ink and cells, swap colors, and flip or rotate glyph stamps.
 - **Editing and resizing** - Replace selected glyphs or colors and adjust cell and grid dimensions.
 - **Portable artwork** - Exchange editable [Textmode Document](https://github.com/humanbydefinition/textmode-document) JSON with tools across the `textmode.art` ecosystem.
 - **Customizable controls** - Assign keyboard shortcuts and adjust the glyph picker and panel settings.
@@ -61,11 +61,13 @@ file; the extension does not require full script trust.
 
 ## Next steps
 
-Read the [User Guide](docs/USER_GUIDE.md) to get started with drawing, fonts,
+Read the [User Guide](docs/guide/README.md) to get started with drawing, fonts,
 layers, and exchanging artwork with the `textmode.art` ecosystem.
 
-> [!NOTE]
-> The User Guide is a work in progress.
+- [Getting Started](docs/guide/00-getting-started.md) covers installation and your first canvas.
+- [Fonts & Typography](docs/guide/03-fonts-and-typography.md) explains bundled fonts and TrueType imports.
+- [Portable Interchange](docs/guide/05-portable-interchange.md) describes Textmode Document import and export.
+- [Quick Reference](docs/guide/08-quick-reference.md) lists commands, shortcuts, and troubleshooting answers.
 
 ## Contributing
 

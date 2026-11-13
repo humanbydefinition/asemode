@@ -46,6 +46,9 @@ for _, dimensions in ipairs({ { 8, 8 }, { 8, 16 } }) do
     sprite.width, sprite.height = sprite.width + 1, sprite.height + 3
     local original = layer.cels[1].image.bytes
     local originalWidth, originalHeight = sprite.width, sprite.height
+    local originalCoverage = Model.coverage(sprite)
+    local masks = Profile.index(sprite, id).masks
+    local maskBytes = masks:tile(1).image.bytes
     local cellsWidth, cellsHeight = image.width, image.height
     local normal = sprite:newLayer()
     app.layer = normal
@@ -72,14 +75,38 @@ for _, dimensions in ipairs({ { 8, 8 }, { 8, 16 } }) do
     Snapshot.capture(sprite, { layer }, 1)
     Snapshot.capture(sprite, { layer }, 2)
     local geometry = Model.geometry(sprite)
-    assert(geometry.cellWidth == (angle == 180 and dimensions[1] or dimensions[2]))
-    assert(geometry.cellHeight == (angle == 180 and dimensions[2] or dimensions[1]))
+    assert(geometry.cellWidth == dimensions[1], "rotation changed cell width")
+    assert(geometry.cellHeight == dimensions[2], "rotation changed cell height")
+    local rotatedCoverage = Model.coverage(sprite)
+    assert(
+      rotatedCoverage.columns
+        == (angle == 180 and originalCoverage.columns or originalCoverage.rows)
+    )
+    assert(
+      rotatedCoverage.rows == (angle == 180 and originalCoverage.rows or originalCoverage.columns)
+    )
+    assert(Model.meta(layer).fontProfileId == id, "rotation changed font profile")
+    assert(
+      Profile.index(sprite, id).masks:tile(1).image.bytes == maskBytes,
+      "rotation changed glyph masks"
+    )
+    if dimensions[1] ~= dimensions[2] and angle ~= 180 then
+      local pos = layer:cel(1).position
+      assert(pos.x == (angle == 90 and (originalCoverage.rows - cellsHeight) * dimensions[1] or 0))
+      assert(
+        pos.y == (angle == -90 and (originalCoverage.columns - cellsWidth) * dimensions[2] or 0)
+      )
+    end
     app.undo()
     assert(sprite.width == originalWidth and sprite.height == originalHeight)
     assert(layer.cels[1].image.bytes == original, "one undo did not restore the cells")
     assert(Model.meta(layer).fontProfileId == id and #Validate.run(sprite) == 0)
     app.redo()
     assert(select(2, Profile.decode(layer, layer.cels[1].image:getPixel(x, y))) == expected)
+    assert(
+      Model.geometry(sprite).cellWidth == dimensions[1]
+        and Model.geometry(sprite).cellHeight == dimensions[2]
+    )
     assert(#Validate.run(sprite) == 0)
     sprite:close()
     print("PASS rotation " .. dimensions[1] .. "x" .. dimensions[2] .. " " .. angle)

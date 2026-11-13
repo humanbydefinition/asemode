@@ -30,17 +30,13 @@ Automated screenshot generation requires:
 
 ## How It Works
 
-```mermaid
-flowchart TD
-    Catalog["catalog.json"] --> Gen["generate.mjs"]
-    Catalog --> Entry["capture.lua"]
-    Gen --> Profile["Create isolated Aseprite profile with SHA-1 script_access"]
-    Profile --> Entry
-    Entry --> Harness["lib/harness.lua + lib/fixtures.lua"]
-    Harness --> Suites["suites/*.lua (DialogHandle API)"]
-    Suites --> Valid["publish.mjs validates PNG headers, dimensions, and uniqueness"]
-    Valid --> Deploy["Atomic swap: update docs/images/screenshots & categorized docs/SCREENSHOTS.md"]
+```text
+catalog.json -> generate.mjs -> Isolated profile -> capture.lua
+catalog.json -------------------------------------> capture.lua
+capture.lua -> Harness and fixtures -> Suites -> publish.mjs -> Gallery
 ```
+
+The profile authorizes scripts using SHA-1 hashes. The publisher validates PNG headers, dimensions, and uniqueness before it updates the screenshot images and gallery.
 
 ### 1. Declarative Catalog & Live Title Introspection (`catalog.json`)
 
