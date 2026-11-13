@@ -81,6 +81,17 @@ function M.classify(name, params, context)
     if (angle == 90 or angle == -90 or angle == 180) and Model.hasMarkedLayers(sprite) then
       return { action = "replace", operation = "rotate", angle = angle }
     end
+  elseif
+    name == "Flip"
+    and sprite
+    and params.target ~= "mask"
+    and Model.hasMarkedLayers(sprite)
+  then
+    return {
+      action = "replace",
+      operation = "flip",
+      orientation = params.orientation == "vertical" and "vertical" or "horizontal",
+    }
   elseif (name == "SpriteSize" or name == "CanvasSize") and Model.hasMarkedLayers(sprite) then
     return block(name == "SpriteSize" and {
       "Sprite Size cannot safely scale Asemode layers.",

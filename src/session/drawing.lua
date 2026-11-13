@@ -4,6 +4,7 @@ local Profile = require("src.document.profile")
 local Stamps = require("src.actions.stamps")
 local StampState = require("src.document.stamp_state")
 local Rotate = require("src.document.rotate")
+local Flip = require("src.document.flip")
 local NativeOperations = require("src.session.native_operations")
 local ColorSync = require("src.session.color_sync")
 local HostContext = require("src.session.host_context")
@@ -825,12 +826,18 @@ function M.new(options)
       if decision.action ~= "allow" then
         ev.stopPropagation()
         if decision.action == "replace" then
+          local flipping = decision.operation == "flip"
+          local label = flipping and "Flip Asemode Canvas" or "Rotate Asemode Canvas"
           local success, err = pcall(function()
             U.check(not self:isBusy(), "Finish the current Asemode operation first")
-            app.transaction("Rotate Asemode Canvas", function()
+            app.transaction(label, function()
               self:flush()
               self:withSuppression(function()
-                Rotate.apply(app.sprite, decision.angle)
+                if flipping then
+                  Flip.apply(app.sprite, decision.orientation)
+                else
+                  Rotate.apply(app.sprite, decision.angle)
+                end
               end)
             end)
             self:invalidateStamps()
@@ -840,7 +847,11 @@ function M.new(options)
             Profile.invalidate()
             self:invalidateStamps()
             changed()
-            local message = commandFailure("Could not rotate the Asemode canvas.", err)
+            local message = commandFailure(
+              flipping and "Could not flip the Asemode canvas."
+                or "Could not rotate the Asemode canvas.",
+              err
+            )
             if app.isUIAvailable then
               showNativeWarning(message)
             end

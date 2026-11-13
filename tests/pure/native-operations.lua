@@ -109,6 +109,7 @@ return function(test)
         assert(action(command) == "allow", command .. " blocked an ordinary layer")
       end
       assert(action("Rotate", { target = "sprite", angle = "90" }) == "allow")
+      assert(action("Flip", { target = "canvas", orientation = "vertical" }) == "allow")
     end
     context.sprite, context.layer = originalSprite, originalLayer
   end)
@@ -134,6 +135,10 @@ return function(test)
     )
     assert(action("Rotate", { target = "mask", angle = "90" }) == "allow")
     assert(action("Rotate", { target = "sprite", angle = "45" }) == "allow")
+    local flip = policy.classify("Flip", { target = "canvas", orientation = "vertical" }, context)
+    assert(flip.action == "replace" and flip.operation == "flip" and flip.orientation == "vertical")
+    assert(policy.classify("Flip", {}, context).orientation == "horizontal")
+    assert(action("Flip", { target = "mask", orientation = "horizontal" }) == "allow")
   end)
 
   for _, name in ipairs(names) do
