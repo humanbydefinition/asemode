@@ -25,42 +25,27 @@ function M.apply(sprite, angle)
   local width, height = sprite.width, sprite.height
   local quarter = angle ~= 180
   local rectangular = quarter and old.cellWidth ~= old.cellHeight
-  local layers, profiles = {}, {}
+  local coverage = rectangular and Model.coverage(sprite, old) or nil
+  local layers = {}
   for _, layer in ipairs(Model.layers(sprite)) do
     if Model.layerManaged(layer) then
-      layers[#layers + 1] = { layer = layer, id = Model.meta(layer).fontProfileId }
-    elseif rectangular and layer.isTilemap then
-      Model.checkUnmanagedTilemap(
-        layer,
-        "A native tilemap shares Asemode font tiles; give it an independent tileset first"
-      )
+      local id = Model.meta(layer).fontProfileId
+      local item = { layer = layer, id = id, targetId = id, cels = {} }
+      if rectangular then
+        for _, cel in ipairs(layer.cels) do
+          local col, row = Model.celOrigin(cel, old)
+          item.cels[cel.frameNumber] =
+            { col = col, row = row, width = cel.image.width, height = cel.image.height }
+        end
+      end
+      layers[#layers + 1] = item
     end
   end
   if rectangular then
-    for _, entry in ipairs(Profile.profiles(sprite)) do
-      local index = Profile.index(sprite, entry.id)
-      local profile, glyphs, masks = U.copy(index.profile), {}, {}
-      profile.cellWidth, profile.cellHeight = old.cellHeight, old.cellWidth
-      for i = 1, #index.masks - 1 do
-        local tile = index.masks:tile(i)
-        glyphs[i] = Model.meta(tile)
-        local image = Image(profile.cellWidth, profile.cellHeight, ColorMode.RGB)
-        image:drawImage(
-          tile.image,
-          Point(
-            (profile.cellWidth - old.cellWidth) // 2,
-            (profile.cellHeight - old.cellHeight) // 2
-          )
-        )
-        masks[i] = image
-      end
-      profiles[#profiles + 1] = {
-        id = entry.id,
-        masks = index.masks,
-        paint = index.paint,
-        job = { profile = profile, glyphs = glyphs, masks = masks, position = #glyphs },
-      }
-    end
+    U.check(
+      coverage.rows * old.cellWidth <= 65535 and coverage.columns * old.cellHeight <= 65535,
+      "Rotated canvas exceeds Aseprite dimensions"
+    )
   end
   app.transaction("Rotate Asemode Canvas", function()
     app.command.Rotate({ ui = false, target = "sprite", angle = angle })
@@ -73,30 +58,28 @@ function M.apply(sprite, angle)
       geometry.originX, geometry.originY = width - old.originX, height - old.originY
     end
     if rectangular then
-      geometry.cellWidth, geometry.cellHeight = old.cellHeight, old.cellWidth
+      geometry.originX, geometry.originY = 0, 0
+      sprite.width, sprite.height = coverage.rows * old.cellWidth, coverage.columns * old.cellHeight
+      for _, item in ipairs(layers) do
+        for _, cel in ipairs(item.layer.cels) do
+          local before = item.cels[cel.frameNumber]
+          local col, row = before.col - coverage.firstCol, before.row - coverage.firstRow
+          if angle == 90 then
+            cel.position =
+              Point((coverage.rows - row - before.height) * old.cellWidth, col * old.cellHeight)
+          else
+            cel.position =
+              Point(row * old.cellWidth, (coverage.columns - col - before.width) * old.cellHeight)
+          end
+        end
+      end
     end
     geometry.originX = geometry.originX % geometry.cellWidth
     geometry.originY = geometry.originY % geometry.cellHeight
     Model.setMeta(sprite, geometry)
-    local replacements = {}
-    for _, item in ipairs(profiles) do
-      replacements[item.id] = Profile.install(sprite, item.job, true)
-    end
-    for _, item in ipairs(layers) do
-      item.targetId = replacements[item.id] or item.id
-    end
     Edit.remapLayers(sprite, layers, function(flags)
       return rotateFlags(flags, angle)
     end)
-    for _, item in ipairs(layers) do
-      if replacements[item.id] then
-        Profile.bindLayer(item.layer, item.targetId, Profile.index(sprite, item.targetId))
-      end
-    end
-    for _, item in ipairs(profiles) do
-      sprite:deleteTileset(item.paint)
-      sprite:deleteTileset(item.masks)
-    end
     Profile.invalidate()
     Validate.requireValid(sprite)
   end)
