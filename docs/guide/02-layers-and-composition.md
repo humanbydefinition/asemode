@@ -45,7 +45,7 @@ Layer Stack Hierarchy:
 Textmode layers are native Aseprite tilemap layers. Raster layers are standard pixel layers.
 
 - **Layer Ordering & Opacity:** Drag layers in the timeline to place text above or below pixel art. Adjust layer opacity sliders to create subtle shaded or translucent text effects.
-- **Blending Modes:** Multiply, Screen, Overlay, and Addition blend modes work as expected with textmode layers.
+- **Blending Modes:** All 19 Aseprite layer blend modes are supported. HSL Hue and HSL Saturation leave a gray backdrop gray. Divide brightens the backdrop based on the layer color.
 - **Transparent Cells:** With cell background alpha at `0`, only glyph strokes are rendered, allowing underlying raster layers to show through cleanly.
 
 ---
