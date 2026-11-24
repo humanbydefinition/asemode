@@ -14,6 +14,45 @@ return function(test)
     }
   end
 
+  test("font measurement keeps fractional bounds without adding empty pixels", function()
+    for _, size in ipairs({ 8, 12, 14, 16, 28 }) do
+      local p = Loader.bundled("atascii", { pixelSize = size }).profile
+      assert(p.cellWidth == size and p.cellHeight == size and p.clippedGlyphs == 0)
+    end
+    local square = Loader.bundled("atascii", { pixelSize = 12 }).profile
+    assert(square.baseline == 10.5)
+    for _, size in ipairs({ 8, 12, 16, 24 }) do
+      local p = Loader.bundled("bescii", { pixelSize = size }).profile
+      assert(p.cellWidth == size and p.cellHeight == size and p.clippedGlyphs == 0)
+    end
+  end)
+
+  test("zero-advance glyphs use their outline position without inflating the cell", function()
+    local font = { unitsPerEm = 8, ascender = 8, descender = 0 }
+    local base, within, negative = glyph("A", 8, 8), glyph("B", 3, 6), glyph("C", -1, 6)
+    within.advance, within.xMin, within.xMax = 0, 1, 3
+    negative.advance, negative.xMin, negative.xMax = 0, -3, -1
+    local p = Metrics.measure(font, { base, within, negative }, { pixelSize = 8 })
+    assert(p.cellWidth == 8 and p.cellHeight == 8 and p.clippedGlyphs == 0)
+    assert(within.offsetX == 0 and negative.offsetX == 6)
+    assert(within.advance == 0 and negative.advance == 0)
+    local onlyMark = Metrics.measure(font, { within }, { pixelSize = 8 })
+    assert(
+      onlyMark.advance == 8 and onlyMark.cellWidth == 8 and not Metrics.isClipped(onlyMark, within)
+    )
+  end)
+
+  test("font measurement preserves real overhangs and fractional origins", function()
+    local font = { unitsPerEm = 8, ascender = 7, descender = -1 }
+    local overhang = glyph("A", 8, 7)
+    overhang.xMin, overhang.xMax, overhang.yMin = -1, 8.00001, -1
+    local p = Metrics.measure(font, { overhang }, { pixelSize = 12 })
+    assert(p.cellWidth == 14 and p.cellHeight == 12)
+    assert(p.originX == 1.5 and p.baseline == 10.5 and p.clippedGlyphs == 0)
+    local limited = Metrics.measure(font, { overhang }, { pixelSize = 12, cellWidth = 13 })
+    assert(limited.clippedGlyphs == 1)
+  end)
+
   test("font fitting preserves aspect ratio and prioritizes used glyphs", function()
     local font = { unitsPerEm = 8, ascender = 8, descender = 0 }
     local glyphs = { glyph("A", 6, 8), glyph("Z", 12, 8) }

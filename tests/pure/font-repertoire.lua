@@ -1,4 +1,23 @@
 return function(test)
+  test("adding zero-advance glyphs preserves their placement", function()
+    local Loader = require("src.fonts.loader")
+    local Metrics = require("src.core.metrics")
+    local key = utf8.char(0x3099)
+    local full = Loader.bundled("bescii", { pixelSize = 8 })
+    local partial = Loader.bundled("bescii", { pixelSize = 8, characters = "A" })
+    assert(#Loader.ensureCharacters(partial, { key }) == 0)
+    local function find(job)
+      for _, glyph in ipairs(job.glyphs) do
+        if glyph.glyphKey == key then
+          return glyph
+        end
+      end
+      error("missing glyph")
+    end
+    local expected, actual = find(full), find(partial)
+    assert(actual.advance == 0 and actual.offsetX == expected.offsetX)
+    assert(not Metrics.isClipped(partial.profile, actual))
+  end)
   test(
     "requested mapped control characters use real glyphs and missing characters fall back",
     function()

@@ -75,7 +75,7 @@ local function fromBytes(bytes, name, source, hash, options, parsed)
       if glyph.renderFallback then
         glyph.advance = profile.cellWidth / profile.scale
       else
-        glyph.offsetX = Metrics.offsetX(profile, glyph.advance)
+        glyph.offsetX = Metrics.offsetX(profile, glyph)
       end
     end
     return resolved
