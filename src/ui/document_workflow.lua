@@ -719,7 +719,7 @@ function M.new(deps)
                     summary.coverage.rows
                   ),
                 },
-                { label = "Fonts", text = tostring(#jobs) },
+                { label = "Fonts", text = tostring(#jobs) .. " · sizes unchanged" },
                 {
                   label = "Preserved",
                   text = summary.mixed and "Canvas and native artwork" or "Columns and rows",
