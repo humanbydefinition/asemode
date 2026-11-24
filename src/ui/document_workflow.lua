@@ -121,28 +121,139 @@ function M.new(deps)
       return
     end
     local defaults = Settings.read(deps.preferences, library)
-    local d = deps.dialog("New Textmode Sprite", { singleton = "newDocument", autofit = 0 })
+    local timer, closed, ready, profile, profileKey = nil, false, false, nil, nil
+    local d = deps.dialog("New Textmode Sprite", {
+      singleton = "newDocument",
+      autofit = 0,
+      onclose = function()
+        closed = true
+        if timer then
+          timer:stop()
+          timer = nil
+        end
+      end,
+    })
     local catalog
+
+    local function updatePreview()
+      if not ready or closed then
+        return
+      end
+      local data, selected = d.data, catalog.selected()
+      local cols, rows, size = tonumber(data.cols), tonumber(data.rows), tonumber(data.size)
+      local valid = selected
+        and cols
+        and cols == math.floor(cols)
+        and cols >= 1
+        and cols <= 1024
+        and rows
+        and rows == math.floor(rows)
+        and rows >= 1
+        and rows <= 1024
+        and size
+        and size == math.floor(size)
+        and size >= 8
+        and size <= 128
+      if timer then
+        timer:stop()
+        timer = nil
+      end
+      if not valid then
+        profileKey, profile = nil, nil
+        d:modify({ id = "newCellDimensions", text = "—" })
+        d:modify({ id = "newCanvasDimensions", text = "Enter valid values" })
+        d:modify({ id = "createSprite", enabled = false })
+        return
+      end
+      local key = selected.kind
+        .. ":"
+        .. selected.id
+        .. ":"
+        .. tostring(selected.sha256 or "")
+        .. ":"
+        .. size
+      local function showDimensions()
+        local canvasWidth, canvasHeight = cols * profile.cellWidth, rows * profile.cellHeight
+        local fits = canvasWidth <= 65535
+          and canvasHeight <= 65535
+          and cols * rows <= 4 * 1024 * 1024
+        d:modify({
+          id = "newCellDimensions",
+          text = string.format("%d × %d px", profile.cellWidth, profile.cellHeight),
+        })
+        d:modify({
+          id = "newCanvasDimensions",
+          text = fits and string.format("%d × %d px", canvasWidth, canvasHeight)
+            or "Exceeds canvas limits",
+        })
+        d:modify({ id = "createSprite", enabled = fits })
+      end
+      if key == profileKey and profile then
+        showDimensions()
+        return
+      end
+      profileKey, profile = nil, nil
+      d:modify({ id = "newCellDimensions", text = "Calculating..." })
+      d:modify({ id = "newCanvasDimensions", text = "Calculating..." })
+      d:modify({ id = "createSprite", enabled = false })
+      local function measure()
+        if timer then
+          timer:stop()
+          timer = nil
+        end
+        if closed then
+          return
+        end
+        local ok, job = pcall(library.job, library, selected, { pixelSize = size })
+        if ok then
+          profileKey, profile = key, job.profile
+          showDimensions()
+        else
+          d:modify({ id = "newCellDimensions", text = "Font unavailable" })
+          d:modify({ id = "newCanvasDimensions", text = "—" })
+        end
+      end
+      local createTimer = deps.timer or (type(Timer) == "function" and Timer or nil)
+      if createTimer and app.isUIAvailable ~= false then
+        timer = createTimer({ interval = 0.15, ontick = measure })
+        timer:start()
+      else
+        measure()
+      end
+    end
     deps.controls:addNumericInput(
       d,
       "cols",
       "Columns",
       tostring(defaults.columns),
-      { min = 1, max = 1024, step = 1 }
+      { min = 1, max = 1024, step = 1, onchange = updatePreview }
     )
     deps.controls:addNumericInput(
       d,
       "rows",
       "Rows",
       tostring(defaults.rows),
-      { min = 1, max = 1024, step = 1 }
+      { min = 1, max = 1024, step = 1, onchange = updatePreview }
     )
-    catalog =
-      deps.font:libraryControl(d, "font", nil, { id = defaults.fontId, kind = defaults.fontKind })
-    deps.controls:addFontSizeInput(d, tostring(defaults.size), { min = 8, max = 128 })
+    catalog = deps.font:libraryControl(
+      d,
+      "font",
+      updatePreview,
+      { id = defaults.fontId, kind = defaults.fontKind },
+      updatePreview
+    )
+    deps.controls:addFontSizeInput(
+      d,
+      tostring(defaults.size),
+      { min = 8, max = 128, onchange = updatePreview }
+    )
     local getBackground = deps.controls:addBackgroundInput(d, defaults.backgroundColor)
+    d:label({ id = "newCellDimensions", label = "Cell", text = "Calculating..." })
+      :label({ id = "newCanvasDimensions", label = "Canvas", text = "Calculating..." })
     d:button({
+      id = "createSprite",
       text = "Create",
+      enabled = false,
       focus = true,
       onclick = deps.guard(function()
         local data = d.data
@@ -161,6 +272,8 @@ function M.new(deps)
       end),
     })
     d:show({ wait = false })
+    ready = true
+    updatePreview()
   end
 
   ---Open the replacement dialog for the active text selection.
