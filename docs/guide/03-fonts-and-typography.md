@@ -33,6 +33,8 @@ Asemode comes pre-packaged with curated pixel fonts representing retro computing
 | `unscii-8-thin` | UNSCII 8 Thin | 8×8 px |
 | `ursafont` | UrsaFont | 8×8 px |
 
+Use the native dimensions or matching whole-number multiples for the font’s cell size.
+
 ### Font Specimens & Licenses
 Inspect character specimens, author attributions, and licenses for any font under **Sprite > Asemode > About..** on the **Fonts** tab:
 
@@ -51,10 +53,14 @@ Open the font manager via **Sprite > Asemode > Fonts..** (Command: `AsemodeFont`
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/font.png">
   <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/font.png">
-  <img alt="Fonts dialog Library tab listing bundled and user fonts with details, cell size, and action buttons." src="../images/screenshots/dark/font.png" width="540">
+  <img alt="Fonts dialog Library tab with font selector, author, sizing controls, and action buttons." src="../images/screenshots/dark/font.png" width="540">
 </picture>
 
-The **Library** tab lists all registered fonts, their cell dimensions, origin (`bundled` or `user`), and quick actions to apply them to your active layer.
+The **Library** tab lists registered bundled and user fonts. Select a font to see its author and available source links, then add a layer or replace the active layer's font.
+
+When you add a layer to an Asemode document or replace a layer's font, the document's cell dimensions stay the same. **Fit to cells** selects a font size for those dimensions without stretching the font. It starts with the current layer's font size when replacing a font, or the cell height when adding a layer. It reduces the size only if the layer's characters would extend outside their cells. For a new or empty layer, it checks common characters instead.
+
+Select **Custom** to choose the font size yourself. The preview reports the selected size, missing characters, and any outlines that may be clipped, including characters outside the fit check. If the font needs larger or differently shaped cells, open **Sprite > Asemode > Grid..** and select **Cell Size**. Changing cell size affects the document's textmode layers and requires a separate preview and confirmation.
 
 ---
 
@@ -67,14 +73,14 @@ Asemode rasterizes static TrueType vector fonts into 1-bit pixel masks suitable 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/font-upload.png">
   <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/font-upload.png">
-  <img alt="Fonts dialog Upload .ttf tab showing file browser, font size input, baseline offset, and rasterization options." src="../images/screenshots/dark/font-upload.png" width="540">
+  <img alt="Fonts dialog Upload .ttf tab with a file picker, display name, author, and Save to Library option." src="../images/screenshots/dark/font-upload.png" width="540">
 </picture>
 
 2. Choose a `.ttf` file using the **TTF font** file picker.
-3. Configure font properties and rasterization parameters:
+3. Configure font properties and rasterization parameters. Scroll down in the dialog if the sizing and action controls are not visible:
    - **Display name:** Enter an identifier for the font.
    - **Save to Library:** Keep checked to persist the font in your user font catalog.
-   - **Font size:** Target pixel height (typically `8`, `12`, `16`, or `24` px).
+   - **Font sizing:** For an existing Asemode document, use **Fit to cells** or select **Custom** to choose a font size. For an ordinary RGB sprite, choose a font size and automatic or custom cell dimensions.
    - **Rendering:** Toggle **Antialias outlines** if desired.
 4. Click **Add layer** to compile the font and open the metrics preview.
 
@@ -87,11 +93,11 @@ Before finalizing an import, Asemode analyzes character cell bounds and displays
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/font-metrics-preview.png">
   <source media="(prefers-color-scheme: light)" srcset="../images/screenshots/light/font-metrics-preview.png">
-  <img alt="Font Metrics Preview dialog displaying glyph specimen, bounding box, ascent, descent, and cell size." src="../images/screenshots/dark/font-metrics-preview.png" width="520">
+  <img alt="Font Metrics Preview showing font size, grid dimensions, natural bounds, baseline, clipping status, and sample glyphs." src="../images/screenshots/dark/font-metrics-preview.png" width="520">
 </picture>
 
 ### Resolving Clipping Warnings
-If a glyph's outline bounds extend beyond its cell, the preview shows pixels outside the cell in orange. The preview shows up to eight glyphs, with glyphs that may clip first. The **Fit** count covers the full font job, not only the sample.
+If a glyph's outline bounds extend beyond its cell, the preview shows pixels outside the cell in orange. The preview shows up to eight glyphs, with glyphs that may clip first. The **Clipping** count covers the full font job, not only the sample. When relevant, it also indicates whether glyphs already used on the layer may clip.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../images/screenshots/dark/font-metrics-preview-clipping.png">
@@ -100,7 +106,7 @@ If a glyph's outline bounds extend beyond its cell, the preview shows pixels out
 </picture>
 
 > [!WARNING]
-> If visible glyph pixels extend outside the cell, the canvas crops them. To reduce clipping, close the preview and choose a smaller font size. An existing document uses its current grid cell dimensions; change the grid if larger cells are needed.
+> If visible glyph pixels extend outside the cell, the canvas crops them. Outline bounds can extend outside a cell even when no visible pixels are cropped. To reduce clipping, close the preview and choose a smaller custom font size, or change the document's cell dimensions. Fitting cannot supply characters that are missing from the font.
 
 ---
 

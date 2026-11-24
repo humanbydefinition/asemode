@@ -25,7 +25,7 @@ To open preferences, select **Sprite > Asemode > Settings..** (Command: `Asemode
 | **New Textmode Sprite defaults** | **Columns** | `1` to `1024` | `40` | Default horizontal cell count for new sprites. |
 | | **Rows** | `1` to `1024` | `25` | Default vertical cell count for new sprites. |
 | | **Font** | Any registered font | `ATASCII` | Initial typeface assigned to new textmode layers. |
-| | **Font size** | `8` to `128` px | `8` | Default pixel dimension per cell. |
+| | **Font size** | `8` to `128` px | `8` | Default font rendering size. |
 | | **Background** | Valid `#rrggbbaa` hex | `#ffffff00` (Transparent) | Initial background fill color for canvas cells. |
 | **Asemode Panel defaults** | **Glyph tile size** | `12`, `20`, `28`, `36` | `20` | Display size (px) of character boxes in the glyph browser grid. |
 | | **Stamp action click** | `Primary stamp only`, `Both stamps` | `Primary stamp only` | Determines whether picking a glyph updates only the primary stamp or synchronizes both stamps. |

@@ -19,9 +19,10 @@ Add new textmode layers to any RGB sprite at any time via **Sprite > Asemode > A
 </picture>
 
 - **Font:** Choose any bundled retro font or installed user font. Each textmode layer can use a different typeface.
-- **Font size:** Sets the pixel cell height for the new layer.
+- **Font sizing:** In an Asemode document, **Fit to cells** fits the font to the existing cells by default. Select **Custom** to set the font size yourself. Cell dimensions are shared by the document.
+- **Cell dimensions:** When adding the first textmode layer to an ordinary RGB sprite, choose a font size and use automatic or custom cell dimensions.
 - **Rendering:** Check **Antialias outlines** if desired.
-- **Action:** Click **Add layer** (or **Replace layer** to update the active text layer with the chosen font).
+- **Action:** Click **Add layer**. To change an existing text layer's font, use **Sprite > Asemode > Fonts..**.
 
 ---
 

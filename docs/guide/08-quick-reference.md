@@ -77,6 +77,8 @@ Stamp actions can be triggered for the **Primary Stamp** (prefix `Asemode`), **S
 | `unscii-8-thin` | UNSCII 8 Thin | 8×8 px |
 | `ursafont` | UrsaFont | 8×8 px |
 
+Use the native dimensions or matching whole-number multiples for the font’s cell size.
+
 ---
 
 ## 3. Supported Unicode Blocks & Ranges
