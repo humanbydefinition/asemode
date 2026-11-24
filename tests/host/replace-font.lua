@@ -19,7 +19,19 @@ app.sprite, app.layer = sprite, layer
 Edit.insert(sprite, layer, 1, "AB", 0, 0, "#ffffffff", "#000000ff")
 app.command.NewFrame({ content = "cellinked" })
 assert(layer:cel(1).image.id == layer:cel(2).image.id, "frames must share an image")
-local id = Profile.install(sprite, job(), true)
+local fitted = controller.library
+  :job({ kind = "bundled", id = "atascii" }, {
+    pixelSize = 16,
+    cellWidth = 8,
+    cellHeight = 8,
+    fit = { characters = Edit.characters(sprite, layer) },
+  })
+  :finish()
+assert(
+  fitted.profile.pixelSize < 16 and fitted.fit.primaryClipped == 0,
+  string.format("fit size %s, clipped %s", fitted.profile.pixelSize, fitted.fit.primaryClipped)
+)
+local id = Profile.install(sprite, fitted, true)
 Edit.replaceFont(sprite, layer, id)
 assert(Model.meta(layer).fontProfileId == id and #Validate.run(sprite) == 0)
 assert(layer:cel(1).image.id == layer:cel(2).image.id, "replacement must preserve linked cels")

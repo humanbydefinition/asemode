@@ -93,6 +93,36 @@ function M.measure(font, glyphs, options)
   return result
 end
 
+---Choose the largest integer size at or below the preferred size that fits the primary glyphs.
+---@param font table Parsed font metrics.
+---@param glyphs table[] Complete glyph repertoire, including required characters.
+---@param options table Cell dimensions and rendering options.
+---@param primary table<string, boolean> Character keys to prioritize.
+---@return table profile Measured profile at the chosen size.
+---@return integer clipped Number of primary outlines that cross cell edges.
+function M.fit(font, glyphs, options, primary)
+  local size = math.max(1, math.min(128, math.floor(tonumber(options.pixelSize) or 8)))
+  local measured, clipped
+  local candidate = {}
+  for key, value in pairs(options) do
+    candidate[key] = value
+  end
+  for nextSize = size, 1, -1 do
+    candidate.pixelSize = nextSize
+    measured = M.measure(font, glyphs, candidate)
+    clipped = 0
+    for _, glyph in ipairs(glyphs) do
+      if primary[glyph.glyphKey] and M.isClipped(measured, glyph) then
+        clipped = clipped + 1
+      end
+    end
+    if clipped == 0 then
+      break
+    end
+  end
+  return measured, clipped
+end
+
 ---Calculate the horizontal centering offset for a glyph advance.
 ---@param profile table Cell geometry and font scale.
 ---@param glyphAdvance number Glyph advance width in font units.

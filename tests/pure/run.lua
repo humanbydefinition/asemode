@@ -433,6 +433,7 @@ end)
 -- Execute modular pure test suites
 require("tests.pure.font-names")(test)
 require("tests.pure.font-repertoire")(test)
+require("tests.pure.font-fit")(test)
 require("tests.pure.font-authors")(test)
 require("tests.pure.validation")(test)
 require("tests.pure.guard-errors")(test)
