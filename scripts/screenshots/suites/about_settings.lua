@@ -28,5 +28,6 @@ return function(ctx)
   local newSprite = harness:open(function()
     controller.document:newDocument()
   end)
+  harness:wait(30)
   newSprite:capture("new-sprite"):close()
 end

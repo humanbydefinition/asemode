@@ -465,31 +465,35 @@ end
 function M.prepareRegrid(sprite, width, height, resolve)
   Validate.requireValid(sprite)
   M.previewRegrid(sprite, width, height)
+  local usedProfiles = {}
   for _, layer in ipairs(Model.layers(sprite)) do
     if layer.isTilemap and not Model.layerManaged(layer) then
       Model.checkUnmanagedTilemap(
         layer,
         "A native tilemap shares Asemode font tiles; give it an independent tileset before changing cell size"
       )
+    elseif Model.layerManaged(layer) then
+      usedProfiles[Model.meta(layer).fontProfileId] = true
     end
   end
-  local old = Model.geometry(sprite)
   local jobs = { context = signature(sprite) }
   for _, entry in ipairs(Profile.profiles(sprite)) do
-    local index = Profile.index(sprite, entry.id)
-    local p = index.profile
-    U.check(
-      p.kind == "truetype",
-      "Bitmap profiles must be reimported at the new authored cell size"
-    )
-    local job = Loader.fromProfile(p, {
-      pixelSize = p.pixelSize * height / old.cellHeight,
-      characters = table.concat(index.order),
-      cellWidth = width,
-      cellHeight = height,
-      antialias = p.antialias,
-    }, resolve)
-    jobs[#jobs + 1] = { oldId = entry.id, job = job }
+    if usedProfiles[entry.id] then
+      local index = Profile.index(sprite, entry.id)
+      local p = index.profile
+      U.check(
+        p.kind == "truetype",
+        "Bitmap profiles must be reimported at the new authored cell size"
+      )
+      local job = Loader.fromProfile(p, {
+        pixelSize = p.pixelSize,
+        characters = table.concat(index.order),
+        cellWidth = width,
+        cellHeight = height,
+        antialias = p.antialias,
+      }, resolve)
+      jobs[#jobs + 1] = { oldId = entry.id, job = job }
+    end
   end
   return jobs
 end

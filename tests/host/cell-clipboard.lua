@@ -120,6 +120,29 @@ for _, size in ipairs({ { 8, 8 }, { 8, 16 } }) do
   assert(#Validate.run(target) == 0)
   target:close()
 end
+local mark = utf8.char(0x3099)
+local marked, markedLayer = Model.create(job("A", 8, 8, "bescii"), 4, 3, true, "transparent")
+app.sprite, app.layer = marked, markedLayer
+local copiedMark = {
+  col = 0,
+  row = 0,
+  cells = { { col = 0, row = 0, glyph = mark, fg = "#ffffffff", bg = "#000000ff", flags = 0 } },
+}
+local preparedMark = Clipboard.prepare(marked, markedLayer, 1, nil, copiedMark)
+assert(preparedMark.missing == 0 and #preparedMark.additions == 1)
+local expectedJob = job("A" .. mark, 8, 8, "bescii")
+local expectedImage
+for i, glyph in ipairs(expectedJob.glyphs) do
+  if glyph.glyphKey == mark then
+    expectedImage = expectedJob.masks[i]
+  end
+end
+assert(expectedImage and preparedMark.additions[1].image.bytes == expectedImage.bytes)
+controller.drawing:withSuppression(function()
+  Clipboard.apply(preparedMark)
+end)
+assert(#Validate.run(marked) == 0)
+marked:close()
 controller:close()
 local commands = {}
 local plugin = {

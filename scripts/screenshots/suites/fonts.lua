@@ -26,8 +26,14 @@ return function(ctx)
   end)
   addLayer:capture("add-layer"):close()
 
+  local fitJob = Loader.bundled("atascii", {
+    pixelSize = 8,
+    cellWidth = 8,
+    cellHeight = 8,
+    fit = { characters = { "A" } },
+  }):finish()
   local previewClean = harness:open(function()
-    controller.font:preview(fixtures.job, function() end, fixtures.sprite)
+    controller.font:preview(fitJob, function() end, fixtures.sprite)
   end)
   previewClean:capture("font-metrics-preview"):close()
 
@@ -38,6 +44,7 @@ return function(ctx)
   end, { tab = "upload" })
   fontsUploadFlow:set("path", fixtures.sampleFontPath)
   fontsUploadFlow:set("displayName", "Custom ATASCII")
+  fontsUploadFlow:set("fontSizing", "Custom")
   fontsUploadFlow:set("size", "16")
   local previewClipping = fontsUploadFlow:clickAndOpen("replaceLayerFont", {
     loading = "loading-build-glyph-masks",

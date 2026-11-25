@@ -65,6 +65,7 @@ return function(test)
   Color = function(value)
     return value
   end
+  local gridWidth = 8
   local model = {
     layers = function()
       return { layer }
@@ -79,7 +80,7 @@ return function(test)
       return { columns = 1, rows = 1 }
     end,
     geometry = function()
-      return { cellWidth = 8, cellHeight = 8 }
+      return { cellWidth = gridWidth, cellHeight = 8 }
     end,
     meta = function(value)
       return value.meta
@@ -163,12 +164,13 @@ return function(test)
       return { path = path, name = "Uploaded", extractedAuthor = "Font Designer" }
     end,
   }
+  local layerSignature = "unchanged"
   package.loaded["src.document.edit"] = {
     characters = function()
       return {}
     end,
     layerSignature = function()
-      return "unchanged"
+      return layerSignature
     end,
     replaceFont = function()
       layer.meta.fontProfileId = "new"
@@ -203,18 +205,11 @@ return function(test)
       data = { size = "8", aa = false, source = "library", clip = false },
       modified = {},
       controls = {},
-      labels = {},
     }
     lastDialog = d
     setmetatable(d, {
       __index = function(_, name)
         return function(self, arg)
-          if name == "label" and arg and arg.id then
-            self.labels[arg.id] = arg
-          end
-          if name == "label" and arg and arg.label then
-            self.labels[arg.label] = arg
-          end
           if name == "canvas" then
             self.canvas = arg
           end
@@ -226,6 +221,7 @@ return function(test)
           end
           if name == "combobox" then
             self.data[arg.id] = arg.option
+            self.controls[arg.id] = arg
           end
           if name == "modify" and arg.option then
             self.data[arg.id] = arg.option
@@ -252,6 +248,7 @@ return function(test)
       clippedGlyphs = 0,
     },
   }
+  local lastOptions, lastFont
   local library = {
     author = function(_, entry)
       return entry.author or "Unknown"
@@ -260,9 +257,13 @@ return function(test)
       return candidate.extractedAuthor or "Unknown"
     end,
     catalog = function()
-      return { { id = "atascii", kind = "bundled", label = "Font", author = "Curated" } }
+      return {
+        { id = "atascii", kind = "bundled", label = "Font", author = "Curated" },
+        { id = "rook", kind = "bundled", label = "Other font", author = "Curated" },
+      }
     end,
-    job = function()
+    job = function(_, selected, options)
+      lastFont, lastOptions = selected, options
       return job
     end,
   }
@@ -292,10 +293,49 @@ return function(test)
       return true
     end,
   })
+  test("font sizing defaults to fit and preserves the custom value", function()
+    workflow:importFont(false)
+    local d = lastDialog
+    d.data.size = "13"
+    d.data.fontSizing = "Custom"
+    d.controls.fontSizing.onchange()
+    assert(d.modified.size.enabled and d.data.size == "13")
+    d.data.fontSizing = "Fit to cells"
+    d.controls.fontSizing.onchange()
+    assert(not d.modified.size.enabled and d.data.size == "13")
+    buttons["Replace layer font.."]()
+    assert(lastOptions.fit and lastOptions.pixelSize == 8)
+    assert(lastOptions.cellWidth == 8 and lastOptions.cellHeight == 8)
+  end)
+  test("font replacement rejects a stale preview", function()
+    workflow:importFont(false)
+    buttons["Replace layer font.."]()
+    layerSignature = "changed"
+    local ok, err = pcall(buttons["Use font"])
+    assert(not ok and tostring(err):find("layer changed", 1, true))
+    layerSignature = "unchanged"
+  end)
+  test("font workflow rejects a grid changed since the dialog opened", function()
+    workflow:importFont(false)
+    gridWidth = 9
+    local ok, err = pcall(buttons["Add layer.."])
+    gridWidth = 8
+    assert(not ok and tostring(err):find("grid changed", 1, true))
+  end)
+  test("custom font sizing and selected font are used for a new layer", function()
+    workflow:importFont(false)
+    local d = lastDialog
+    d.data.bundledFont = "Other font"
+    d.data.fontSizing, d.data.size = "Custom", 13
+    buttons["Add layer.."]()
+    assert(lastFont.id == "rook" and lastOptions.pixelSize == 13 and not lastOptions.fit)
+    workflow:importFont(false)
+    buttons["Add layer.."]()
+    assert(lastOptions.fit and lastOptions.pixelSize == 8)
+  end)
   test("unclipped font preview uses the original canvas size", function()
     workflow:preview(job, function() end)
     assert(lastDialog.canvas.width == 180 and lastDialog.canvas.height == 70)
-    assert(lastDialog.labels.Key == nil)
   end)
   test("font preview connects clipping diagnostics to the canvas and confirmation", function()
     local oldRectangle, previousColor = Rectangle, Color
@@ -333,8 +373,6 @@ return function(test)
       confirmed = result == clippedJob and allowClipping
     end)
     assert(lastDialog.canvas.width == 180 and lastDialog.canvas.height == 100)
-    assert(lastDialog.labels.Fit.text == "1 glyph(s) may clip")
-    assert(lastDialog.labels.Key == nil and lastDialog.labels.Preview == nil)
     local gc = {
       width = 180,
       height = 70,

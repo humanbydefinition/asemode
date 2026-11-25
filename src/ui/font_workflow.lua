@@ -317,7 +317,22 @@ function M.new(deps)
         text = missing .. " shown as spaces; Unicode kept",
       })
     end
-    d:label({ label = "Font", text = p.name })
+    local clipping = p.clippedGlyphs > 0 and (p.clippedGlyphs .. " glyph(s) may clip")
+      or (p.kind == "bitmap" and "Bitmap masks use the full cell" or "None detected")
+    if job.fit and job.fit.scope == "Used" and job.fit.primarySupported > 0 then
+      if job.fit.primaryClipped > 0 then
+        clipping = job.fit.primaryClipped
+          .. " used glyph(s) may clip · "
+          .. p.clippedGlyphs
+          .. " total"
+      elseif p.clippedGlyphs > 0 then
+        clipping = clipping .. " · used glyphs fit"
+      end
+    end
+    d:label({
+      label = "Font",
+      text = p.name .. (p.pixelSize and (" · " .. tostring(p.pixelSize) .. " px") or ""),
+    })
       :label({
         label = "Grid",
         text = string.format("%d glyphs · %d×%d cells", #job.glyphs, p.cellWidth, p.cellHeight),
@@ -333,9 +348,8 @@ function M.new(deps)
         ),
       })
       :label({
-        label = "Fit",
-        text = p.clippedGlyphs > 0 and (p.clippedGlyphs .. " glyph(s) may clip")
-          or (p.kind == "bitmap" and "Bitmap masks use the full cell" or "All glyph outlines fit"),
+        label = "Clipping",
+        text = clipping,
       })
       :canvas({
         width = p.clippedGlyphs > 0 and FontPreview.WIDTH or FontPreview.COMPACT_WIDTH,
@@ -530,6 +544,16 @@ function M.new(deps)
       local data = d.data
       if target then
         Model.requireEligible(target)
+        if g then
+          local current = Model.geometry(target)
+          U.check(
+            current.cellWidth == g.cellWidth
+              and current.cellHeight == g.cellHeight
+              and current.originX == g.originX
+              and current.originY == g.originY,
+            "The document grid changed; open Fonts again"
+          )
+        end
       end
       if action == "replace" then
         U.check(
@@ -563,6 +587,12 @@ function M.new(deps)
         pixelSize = data.size,
         antialias = data.aa,
       }
+      if geometry and data.fontSizing == "Fit to cells" then
+        options.pixelSize = action == "replace"
+            and Profile.index(sprite, Model.meta(layer).fontProfileId).profile.pixelSize
+          or geometry.cellHeight
+        options.fit = { characters = required or {} }
+      end
       if not geometry and data.cellSizing == "Custom" then
         options.cellWidth = U.integer(data.cellWidth, "Cell width", 1, 128)
         options.cellHeight = U.integer(data.cellHeight, "Cell height", 1, 128)
@@ -632,8 +662,23 @@ function M.new(deps)
         :check({ id = "saveToLibrary", text = "Save to Library", selected = true })
         :endtabs({ id = "source", selected = "library" })
     end
+    if g then
+      d:combobox({
+        id = "fontSizing",
+        label = "Font sizing",
+        options = { "Fit to cells", "Custom" },
+        option = "Fit to cells",
+        onchange = function()
+          deps.controls:setNumericEnabled(d, { "size" }, d.data.fontSizing == "Custom")
+        end,
+      })
+    end
     deps.controls
-      :addFontSizeInput(d, currentProfile and tostring(currentProfile.pixelSize) or "8")
+      :addFontSizeInput(
+        d,
+        currentProfile and tostring(currentProfile.pixelSize) or "8",
+        { enabled = not g }
+      )
       :check({
         id = "aa",
         label = "Rendering",

@@ -21,7 +21,39 @@ local function fromBytes(bytes, name, source, hash, options, parsed)
   options = options or {}
   local font = parsed or TTF.parse(bytes)
   local glyphs = font:characters(options.characters)
-  local profile = Metrics.measure(font, glyphs, options)
+  local profile, primaryClipped, primarySupported
+  if options.fit then
+    local available = {}
+    for _, glyph in ipairs(glyphs) do
+      available[glyph.glyphKey] = true
+    end
+    local required = Repertoire.keys(options.fit.characters or {})
+    local missing = Repertoire.missing(available, required)
+    if #missing > 0 then
+      for _, glyph in ipairs(font:characters(table.concat(missing))) do
+        glyphs[#glyphs + 1] = glyph
+      end
+    end
+    local primary = {}
+    if #required == 0 then
+      for cp = 32, 126 do
+        primary[utf8.char(cp)] = true
+      end
+    else
+      for _, key in ipairs(required) do
+        primary[key] = true
+      end
+    end
+    profile, primaryClipped = Metrics.fit(font, glyphs, options, primary)
+    primarySupported = 0
+    for _, glyph in ipairs(glyphs) do
+      if primary[glyph.glyphKey] and not glyph.renderFallback and #glyph.contours > 0 then
+        primarySupported = primarySupported + 1
+      end
+    end
+  else
+    profile = Metrics.measure(font, glyphs, options)
+  end
   profile.kind, profile.source, profile.name = "truetype", source, name
   profile.sourceHash = hash
   profile.portableFont = source.kind == "bundled" and U.copy(Resources[source.id].portableFont)
@@ -30,13 +62,20 @@ local function fromBytes(bytes, name, source, hash, options, parsed)
   local job = M.job(profile, glyphs, function(glyph)
     return Render.mask(glyph, profile)
   end)
+  if options.fit then
+    job.fit = {
+      primaryClipped = primaryClipped,
+      primarySupported = primarySupported,
+      scope = #Repertoire.keys(options.fit.characters or {}) > 0 and "Used" or "ASCII",
+    }
+  end
   job.resolveCharacters = function(keys)
     local resolved = font:characters(keys)
     for _, glyph in ipairs(resolved) do
       if glyph.renderFallback then
         glyph.advance = profile.cellWidth / profile.scale
       else
-        glyph.offsetX = Metrics.offsetX(profile, glyph.advance)
+        glyph.offsetX = Metrics.offsetX(profile, glyph)
       end
     end
     return resolved

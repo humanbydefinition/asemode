@@ -5,6 +5,7 @@ local Profile = require("src.document.profile")
 local Validate = require("src.document.validate")
 local Repertoire = require("src.fonts.repertoire")
 local Loader = require("src.fonts.loader")
+local Metrics = require("src.core.metrics")
 local M = {}
 
 ---Calculate the grid column and row coordinates of a selection's top-left bounds.
@@ -94,14 +95,19 @@ function M.prepare(sprite, layer, frame, selection, clipboard, resolve)
     local advance = p.advance
     for _, key in ipairs(advance and {} or index.supportedOrder) do
       local meta = index.glyphs[key].meta
-      if type(meta.advance) == "number" and type(meta.offsetX) == "number" then
+      if
+        type(meta.advance) == "number"
+        and meta.advance ~= 0
+        and type(meta.offsetX) == "number"
+      then
         advance = 2 * meta.offsetX + meta.advance * p.scale
         break
       end
     end
+    advance = advance or p.cellWidth
     for _, glyph in ipairs(job.glyphs) do
       if unseen[glyph.glyphKey] and not glyph.renderFallback and advance then
-        glyph.offsetX = (advance - glyph.advance * p.scale) / 2
+        glyph.offsetX = Metrics.offsetX({ advance = advance, scale = p.scale }, glyph)
       end
     end
     job.profile.originX, job.profile.baseline, job.profile.scale = p.originX, p.baseline, p.scale

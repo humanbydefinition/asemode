@@ -43,6 +43,7 @@ Adjust the pixel width and height of each character cell:
 </picture>
 
 - **Cell width & Cell height:** Scales pixel dimensions per cell while preserving total character columns and rows.
+- Each textmode layer keeps its font size. Asemode re-renders glyphs for the new cell dimensions, so larger cells can reveal previously clipped parts of a font.
 - Useful when migrating artwork to a font with a different aspect ratio (e.g. from 8×8 square to 8×16 tall).
 - Click **Resize cells..** to open the **Confirm regrid** dialog.
 
@@ -58,12 +59,13 @@ When you resize cell dimensions via `Resize cells..`, Asemode evaluates all text
   <img alt="Confirm regrid dialog displaying warning banner about truncated cells and content impact." src="../images/screenshots/dark/confirm-regrid-warnings.png" width="500">
 </picture>
 
-- The dialog summarizes cell size changes, visible grid dimensions, and font counts.
-- If smaller dimensions truncate glyphs or cells, a warning banner details the impact.
+- The dialog summarizes cell size changes, visible grid dimensions, and the number of fonts used by textmode layers. Font sizes remain unchanged.
+- It reports glyph outlines that may be clipped separately from artwork cells that become clipped or hidden. The glyph count covers the prepared repertoire of each used font.
+- For mixed documents, the canvas and native artwork remain unchanged; resizing cells can change which textmode cells are visible.
 - Click **Regrid** to apply.
 
-> [!CAUTION]
-> Truncated cells outside new boundaries cannot be recovered once saved. Always review content warnings before confirming.
+> [!NOTE]
+> Hidden cells remain in the layer and can be brought back into view by changing the canvas or grid. Review clipping warnings before confirming.
 
 ---
 

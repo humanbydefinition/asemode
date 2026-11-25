@@ -52,8 +52,9 @@ Before installing Asemode, ensure your environment meets these specifications:
 2. Configure canvas dimensions and typography:
    - **Columns / Rows:** Character cell count (defaults to `40 × 25`).
    - **Font:** Choose from 18 bundled retro fonts (e.g., `ATASCII`, `CPC464`, `UNSCII-8`).
-   - **Font size:** Cell pixel dimensions (defaults to `8` for 8×8 px).
+   - **Font size:** Font rendering size in pixels (defaults to `8`). Cell dimensions are calculated from the font.
    - **Background:** Canvas fill color (defaults to transparent `#ffffff00`).
+   - **Cell / Canvas:** Review the calculated cell and canvas dimensions in pixels.
 3. Click **Create**. Asemode automatically initializes an aligned tilemap layer and opens the drawing panel.
 
 > [!TIP]

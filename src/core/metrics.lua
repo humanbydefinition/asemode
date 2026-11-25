@@ -1,5 +1,15 @@
 local U = require("src.core.util")
 local M = {}
+-- Font coordinates are scaled floating-point values. Ignore errors far below a pixel.
+local EPSILON = 1e-9
+
+---Round an extent up to whole pixels without adding a pixel for floating-point noise.
+---@param extent number Extent in pixels.
+---@return integer pixels Whole-pixel extent.
+local function pixelExtent(extent)
+  local nearest = math.floor(extent + 0.5)
+  return math.max(1, math.abs(extent - nearest) <= EPSILON and nearest or math.ceil(extent))
+end
 
 -- This is an outline-bounds check, not a count of cropped raster pixels.
 ---Find the cell edges crossed by a glyph's outline bounds.
@@ -12,10 +22,11 @@ function M.clippedEdges(profile, glyph)
   end
   local scale = profile.scale
   return {
-    left = profile.originX + (glyph.offsetX or 0) + glyph.xMin * scale < 0,
-    right = profile.originX + (glyph.offsetX or 0) + glyph.xMax * scale > profile.cellWidth,
-    top = profile.baseline - glyph.yMax * scale < 0,
-    bottom = profile.baseline - glyph.yMin * scale > profile.cellHeight,
+    left = profile.originX + (glyph.offsetX or 0) + glyph.xMin * scale < -EPSILON,
+    right = profile.originX + (glyph.offsetX or 0) + glyph.xMax * scale
+      > profile.cellWidth + EPSILON,
+    top = profile.baseline - glyph.yMax * scale < -EPSILON,
+    bottom = profile.baseline - glyph.yMin * scale > profile.cellHeight + EPSILON,
   }
 end
 
@@ -49,12 +60,14 @@ function M.measure(font, glyphs, options)
       supported = supported + 1
     end
   end
-  if supported == 0 then
-    advance = (font.maxAdvance or font.unitsPerEm) * scale
+  if supported == 0 or advance == 0 then
+    advance = ((font.maxAdvance and font.maxAdvance > 0) and font.maxAdvance or font.unitsPerEm)
+      * scale
   end
   local left, right = 0, advance
+  local placement = { advance = advance, scale = scale }
   for _, g in ipairs(glyphs) do
-    g.offsetX = g.renderFallback and 0 or (advance - g.advance * scale) / 2
+    g.offsetX = g.renderFallback and 0 or M.offsetX(placement, g)
     if #g.contours > 0 then
       left = math.min(left, g.offsetX + g.xMin * scale)
       right = math.max(right, g.offsetX + g.xMax * scale)
@@ -62,8 +75,7 @@ function M.measure(font, glyphs, options)
       bottom = math.min(bottom, g.yMin * scale)
     end
   end
-  left, right, top, bottom = math.floor(left), math.ceil(right), math.ceil(top), math.floor(bottom)
-  local width, height = math.max(1, right - left), math.max(1, top - bottom)
+  local width, height = pixelExtent(right - left), pixelExtent(top - bottom)
   local result = {
     schemaVersion = 1,
     pixelSize = size,
@@ -93,12 +105,49 @@ function M.measure(font, glyphs, options)
   return result
 end
 
----Calculate the horizontal centering offset for a glyph advance.
+---Choose the largest integer size at or below the preferred size that fits the primary glyphs.
+---@param font table Parsed font metrics.
+---@param glyphs table[] Complete glyph repertoire, including required characters.
+---@param options table Cell dimensions and rendering options.
+---@param primary table<string, boolean> Character keys to prioritize.
+---@return table profile Measured profile at the chosen size.
+---@return integer clipped Number of primary outlines that cross cell edges.
+function M.fit(font, glyphs, options, primary)
+  local size = math.max(1, math.min(128, math.floor(tonumber(options.pixelSize) or 8)))
+  local measured, clipped
+  local candidate = {}
+  for key, value in pairs(options) do
+    candidate[key] = value
+  end
+  for nextSize = size, 1, -1 do
+    candidate.pixelSize = nextSize
+    measured = M.measure(font, glyphs, candidate)
+    clipped = 0
+    for _, glyph in ipairs(glyphs) do
+      if primary[glyph.glyphKey] and M.isClipped(measured, glyph) then
+        clipped = clipped + 1
+      end
+    end
+    if clipped == 0 then
+      break
+    end
+  end
+  return measured, clipped
+end
+
+---Place a glyph in its nominal advance without shifting zero-advance outlines out of the cell.
 ---@param profile table Cell geometry and font scale.
----@param glyphAdvance number Glyph advance width in font units.
+---@param glyph table Glyph advance and outline bounds in font units.
 ---@return number offset Centering offset in pixels.
-function M.offsetX(profile, glyphAdvance)
-  return (profile.advance - glyphAdvance * profile.scale) / 2
+function M.offsetX(profile, glyph)
+  if glyph.advance == 0 then
+    local left, right = glyph.xMin * profile.scale, glyph.xMax * profile.scale
+    if left >= -EPSILON and right <= profile.advance + EPSILON then
+      return 0
+    end
+    return (profile.advance - left - right) / 2
+  end
+  return (profile.advance - glyph.advance * profile.scale) / 2
 end
 
 return M

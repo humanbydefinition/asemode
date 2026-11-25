@@ -7,12 +7,12 @@
 	"license": "MIT",
 	"engines": {
 		"aseprite": ">=1.3.18.6",
-		"node": ">=24"
+		"node": ">=26.13.0"
 	},
 	"devEngines": {
 		"runtime": {
 			"name": "node",
-			"version": ">=24.0.0",
+			"version": ">=26.13.0",
 			"onFail": "error"
 		},
 		"packageManager": {
@@ -62,7 +62,7 @@
 		"@semantic-release/commit-analyzer": "^13.0.1",
 		"@semantic-release/exec": "^7.1.0",
 		"@semantic-release/git": "^11.0.1",
-		"@semantic-release/github": "^12.0.9",
+		"@semantic-release/github": "^12.0.11",
 		"@semantic-release/npm": "^13.1.5",
 		"@semantic-release/release-notes-generator": "^14.1.0",
 		"@textmode/document": "4.0.0",
@@ -70,9 +70,9 @@
 		"@textmode/release": "^0.2.0",
 		"ajv": "^8.20.0",
 		"ajv-formats": "^3.0.1",
-		"eslint": "^10.14.0",
-		"eslint-plugin-jsdoc": "^65.4.4",
-		"semantic-release": "^25.0.5",
+		"eslint": "^10.15.0",
+		"eslint-plugin-jsdoc": "^65.5.1",
+		"semantic-release": "^26.0.1",
 		"unicode-name": "1.2.1",
 		"yauzl": "^3.4.0",
 		"yazl": "^3.3.1"
